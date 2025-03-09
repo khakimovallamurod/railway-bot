@@ -3,7 +3,7 @@ import config
 import re
 from datetime import datetime
 
-def reilway_counts(date):
+def reilway_counts(stationFrom, stationTo, date):
     url = config.get_url()
     cookies = {
         "_ga": "GA1.1.1017869759.1741497848",
@@ -39,21 +39,33 @@ def reilway_counts(date):
                 "type": "Forward"
             }
         ],
-        "stationFrom": "2900700",
-        "stationTo": "2900000",
+        "stationFrom": stationFrom,
+        "stationTo": stationTo,
         "detailNumPlaces": 1,
         "showWithoutPlaces": 0
     }
     response = requests.post(url, headers=headers, cookies=cookies, json=data)
     res_data = response.json()
-    freeSeats = sum(
-            int(car['freeSeats'])
-            for direction in res_data.get('express', {}).get('direction', [])
-            for train in direction.get('trains', [])
-            for t in train.get('train', [])
-            for car in t.get('places', {}).get('cars', [])
-        )
-    return freeSeats
+    
+    freeSeats_text = []
+    total_free_seats = 0
+    for direction in res_data['express']['direction']:
+        for train in direction['trains']:
+            for t in train['train']:
+                freeSeats_one = []
+                if t['brand'] in ["Afrosiyob", "Sharq"]:
+                    freeSeats_one.append(f"Poezd number: {t['number']}\n")
+                    freeSeats_one.append(f"  Poyezd brand: {t['brand']}\n")
+                    freeSeats_one.append(f"  Ketish vaqti: {t['departure']['localTime']}\n")
+                    freeSeats_one.append(f"  Kelish vaqti: {t['arrival']['localTime']}\n")
+                    total_free_seats_one = 0
+                    for car in t['places']['cars']:
+                        total_free_seats_one += int(car['freeSeats'])
+                    freeSeats_one.append(f"  Bo'sh o'rinlar soni: {total_free_seats_one}\n")
+                    freeSeats_one.append("-" * 40+'\n')
+                    freeSeats_text.append(freeSeats_one)
+                    total_free_seats += total_free_seats_one
+    return freeSeats_text, total_free_seats
 
 
 def is_valid_date(date_str):

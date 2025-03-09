@@ -1,4 +1,4 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, filters, ConversationHandler, Application
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, ConversationHandler, Application, CallbackQueryHandler
 from config import get_token
 import handlers
 
@@ -10,15 +10,21 @@ def main():
 
     dp.add_handler(CommandHandler('start', handlers.start))
     
-    user_test_handler = ConversationHandler(
-        entry_points=[CommandHandler('railwaycount', handlers.railway_start)],
+    conv_handler = ConversationHandler(
+        entry_points=[CommandHandler("railwaycount", handlers.railway_start)],
         states={
-            handlers.DATE: [MessageHandler(filters.TEXT, handlers.railway_count)],
+            handlers.FROM_CITY: [CallbackQueryHandler(handlers.from_city_selected)],
+            handlers.TO_CITY: [CallbackQueryHandler(handlers.to_city_selected)],
+            handlers.DATE: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.railway_count)],
+            handlers.SIGNAL: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.signal_start)],
         },
-        fallbacks=[CommandHandler('cancel', handlers.cancel)]
+        fallbacks=[CommandHandler("cancel", handlers.cancel)],
+        
     )
-    dp.add_handler(user_test_handler)
 
+    dp.add_handler(conv_handler)
+    dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
+    
     dp.run_polling()
 
 if __name__ == '__main__':
