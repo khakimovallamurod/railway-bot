@@ -2,11 +2,14 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, filters, Conve
 from config import get_token
 import handlers
 
+async def post_init(application: Application):
+    """Bot ishga tushgandan keyin `job_queue` ni ishga tushirish."""
+    await application.bot.initialize()
 
 def main():
     TOKEN = get_token()
 
-    dp = Application.builder().token(TOKEN).build()
+    dp = Application.builder().token(TOKEN).post_init(post_init).build()
 
     dp.add_handler(CommandHandler('start', handlers.start))
     
@@ -24,6 +27,8 @@ def main():
 
     dp.add_handler(conv_handler)
     dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
+    job_queue = dp.job_queue
+    job_queue.start()  
     
     dp.run_polling()
 
