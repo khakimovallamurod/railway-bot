@@ -7,7 +7,7 @@ async def post_init(application: Application):
     """Bot ishga tushgandan keyin `job_queue` ni ishga tushirish."""
     await application.bot.initialize()
 
-async def main():
+def main():
     TOKEN = get_token()
 
     dp = Application.builder().token(TOKEN).post_init(post_init).build()
@@ -34,4 +34,4 @@ async def main():
     dp.run_polling()
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    main()
