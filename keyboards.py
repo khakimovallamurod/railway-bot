@@ -56,3 +56,10 @@ def signal_keyboard():
     keyboard = [[InlineKeyboardButton("⛔ To‘xtatish", callback_data="stop_signal")]]
     reply_markup = InlineKeyboardMarkup(keyboard)
     return reply_markup
+
+def select_class_button():
+    keyboard_btn = [
+        [KeyboardButton(text="Econom ✅"), KeyboardButton(text="Biznes ✅")],  
+        [KeyboardButton(text="ALL ✅")]  
+    ]
+    return ReplyKeyboardMarkup(keyboard=keyboard_btn, resize_keyboard=True)
