@@ -2,6 +2,7 @@ from telegram.ext import CallbackContext, ConversationHandler
 from telegram import Update
 import checkrailway
 import keyboards
+import asyncio
 
 FROM_CITY, TO_CITY, DATE, SIGNAL = range(4)
 
@@ -18,15 +19,15 @@ async def railway_start(update: Update, context: CallbackContext):
     
     return await get_from_city(update, context)
 
+async def safe_delete_message(bot, chat_id, message_id):
+    try:
+        await bot.delete_message(chat_id=chat_id, message_id=message_id)
+    except Exception as e:
+        print(f"[Xatolik] Xabarni o‘chirishda muammo: {e}")
+
 async def get_from_city(update: Update, context: CallbackContext):
     if "last_message" in context.user_data:
-        try:
-            await context.bot.delete_message(
-                chat_id=update.message.chat_id, 
-                message_id=context.user_data["last_message"]
-            )
-        except Exception as e:
-            pass
+        await safe_delete_message(context.bot, update.message.chat_id, context.user_data["last_message"])
 
     if update.callback_query:
         query = update.callback_query
@@ -34,7 +35,7 @@ async def get_from_city(update: Update, context: CallbackContext):
         try:
             await query.message.delete()
         except Exception as e:
-            pass
+            print(f"Xatolik (delete_message): {e}") 
 
         msg = await query.message.reply_text(
             text="Qayerdan borishingizni tanlang:",
@@ -68,14 +69,12 @@ async def get_to_city(update: Update, context: CallbackContext):
         except Exception as e:
             print(f"Xatolik: {e}")
 
-        # Callback query bo‘lsa, yangi xabarni query.message orqali yuboramiz
         msg = await query.message.reply_text(
             text="Qayerga borishingizni tanlang:",
             reply_markup=keyboards.get_viloyats()
         )
 
     else:
-        # Oddiy xabar bo‘lsa, update.message orqali yuboramiz
         msg = await update.message.reply_text(
             text="Qayerga borishingizni tanlang:",
             reply_markup=keyboards.get_viloyats()
@@ -94,8 +93,6 @@ async def to_city_selected(update: Update, context: CallbackContext):
     await query.message.reply_text("Sanani kiriting ushbu formatda (day.month.year)!")
     return DATE
 
-
-
 async def railway_count(update: Update, context: CallbackContext):
     context.user_data['date'] = update.message.text.strip()
     date = context.user_data['date']
@@ -105,10 +102,10 @@ async def railway_count(update: Update, context: CallbackContext):
     stationTo = context.user_data['to_city'].split(':')[1]
 
     if checkrailway.is_valid_date(date):
-        freeSeats_data, freeSeats = checkrailway.reilway_counts(stationFrom, stationTo, date=date)
+        freeSeats_data, freeSeats = await asyncio.to_thread(checkrailway.reilway_counts, stationFrom, stationTo, date)
         if freeSeats_data==None:
             await update.message.reply_text(f"Ma'lumot yo'q, qaytadan urinib ko'ring. /railwaycount")
-            return ConversationHandler.END
+            return DATE
         
         text_seats = ''.join(''.join(row) for row in freeSeats_data)
         text_seats += f"Barcha bo'sh o'rinlar soni: {freeSeats}"
@@ -138,7 +135,7 @@ async def signal_start(update: Update, context: CallbackContext):
     reply_markup = keyboards.signal_keyboard() if callable(keyboards.signal_keyboard) else keyboards.signal_keyboard
 
     await update.message.reply_text(
-        f"Signal yuborish boshlandi.\n\nHar 5 daqiqada xabar yuboriladi.",
+        f"Signal yuborish boshlandi.\n\nHar 2 daqiqada xabar yuboriladi.",
         reply_markup=reply_markup
     )
 
@@ -151,7 +148,7 @@ async def signal_start(update: Update, context: CallbackContext):
     stationTo = context.user_data['to_city'].split(':')[1]
     date = context.user_data['date']
     job_queue.run_repeating(
-        send_signal_job, interval=300, first=0, name=str(chat_id),
+        send_signal_job, interval=120, first=0, name=str(chat_id),
         data={
             "chat_id": chat_id, "signal": context.user_data["signal"],
             "from_city":stationFrom, 
@@ -169,15 +166,18 @@ async def send_signal_job(context: CallbackContext):
     chat_id = job.data["chat_id"]
     signal_text = job.data.get("signal", "Noma’lum") 
     date = job.data.get("date", None)
+    date = date.split('.')
+    date = '.'.join([f'{int(item):02d}' for item in date])
+
     stationFrom = job.data.get("from_city", None)
     stationTo = job.data.get("to_city", None)
-    freeSeats_data, freeSeats = checkrailway.reilway_counts(stationFrom, stationTo, date=date)
+    freeSeats_data, freeSeats = await asyncio.to_thread(checkrailway.reilway_counts, stationFrom, stationTo, date)
+
     for row in freeSeats_data:
         total_free_seats = int(row[-2].split(':')[-1].strip(' ').strip('\n'))
         poyezd_licanse = row[0].strip().split(':')[-1].strip().strip('\n')
         if poyezd_licanse == signal_text:
             results_signal_text = f"Poyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
-
 
     await context.bot.send_message(chat_id=chat_id, text=f"Signal: {results_signal_text}")
 
