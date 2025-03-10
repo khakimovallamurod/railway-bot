@@ -99,14 +99,15 @@ async def to_city_selected(update: Update, context: CallbackContext):
 async def railway_count(update: Update, context: CallbackContext):
     context.user_data['date'] = update.message.text.strip()
     date = context.user_data['date']
-    
+    date = date.split('.')
+    date = '.'.join([f'{int(item):02d}' for item in date])
     stationFrom = context.user_data['from_city'].split(':')[1]
     stationTo = context.user_data['to_city'].split(':')[1]
 
     if checkrailway.is_valid_date(date):
         freeSeats_data, freeSeats = checkrailway.reilway_counts(stationFrom, stationTo, date=date)
         if freeSeats_data==None:
-            await update.message.reply_text(f"Ma'lumot yo'q, qaytadan urinib ko'ring")
+            await update.message.reply_text(f"Ma'lumot yo'q, qaytadan urinib ko'ring. /railwaycount")
             return ConversationHandler.END
         
         text_seats = ''.join(''.join(row) for row in freeSeats_data)

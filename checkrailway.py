@@ -71,15 +71,13 @@ def reilway_counts(stationFrom, stationTo, date):
         return None, None
 
 def is_valid_date(date_str: str):
-    date_step1 = date_str.split('.')
-    date_step2 = '.'.join([f'{int(item):02d}' for item in date_step1])
 
     pattern = r"^\d{2}\.\d{2}\.\d{4}$"
-    if not re.match(pattern, date_step2):
+    if not re.match(pattern, date_str):
         return False  
 
     try:
-        datetime.strptime(date_step2, "%d.%m.%Y")
+        datetime.strptime(date_str, "%d.%m.%Y")
         return True  
     except ValueError:
         return False  
