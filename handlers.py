@@ -7,21 +7,49 @@ FROM_CITY, TO_CITY, DATE, SIGNAL = range(4)
 
 async def start(update: Update, context: CallbackContext):
     user = update.message.from_user
-    await update.message.reply_text(
+    msg = await update.message.reply_text(
         text=f"""Assalomu aleykum {user.full_name}. Ushbu bot yordamida joylar sonini aniqlashingiz mumkin. /railwaycount""",
     )
 
 async def railway_start(update: Update, context: CallbackContext):
-    await update.message.reply_text("Poyezd tanlash boshlandi!!!")
+    
+    msg = await update.message.reply_text("Poyezd tanlash boshlandi!!!")
+    context.user_data["last_message"] = msg.message_id
     
     return await get_from_city(update, context)
 
 async def get_from_city(update: Update, context: CallbackContext):
-    await update.message.reply_text(
-        text="Qayerdan borishingizni tanlang:",
-        reply_markup=keyboards.get_viloyats()
-    )
+    if "last_message" in context.user_data:
+        try:
+            await context.bot.delete_message(
+                chat_id=update.message.chat_id, 
+                message_id=context.user_data["last_message"]
+            )
+        except Exception as e:
+            pass
+
+    if update.callback_query:
+        query = update.callback_query
+        await query.answer()
+        try:
+            await query.message.delete()
+        except Exception as e:
+            pass
+
+        msg = await query.message.reply_text(
+            text="Qayerdan borishingizni tanlang:",
+            reply_markup=keyboards.get_viloyats()
+        )
+
+    else:
+        msg = await update.message.reply_text(
+            text="Qayerdan borishingizni tanlang:",
+            reply_markup=keyboards.get_viloyats()
+        )
+
+    context.user_data["last_message"] = msg.message_id
     return FROM_CITY
+
 
 async def from_city_selected(update: Update, context: CallbackContext):
     query = update.callback_query
@@ -30,14 +58,33 @@ async def from_city_selected(update: Update, context: CallbackContext):
     
     return await get_to_city(update, context)
 
+
 async def get_to_city(update: Update, context: CallbackContext):
-    query = update.callback_query
-    
-    await query.message.reply_text(
-        text="Qayerga borishingizni tanlang:",
-        reply_markup=keyboards.get_viloyats()
-    )
+    if update.callback_query:
+        query = update.callback_query
+        await query.answer()
+        try:
+            await query.message.delete()
+        except Exception as e:
+            print(f"Xatolik: {e}")
+
+        # Callback query bo‘lsa, yangi xabarni query.message orqali yuboramiz
+        msg = await query.message.reply_text(
+            text="Qayerga borishingizni tanlang:",
+            reply_markup=keyboards.get_viloyats()
+        )
+
+    else:
+        # Oddiy xabar bo‘lsa, update.message orqali yuboramiz
+        msg = await update.message.reply_text(
+            text="Qayerga borishingizni tanlang:",
+            reply_markup=keyboards.get_viloyats()
+        )
+
+    context.user_data["last_message"] = msg.message_id
     return TO_CITY
+
+
 
 async def to_city_selected(update: Update, context: CallbackContext):
     query = update.callback_query
@@ -58,6 +105,10 @@ async def railway_count(update: Update, context: CallbackContext):
 
     if checkrailway.is_valid_date(date):
         freeSeats_data, freeSeats = checkrailway.reilway_counts(stationFrom, stationTo, date=date)
+        if freeSeats_data==None:
+            await update.message.reply_text(f"Ma'lumot yo'q, qaytadan urinib ko'ring")
+            return ConversationHandler.END
+        
         text_seats = ''.join(''.join(row) for row in freeSeats_data)
         text_seats += f"Barcha bo'sh o'rinlar soni: {freeSeats}"
         poyezd_number = []
@@ -77,49 +128,78 @@ async def railway_count(update: Update, context: CallbackContext):
     else:
         await update.message.reply_text("Xato kiritdingiz, ushbu formatda bo'lsin (day.month.year)!")
         return DATE
-
+    
 async def signal_start(update: Update, context: CallbackContext):
+    """Foydalanuvchiga signalni boshlash haqida xabar berish"""
     chat_id = update.message.chat_id
-    context.user_data["signal"] = update.message.text.strip()
+    context.user_data["signal"] = update.message.text.strip().split(':')[-1].strip()
 
-    reply_markup = keyboards.signal_keyboard  # Ishonch hosil qiling, bu noto‘g‘ri emas
+    reply_markup = keyboards.signal_keyboard() if callable(keyboards.signal_keyboard) else keyboards.signal_keyboard
+
     await update.message.reply_text(
         f"Signal yuborish boshlandi.\n\nHar 5 daqiqada xabar yuboriladi.",
         reply_markup=reply_markup
     )
 
-    # Har 5 daqiqada signal yuborish uchun
-    context.job_queue.run_repeating(
-        send_signal_job, interval=300, first=0, chat_id=chat_id, name=str(chat_id)
+    if context.application is None or context.application.job_queue is None:
+        print("Xatolik: `context.application` yoki `job_queue` mavjud emas!")
+        return
+
+    job_queue = context.application.job_queue
+    stationFrom = context.user_data['from_city'].split(':')[1]
+    stationTo = context.user_data['to_city'].split(':')[1]
+    date = context.user_data['date']
+    job_queue.run_repeating(
+        send_signal_job, interval=300, first=0, name=str(chat_id),
+        data={
+            "chat_id": chat_id, "signal": context.user_data["signal"],
+            "from_city":stationFrom, 
+            "to_city": stationTo,      
+            "date": date, 
+            }  
     )
 
 async def send_signal_job(context: CallbackContext):
     """Rejalashtirilgan signal xabari"""
-    job = context.job  # context.job bo‘lmasa, bu joyda xatolik chiqadi
-
-    if job and hasattr(job, 'chat_id'): 
-        chat_id = job.chat_id
-    else:
-        print("Xatolik: chat_id yo‘q!")  # Log yozish
+    job = context.job  
+    if job is None or "chat_id" not in job.data:
         return
     
-    user_data = context.application.user_data  # Umumiy user_data
-    chat_data = user_data.get(chat_id, {})  # Har bir chat uchun user_data
-    signal_text = chat_data.get("signal", "Noma’lum")
-    await context.bot.send_message(chat_id=chat_id, text=f"Signal: {signal_text}")
+    chat_id = job.data["chat_id"]
+    signal_text = job.data.get("signal", "Noma’lum") 
+    date = job.data.get("date", None)
+    stationFrom = job.data.get("from_city", None)
+    stationTo = job.data.get("to_city", None)
+    freeSeats_data, freeSeats = checkrailway.reilway_counts(stationFrom, stationTo, date=date)
+    for row in freeSeats_data:
+        total_free_seats = int(row[-2].split(':')[-1].strip(' ').strip('\n'))
+        poyezd_licanse = row[0].strip().split(':')[-1].strip().strip('\n')
+        if poyezd_licanse == signal_text:
+            results_signal_text = f"Poyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
 
+
+    await context.bot.send_message(chat_id=chat_id, text=f"Signal: {results_signal_text}")
 
 async def stop_signal(update: Update, context: CallbackContext):
     """Signal yuborishni to‘xtatish"""
     query = update.callback_query
     await query.answer()
 
-    # Avvalgi ishlarni to‘xtatish
-    current_jobs = context.job_queue.get_jobs_by_name(str(query.message.chat_id))
+    chat_id = query.message.chat_id if query.message else None
+    if chat_id is None:
+        await query.message.reply_text("⚠ Xatolik: chat ID aniqlanmadi.")
+        return
+
+    if not context.application or not context.application.job_queue:
+        await query.message.reply_text("⚠ Xatolik: Job Queue topilmadi.")
+        return
+
+    current_jobs = context.application.job_queue.get_jobs_by_name(str(chat_id))
     for job in current_jobs:
         job.schedule_removal()
 
     await query.message.reply_text("🚫 Signal yuborish to‘xtatildi.")
+
 
 async def cancel(update: Update, context: CallbackContext):
     await update.message.reply_text('Amalyot bajarilmadi!')
