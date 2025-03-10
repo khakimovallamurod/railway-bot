@@ -44,40 +44,43 @@ def reilway_counts(stationFrom, stationTo, date):
         "detailNumPlaces": 1,
         "showWithoutPlaces": 0
     }
-    response = requests.post(url, headers=headers, cookies=cookies, json=data)
-    res_data = response.json()
-    
-    freeSeats_text = []
-    total_free_seats = 0
-    for direction in res_data['express']['direction']:
-        for train in direction['trains']:
-            for t in train['train']:
-                freeSeats_one = []
-                if t['brand'] in ["Afrosiyob", "Sharq"]:
-                    freeSeats_one.append(f"Poezd number: {t['number']}\n")
-                    freeSeats_one.append(f"  Poyezd brand: {t['brand']}\n")
-                    freeSeats_one.append(f"  Ketish vaqti: {t['departure']['localTime']}\n")
-                    freeSeats_one.append(f"  Kelish vaqti: {t['arrival']['localTime']}\n")
-                    total_free_seats_one = 0
-                    for car in t['places']['cars']:
-                        total_free_seats_one += int(car['freeSeats'])
-                    freeSeats_one.append(f"  Bo'sh o'rinlar soni: {total_free_seats_one}\n")
-                    freeSeats_one.append("-" * 40+'\n')
-                    freeSeats_text.append(freeSeats_one)
-                    total_free_seats += total_free_seats_one
-    return freeSeats_text, total_free_seats
+    try :
+        response = requests.post(url, headers=headers, cookies=cookies, json=data)
+        res_data = response.json()
+        
+        freeSeats_text = []
+        total_free_seats = 0
+        for direction in res_data['express']['direction']:
+            for train in direction['trains']:
+                for t in train['train']:
+                    freeSeats_one = []
+                    if t['brand'] in ["Afrosiyob", "Sharq"]:
+                        freeSeats_one.append(f"Poezd number: {t['number']}\n")
+                        freeSeats_one.append(f"  Poyezd brand: {t['brand']}\n")
+                        freeSeats_one.append(f"  Ketish vaqti: {t['departure']['localTime']}\n")
+                        freeSeats_one.append(f"  Kelish vaqti: {t['arrival']['localTime']}\n")
+                        total_free_seats_one = 0
+                        for car in t['places']['cars']:
+                            total_free_seats_one += int(car['freeSeats'])
+                        freeSeats_one.append(f"  Bo'sh o'rinlar soni: {total_free_seats_one}\n")
+                        freeSeats_one.append("-" * 40+'\n')
+                        freeSeats_text.append(freeSeats_one)
+                        total_free_seats += total_free_seats_one
+        return freeSeats_text, total_free_seats
+    except:
+        return None, None
 
+def is_valid_date(date_str: str):
+    date_step1 = date_str.split('.')
+    date_step2 = '.'.join([f'{int(item):02d}' for item in date_step1])
 
-def is_valid_date(date_str):
-    
     pattern = r"^\d{2}\.\d{2}\.\d{4}$"
-    if not re.match(pattern, date_str):
+    if not re.match(pattern, date_step2):
         return False  
 
     try:
-        datetime.strptime(date_str, "%d.%m.%Y")
+        datetime.strptime(date_step2, "%d.%m.%Y")
         return True  
     except ValueError:
         return False  
-
 
