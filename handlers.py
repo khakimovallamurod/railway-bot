@@ -1,10 +1,10 @@
 from telegram.ext import CallbackContext, ConversationHandler
 from telegram import Update
-import checkrailway
+import railway_datas
 import keyboards
 import asyncio
 
-FROM_CITY, TO_CITY, DATE, SIGNAL = range(4)
+FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL = range(5)
 
 async def start(update: Update, context: CallbackContext):
     user = update.message.from_user
@@ -93,26 +93,42 @@ async def to_city_selected(update: Update, context: CallbackContext):
     await query.message.reply_text("Sanani kiriting ushbu formatda (day.month.year)!")
     return DATE
 
-async def railway_count(update: Update, context: CallbackContext):
+async def select_class(update: Update, context: CallbackContext):
     context.user_data['date'] = update.message.text.strip()
+    
+    await update.message.reply_text("Class turini tanlang:", reply_markup=keyboards.select_class_button())
+    return SELECT
+
+async def railway_count(update: Update, context: CallbackContext):
+    
+    select_type = update.message.text.strip()
+    context.user_data['class_name'] = select_type
+
     date = context.user_data['date']
     date = date.split('.')
     date = '.'.join([f'{int(item):02d}' for item in date])
     stationFrom = context.user_data['from_city'].split(':')[1]
     stationTo = context.user_data['to_city'].split(':')[1]
 
-    if checkrailway.is_valid_date(date):
-        freeSeats_data, freeSeats = await asyncio.to_thread(checkrailway.reilway_counts, stationFrom, stationTo, date)
+    railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
+    
+    if railway_all_data.is_valid_date():
+        freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
         if freeSeats_data==None:
-            await update.message.reply_text(f"Ma'lumot yo'q, qaytadan urinib ko'ring. /railwaycount")
+            await update.message.reply_text(f"Bu sanada ma'lumot yo'q, qayta kiriting.")
             return DATE
-        
-        text_seats = ''.join(''.join(row[:-1])+"-" * 40+'\n' for row in freeSeats_data)
+        elif freeSeats_data == "notclass":
+            await update.message.reply_text(f"Bu class nomida ma'lumot yo'q, qayta kiriting.")
+
+        text_seats = ""
+        for row in freeSeats_data:
+            text_seats += f"Poezd number: {row[0]}\n  Poyezd brand: {row[1]}\n  Ketish vaqti: {row[2]}\n  Kelish vaqti: {row[3]}\n  FreeSeats: {row[4]}\n"+"-"*40+'\n'
+
         text_seats += f"Barcha bo'sh o'rinlar soni: {freeSeats}"
         poyezd_number = []
         for row in freeSeats_data:
-            number = row[0].strip('\n')
-            total_free_seats = int(row[-2].split(':')[-1].strip(' ').strip('\n'))
+            number = "Poyezd number: " + row[0]
+            total_free_seats = int(row[-2])
             if total_free_seats == 0:
                 poyezd_number.append(number)
 
@@ -171,12 +187,15 @@ async def send_signal_job(context: CallbackContext):
 
     stationFrom = job.data.get("from_city", None)
     stationTo = job.data.get("to_city", None)
-    freeSeats_data, freeSeats = await asyncio.to_thread(checkrailway.reilway_counts, stationFrom, stationTo, date)
+
+    select_type = context.user_data['class_name']
+    railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
+    freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
 
     for row in freeSeats_data:
         route = row[-1]
-        total_free_seats = int(row[-2].split(':')[-1].strip(' ').strip('\n'))
-        poyezd_licanse = row[0].strip().split(':')[-1].strip().strip('\n')
+        total_free_seats = int(row[-2])
+        poyezd_licanse = row[0]
         if poyezd_licanse == signal_text:
             results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
 
