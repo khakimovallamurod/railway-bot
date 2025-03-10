@@ -11,7 +11,7 @@ async def main():
 
     dp = Application.builder().token(TOKEN).post_init(post_init).build()
 
-    await dp.add_handler(CommandHandler('start', handlers.start))
+    dp.add_handler(CommandHandler('start', handlers.start))
     
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("railwaycount", handlers.railway_start)],
@@ -25,8 +25,8 @@ async def main():
         
     )
 
-    await dp.add_handler(conv_handler)
-    await dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
+    dp.add_handler(conv_handler)
+    dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
     job_queue = dp.job_queue
     job_queue.start()  
     
