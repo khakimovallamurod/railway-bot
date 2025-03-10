@@ -1,0 +1,2543 @@
+{
+    "express": {
+        "hasError": false,
+        "type": "Places",
+        "direction": [
+            {
+                "type": "Forward",
+                "trains": [
+                    {
+                        "date": "14.03.2025",
+                        "train": [
+                            {
+                                "length": "343",
+                                "type": "\u0421\u041a\u0420\u0421\u0422",
+                                "number": "778\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Buxoro"
+                                    ]
+                                },
+                                "brand": "Afrosiyob",
+                                "arrival": {
+                                    "time": "08:21",
+                                    "localTime": "08:21",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "87",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "396000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u0421"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "5",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    },
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "270000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0415"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "82",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "87"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "06:03",
+                                    "localTime": "06:03",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "02:18",
+                                "number2": "778\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0441\u043a\u0440\u0441\u0442",
+                                "number": "764\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Qarshi"
+                                    ]
+                                },
+                                "brand": "Afrosiyob",
+                                "arrival": {
+                                    "time": "08:48",
+                                    "localTime": "08:48",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "107",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "396000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u0421"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "12",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    },
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "270000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0415"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "95",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "107"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "06:30",
+                                    "localTime": "06:30",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "02:18",
+                                "number2": "764\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0441\u043a\u0440\u0441\u0442",
+                                "number": "766\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Samarqand"
+                                    ]
+                                },
+                                "brand": "Afrosiyob",
+                                "arrival": {
+                                    "time": "09:51",
+                                    "localTime": "09:51",
+                                    "date": "14.03.2025",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "99",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "396000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u0421"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "1",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    },
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "270000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0415"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "98",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "99"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "07:21",
+                                    "localTime": "07:21",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "02:30",
+                                "number2": "766\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0441\u043a\u0440\u0441\u0442",
+                                "number": "768\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Bu\u0445oro"
+                                    ]
+                                },
+                                "brand": "Afrosiyob",
+                                "arrival": {
+                                    "time": "10:22",
+                                    "localTime": "10:22",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "67",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "270000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0415"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "67",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "67"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "08:04",
+                                    "localTime": "08:04",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "02:18",
+                                "number2": "768\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0441\u043a\u0440\u0441\u0442",
+                                "number": "770\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Buxoro"
+                                    ]
+                                },
+                                "brand": "Afrosiyob",
+                                "arrival": {
+                                    "time": "10:53",
+                                    "localTime": "10:53",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "50",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "270000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0415"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "50",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "50"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "08:29",
+                                    "localTime": "08:29",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "02:24",
+                                "number2": "770\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0421\u041a",
+                                "number": "710\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Buxoro"
+                                    ]
+                                },
+                                "brand": "Sharq",
+                                "arrival": {
+                                    "time": "12:05",
+                                    "localTime": "12:05",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "18",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "226700",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u0421"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "3",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    },
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "458030",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u0412"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "15",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "18"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "08:40",
+                                    "localTime": "08:40",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:25",
+                                "number2": "710\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0421\u041a",
+                                "number": "716\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Qarshi"
+                                    ]
+                                },
+                                "brand": "Nasaf",
+                                "arrival": {
+                                    "time": "12:37",
+                                    "localTime": "12:37",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "169",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "139250",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0412"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "169",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "169"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "09:12",
+                                    "localTime": "09:12",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:25",
+                                "number2": "716\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "337",
+                                "type": "\u0441\u043a",
+                                "number": "054\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent janubiy",
+                                        "Qung`irot"
+                                    ]
+                                },
+                                "brand": "\u0441\u043a\u043e\u0440\u044b\u0439",
+                                "arrival": {
+                                    "time": "17:05",
+                                    "localTime": "17:05",
+                                    "date": "14.03.2025",
+                                    "stop": "00:33",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u041f\u043b\u0430\u0446\u043a\u0430\u0440\u0442\u043d\u044b\u0439",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "2",
+                                                "seatsUp": "4",
+                                                "seatsLateralDn": "2",
+                                                "seatsLateralUp": "10",
+                                                "freeComp": "0"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "100980",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "3\u041f"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "2",
+                                                            "seatsUp": "4",
+                                                            "seatsLateralDn": "2",
+                                                            "seatsLateralUp": "10",
+                                                            "freeComp": "0"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": "",
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Plaskartli",
+                                            "indexType": "3",
+                                            "freeSeats": "18"
+                                        },
+                                        {
+                                            "type": "\u041a\u0443\u043f\u0435",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "0",
+                                                "seatsUp": "11",
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": "0"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "146820",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u041a"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "0",
+                                                            "seatsUp": "11",
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": "0"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Kupe",
+                                            "indexType": "4",
+                                            "freeSeats": "11"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "13:15",
+                                    "localTime": "13:15",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:50",
+                                "number2": "054\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0441\u043a\u0440\u0441\u0442",
+                                "number": "772\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Buxoro"
+                                    ]
+                                },
+                                "brand": "Afrosiyob",
+                                "arrival": {
+                                    "time": "22:10",
+                                    "localTime": "22:10",
+                                    "date": "14.03.2025",
+                                    "stop": "00:10",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "19",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "270000",
+                                                        "comissionFee": "0",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0415"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "19",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "19"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "19:41",
+                                    "localTime": "19:41",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "02:29",
+                                "number2": "772\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "343",
+                                "type": "\u0421\u041a",
+                                "number": "712\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Markaziy",
+                                        "Buxoro"
+                                    ]
+                                },
+                                "brand": "Sharq",
+                                "arrival": {
+                                    "time": "23:45",
+                                    "localTime": "23:45",
+                                    "date": "14.03.2025",
+                                    "stop": "00:15",
+                                    "localDate": "14.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u0421\u0438\u0434\u044f\u0447\u0438\u0439",
+                                            "seats": {
+                                                "seatsUndef": "126",
+                                                "seatsDn": null,
+                                                "seatsUp": null,
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": null
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "226700",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u0421"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "1",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    },
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": "\u041a\u0410\u0420\u0428\u0418",
+                                                        "tariff": "139250",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u0412"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": "125",
+                                                            "seatsDn": null,
+                                                            "seatsUp": null,
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": null
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": null,
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900001"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "O'rindiqli",
+                                            "indexType": "2",
+                                            "freeSeats": "126"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "20:13",
+                                    "localTime": "20:13",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:32",
+                                "number2": "712\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "337",
+                                "type": "\u0441\u043a",
+                                "number": "082\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent janubiy",
+                                        "Sariosiyo"
+                                    ]
+                                },
+                                "brand": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                                "arrival": {
+                                    "time": "00:55",
+                                    "localTime": "00:55",
+                                    "date": "15.03.2025",
+                                    "stop": "00:15",
+                                    "localDate": "15.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u041f\u043b\u0430\u0446\u043a\u0430\u0440\u0442\u043d\u044b\u0439",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "1",
+                                                "seatsUp": "11",
+                                                "seatsLateralDn": "2",
+                                                "seatsLateralUp": "15",
+                                                "freeComp": "0"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "100980",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "3\u041f"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "1",
+                                                            "seatsUp": "11",
+                                                            "seatsLateralDn": "2",
+                                                            "seatsLateralUp": "15",
+                                                            "freeComp": "0"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": "",
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Plaskartli",
+                                            "indexType": "3",
+                                            "freeSeats": "29"
+                                        },
+                                        {
+                                            "type": "\u041a\u0443\u043f\u0435",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "3",
+                                                "seatsUp": "14",
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": "1"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "146820",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u041a"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "3",
+                                                            "seatsUp": "14",
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": "1"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Kupe",
+                                            "indexType": "4",
+                                            "freeSeats": "17"
+                                        },
+                                        {
+                                            "type": "\u041b\u044e\u043a\u0441",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "7",
+                                                "seatsUp": "0",
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": "3"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "275060",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u041b"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "7",
+                                                            "seatsUp": "0",
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": "3"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "35000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "SV",
+                                            "indexType": "6",
+                                            "freeSeats": "7"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "20:49",
+                                    "localTime": "20:49",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "04:06",
+                                "number2": "082\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "337",
+                                "type": "\u0441\u043a",
+                                "number": "080\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent janubiy",
+                                        "Termez"
+                                    ]
+                                },
+                                "brand": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                                "arrival": {
+                                    "time": "00:55",
+                                    "localTime": "00:55",
+                                    "date": "15.03.2025",
+                                    "stop": "00:15",
+                                    "localDate": "15.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u041f\u043b\u0430\u0446\u043a\u0430\u0440\u0442\u043d\u044b\u0439",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "4",
+                                                "seatsUp": "11",
+                                                "seatsLateralDn": "9",
+                                                "seatsLateralUp": "18",
+                                                "freeComp": "1"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "100980",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "3\u041f"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "4",
+                                                            "seatsUp": "11",
+                                                            "seatsLateralDn": "9",
+                                                            "seatsLateralUp": "18",
+                                                            "freeComp": "1"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": "",
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Plaskartli",
+                                            "indexType": "3",
+                                            "freeSeats": "42"
+                                        },
+                                        {
+                                            "type": "\u041a\u0443\u043f\u0435",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "5",
+                                                "seatsUp": "30",
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": "1"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "146820",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u041a"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "5",
+                                                            "seatsUp": "30",
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": "1"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Kupe",
+                                            "indexType": "4",
+                                            "freeSeats": "35"
+                                        },
+                                        {
+                                            "type": "\u041b\u044e\u043a\u0441",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "6",
+                                                "seatsUp": "0",
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": "2"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "275060",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "1\u041b"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "6",
+                                                            "seatsUp": "0",
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": "2"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "35000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "SV",
+                                            "indexType": "6",
+                                            "freeSeats": "6"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "20:50",
+                                    "localTime": "20:50",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "04:05",
+                                "number2": "080\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "337",
+                                "type": "\u0441\u043a",
+                                "number": "056\u0427",
+                                "route": {
+                                    "station": [
+                                        "Toshkent Janubiy",
+                                        "Xiva"
+                                    ]
+                                },
+                                "brand": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                                "arrival": {
+                                    "time": "01:30",
+                                    "localTime": "01:30",
+                                    "date": "15.03.2025",
+                                    "stop": "00:17",
+                                    "localDate": "15.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u041f\u043b\u0430\u0446\u043a\u0430\u0440\u0442\u043d\u044b\u0439",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "3",
+                                                "seatsUp": "1",
+                                                "seatsLateralDn": "9",
+                                                "seatsLateralUp": "4",
+                                                "freeComp": "0"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "100980",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "3\u041f"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "3",
+                                                            "seatsUp": "1",
+                                                            "seatsLateralDn": "9",
+                                                            "seatsLateralUp": "4",
+                                                            "freeComp": "0"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": "",
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Plaskartli",
+                                            "indexType": "3",
+                                            "freeSeats": "17"
+                                        },
+                                        {
+                                            "type": "\u041a\u0443\u043f\u0435",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "5",
+                                                "seatsUp": "6",
+                                                "seatsLateralDn": null,
+                                                "seatsLateralUp": null,
+                                                "freeComp": "1"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "146820",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "2\u041a"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "5",
+                                                            "seatsUp": "6",
+                                                            "seatsLateralDn": null,
+                                                            "seatsLateralUp": null,
+                                                            "freeComp": "1"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": null,
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Kupe",
+                                            "indexType": "4",
+                                            "freeSeats": "11"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "21:24",
+                                    "localTime": "21:24",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "04:06",
+                                "number2": "056\u0427",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "347",
+                                "type": "\u0441\u043a",
+                                "number": "125\u0424",
+                                "route": {
+                                    "station": [
+                                        "Andijon",
+                                        "Xiva"
+                                    ]
+                                },
+                                "brand": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                                "arrival": {
+                                    "time": "02:43",
+                                    "localTime": "02:43",
+                                    "date": "15.03.2025",
+                                    "stop": "00:16",
+                                    "localDate": "15.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u041f\u043b\u0430\u0446\u043a\u0430\u0440\u0442\u043d\u044b\u0439",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "0",
+                                                "seatsUp": "1",
+                                                "seatsLateralDn": "1",
+                                                "seatsLateralUp": "2",
+                                                "freeComp": "0"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "100980",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "3\u041f"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "0",
+                                                            "seatsUp": "1",
+                                                            "seatsLateralDn": "1",
+                                                            "seatsLateralUp": "2",
+                                                            "freeComp": "0"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": "",
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Plaskartli",
+                                            "indexType": "3",
+                                            "freeSeats": "4"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "22:48",
+                                    "localTime": "22:48",
+                                    "stop": "00:54",
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:55",
+                                "number2": "126*\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "337",
+                                "type": "\u0441\u043a",
+                                "number": "129\u0424",
+                                "route": {
+                                    "station": [
+                                        "Andijon",
+                                        "Termez"
+                                    ]
+                                },
+                                "brand": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                                "arrival": {
+                                    "time": "03:22",
+                                    "localTime": "03:22",
+                                    "date": "15.03.2025",
+                                    "stop": "00:18",
+                                    "localDate": "15.03.2025"
+                                },
+                                "places": {
+                                    "cars": [
+                                        {
+                                            "type": "\u041f\u043b\u0430\u0446\u043a\u0430\u0440\u0442\u043d\u044b\u0439",
+                                            "seats": {
+                                                "seatsUndef": null,
+                                                "seatsDn": "0",
+                                                "seatsUp": "0",
+                                                "seatsLateralDn": "0",
+                                                "seatsLateralUp": "13",
+                                                "freeComp": "0"
+                                            },
+                                            "tariffs": {
+                                                "tariff": [
+                                                    {
+                                                        "owner": {
+                                                            "type": "\u0423\u0422\u0418/\u0423\u0422\u0418",
+                                                            "country": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0418\u0421\u0422\u0410\u041d",
+                                                                "code": "29"
+                                                            },
+                                                            "railway": {
+                                                                "name": "\u0423\u0417\u0411\u0415\u041a\u0421\u041a\u0418\u0415",
+                                                                "code": "73"
+                                                            }
+                                                        },
+                                                        "carrier": {
+                                                            "name": "\u0423\u0422\u0418"
+                                                        },
+                                                        "station": null,
+                                                        "tariff": "100980",
+                                                        "comissionFee": "40000",
+                                                        "classService": {
+                                                            "content": "",
+                                                            "service": {},
+                                                            "type": "3\u041f"
+                                                        },
+                                                        "seats": {
+                                                            "seatsUndef": null,
+                                                            "seatsDn": "0",
+                                                            "seatsUp": "0",
+                                                            "seatsLateralDn": "0",
+                                                            "seatsLateralUp": "13",
+                                                            "freeComp": "0"
+                                                        },
+                                                        "elRegPossible": {
+                                                            "uk": null,
+                                                            "akp": null
+                                                        },
+                                                        "classServiceInt": null,
+                                                        "addSigns": null,
+                                                        "tariff2": null,
+                                                        "tariffService": "28000",
+                                                        "ud": null,
+                                                        "sellingInternetForbidden": null,
+                                                        "saleOnTwo": null,
+                                                        "saleOnFour": null,
+                                                        "modificators": null,
+                                                        "passVok": {
+                                                            "stationFrom": {
+                                                                "code": "2900002"
+                                                            },
+                                                            "stationTo": null
+                                                        },
+                                                        "swim": null,
+                                                        "selBedding": "",
+                                                        "payFood": null,
+                                                        "selFood": null,
+                                                        "addFood": null,
+                                                        "designCar": null,
+                                                        "seatsSex": null
+                                                    }
+                                                ]
+                                            },
+                                            "typeShow": "Plaskartli",
+                                            "indexType": "3",
+                                            "freeSeats": "13"
+                                        }
+                                    ]
+                                },
+                                "departure": {
+                                    "time": "23:32",
+                                    "localTime": "23:32",
+                                    "stop": "00:45",
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:50",
+                                "number2": "130*\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            },
+                            {
+                                "length": "337",
+                                "type": "\u041f\u0430\u0441\u0441",
+                                "number": "072\u0424",
+                                "route": {
+                                    "station": [
+                                        "Toshkent janubiy",
+                                        "Olot"
+                                    ]
+                                },
+                                "brand": "\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                                "arrival": {
+                                    "time": "02:43",
+                                    "localTime": "02:43",
+                                    "date": "15.03.2025",
+                                    "stop": "00:16",
+                                    "localDate": "15.03.2025"
+                                },
+                                "places": {
+                                    "cars": []
+                                },
+                                "departure": {
+                                    "time": "22:48",
+                                    "localTime": "22:48",
+                                    "stop": null,
+                                    "localDate": "14.03.2025"
+                                },
+                                "comments": null,
+                                "timeInWay": "03:55",
+                                "number2": "072\u0424",
+                                "departureTrain": {
+                                    "date": "14.03.2025"
+                                },
+                                "elRegPossible": "",
+                                "firmName": null,
+                                "parom": null,
+                                "bus": null
+                            }
+                        ]
+                    }
+                ],
+                "passRoute": {
+                    "from": "TOSHKENT",
+                    "codeFrom": "2900000",
+                    "codeTo": "2900700",
+                    "to": "SAMARQAND"
+                },
+                "notAllTrains": null
+            }
+        ],
+        "showWithoutPlaces": null,
+        "reqExpressZK": "1106509",
+        "reqLocalSend": "10.03.2025 16:59:27",
+        "reqLocalRecv": "10.03.2025 16:59:27",
+        "reqAddress": "UZB:4822",
+        "reqExpressDateTime": "10.03.2025 16:59",
+        "content": "\n",
+        "code": null
+    },
+    "discount": null
+}

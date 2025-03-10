@@ -2,7 +2,7 @@ import requests
 import config
 import re
 from datetime import datetime
-
+import json
 def reilway_counts(stationFrom, stationTo, date):
     url = config.get_url()
     cookies = {
@@ -47,11 +47,13 @@ def reilway_counts(stationFrom, stationTo, date):
     try :
         response = requests.post(url, headers=headers, cookies=cookies, json=data)
         res_data = response.json()
-        
+        # with open('data_json.json' , 'w') as file:
+        #     dum = json.dumps(res_data, indent=4)
+        #     file.write(dum)
+        #     print('OK')
         freeSeats_text = []
         total_free_seats = 0
-        for direction in res_data['express']['direction']:
-            for train in direction['trains']:
+        for train in res_data['express']['direction'][0]['trains']:
                 for t in train['train']:
                     freeSeats_one = []
                     if t['brand'] in ["Afrosiyob", "Sharq"]:
@@ -63,7 +65,7 @@ def reilway_counts(stationFrom, stationTo, date):
                         for car in t['places']['cars']:
                             total_free_seats_one += int(car['freeSeats'])
                         freeSeats_one.append(f"  Bo'sh o'rinlar soni: {total_free_seats_one}\n")
-                        freeSeats_one.append("-" * 40+'\n')
+                        freeSeats_one.append(t['route']['station'])
                         freeSeats_text.append(freeSeats_one)
                         total_free_seats += total_free_seats_one
         return freeSeats_text, total_free_seats
@@ -82,3 +84,4 @@ def is_valid_date(date_str: str):
     except ValueError:
         return False  
 
+# (reilway_counts(stationFrom='2900000', stationTo='2900700', date='14.03.2025'))

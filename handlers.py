@@ -107,7 +107,7 @@ async def railway_count(update: Update, context: CallbackContext):
             await update.message.reply_text(f"Ma'lumot yo'q, qaytadan urinib ko'ring. /railwaycount")
             return DATE
         
-        text_seats = ''.join(''.join(row) for row in freeSeats_data)
+        text_seats = ''.join(''.join(row[:-1])+"-" * 40+'\n' for row in freeSeats_data)
         text_seats += f"Barcha bo'sh o'rinlar soni: {freeSeats}"
         poyezd_number = []
         for row in freeSeats_data:
@@ -148,7 +148,7 @@ async def signal_start(update: Update, context: CallbackContext):
     stationTo = context.user_data['to_city'].split(':')[1]
     date = context.user_data['date']
     job_queue.run_repeating(
-        send_signal_job, interval=120, first=0, name=str(chat_id),
+        send_signal_job, interval=60, first=0, name=str(chat_id),
         data={
             "chat_id": chat_id, "signal": context.user_data["signal"],
             "from_city":stationFrom, 
@@ -174,10 +174,11 @@ async def send_signal_job(context: CallbackContext):
     freeSeats_data, freeSeats = await asyncio.to_thread(checkrailway.reilway_counts, stationFrom, stationTo, date)
 
     for row in freeSeats_data:
+        route = row[-1]
         total_free_seats = int(row[-2].split(':')[-1].strip(' ').strip('\n'))
         poyezd_licanse = row[0].strip().split(':')[-1].strip().strip('\n')
         if poyezd_licanse == signal_text:
-            results_signal_text = f"Poyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
+            results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
 
     await context.bot.send_message(chat_id=chat_id, text=f"Signal: {results_signal_text}")
 
