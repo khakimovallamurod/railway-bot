@@ -1,6 +1,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, filters, ConversationHandler, Application, CallbackQueryHandler
 from config import get_token
 import handlers
+import asyncio
 
 async def post_init(application: Application):
     """Bot ishga tushgandan keyin `job_queue` ni ishga tushirish."""
@@ -33,4 +34,4 @@ async def main():
     dp.run_polling()
 
 if __name__ == '__main__':
-    main()
+    asyncio.run(main())
