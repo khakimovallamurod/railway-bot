@@ -15,7 +15,8 @@ def main():
         states={
             handlers.FROM_CITY: [CallbackQueryHandler(handlers.from_city_selected)],
             handlers.TO_CITY: [CallbackQueryHandler(handlers.to_city_selected)],
-            handlers.DATE: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.railway_count)],
+            handlers.DATE: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.se)],
+            handlers.SELECT: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.railway_count)],
             handlers.SIGNAL: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.signal_start)],
         },
         fallbacks=[CommandHandler("cancel", handlers.cancel)],
