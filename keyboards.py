@@ -48,7 +48,8 @@ def poyezd_licanse(numbers):
 
     return ReplyKeyboardMarkup(
         keyboards_btns,
-        resize_keyboard=True
+        resize_keyboard=True,
+        one_time_keyboard=True
     )
 
 def signal_keyboard():
