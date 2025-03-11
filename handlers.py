@@ -114,13 +114,11 @@ async def railway_count(update: Update, context: CallbackContext):
     
     if railway_all_data.is_valid_date():
         freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
-        if freeSeats_data==None:
-            await update.message.reply_text(f"Bu sanada ma'lumot yo'q, qayta kiriting.")
-            return DATE
-        elif freeSeats_data == "notclass":
+        
+        if freeSeats_data == "notclass":
             await update.message.reply_text(f"Bu class nomida ma'lumot yo'q, qayta kiriting.")
 
-        text_seats = ""
+        text_seats = f"Class names: {select_type}\n"
         for row in freeSeats_data:
             text_seats += f"Poezd number: {row[0]}\n  Poyezd brand: {row[1]}\n  Ketish vaqti: {row[2]}\n  Kelish vaqti: {row[3]}\n  FreeSeats: {row[4]}\n"+"-"*40+'\n'
 
@@ -138,20 +136,20 @@ async def railway_count(update: Update, context: CallbackContext):
             return SIGNAL
         else:
             await update.message.reply_text(f"{text_seats}")
-            return ConversationHandler.END
+            return SELECT
     else:
         await update.message.reply_text("Xato kiritdingiz, ushbu formatda bo'lsin (day.month.year)!")
-        return DATE
+        return SELECT
     
 async def signal_start(update: Update, context: CallbackContext):
     """Foydalanuvchiga signalni boshlash haqida xabar berish"""
     chat_id = update.message.chat_id
     context.user_data["signal"] = update.message.text.strip().split(':')[-1].strip()
-
+    select_type = context.user_data['class_name']
     reply_markup = keyboards.signal_keyboard() if callable(keyboards.signal_keyboard) else keyboards.signal_keyboard
 
     await update.message.reply_text(
-        f"Signal yuborish boshlandi.\n\nHar 2 daqiqada xabar yuboriladi.",
+        f"Signal yuborish boshlandi.\n\nHar 1 daqiqada xabar yuboriladi.",
         reply_markup=reply_markup
     )
 
@@ -170,6 +168,7 @@ async def signal_start(update: Update, context: CallbackContext):
             "from_city":stationFrom, 
             "to_city": stationTo,      
             "date": date, 
+            "class_name": select_type
             }  
     )
 
@@ -188,7 +187,7 @@ async def send_signal_job(context: CallbackContext):
     stationFrom = job.data.get("from_city", None)
     stationTo = job.data.get("to_city", None)
 
-    select_type = context.user_data['class_name']
+    select_type = job.data.get('class_name')
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
     freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
 
@@ -220,7 +219,7 @@ async def stop_signal(update: Update, context: CallbackContext):
         job.schedule_removal()
 
     await query.message.reply_text("🚫 Signal yuborish to‘xtatildi.")
-
+    return ConversationHandler.END
 
 async def cancel(update: Update, context: CallbackContext):
     await update.message.reply_text('Amalyot bajarilmadi!')
