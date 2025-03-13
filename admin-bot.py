@@ -20,6 +20,7 @@ def main():
             handlers.SIGNAL: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.signal_start)],
         },
         fallbacks=[CommandHandler("cancel", handlers.cancel)],
+        allow_reentry=True
         
     )
 
