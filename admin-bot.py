@@ -21,10 +21,10 @@ def main():
         },
         fallbacks=[CommandHandler("cancel", handlers.cancel)],
         allow_reentry=True
-        
     )
 
     dp.add_handler(conv_handler)
+    dp.add_handler(CommandHandler('viewactives', handlers.view_actives))
     dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
     job_queue = dp.job_queue
     job_queue.start()  
