@@ -3,6 +3,8 @@ from telegram import Update
 import railway_datas
 import keyboards
 import asyncio
+import db
+import time
 
 FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL = range(5)
 
@@ -115,8 +117,12 @@ async def railway_count(update: Update, context: CallbackContext):
     if railway_all_data.is_valid_date():
         freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
         
-        if freeSeats_data == "notclass":
-            await update.message.reply_text(f"Bu class nomida ma'lumot yo'q, qayta kiriting.")
+        if freeSeats_data == "notclass" :
+            await update.message.reply_text(f"{select_type} bunda ma'lumot yo'q, qayta kiriting.")
+            return SELECT
+        elif freeSeats_data == None:
+            await update.message.reply_text(f"{date} bu vaqtda ma'lumot yo'q, qayta kiriting.")
+            return DATE
 
         text_seats = f"Class names: {select_type}\n"
         for row in freeSeats_data:
@@ -140,40 +146,44 @@ async def railway_count(update: Update, context: CallbackContext):
     else:
         await update.message.reply_text("Xato kiritdingiz, ushbu formatda bo'lsin (day.month.year)!")
         return SELECT
-    
+
 async def signal_start(update: Update, context: CallbackContext):
-    """Foydalanuvchiga signalni boshlash haqida xabar berish"""
+    """🚆 Signalni boshlash (InlineKeyboardMarkup orqali)"""
+    
+
     chat_id = update.message.chat_id
     context.user_data["signal"] = update.message.text.strip().split(':')[-1].strip()
+    train_number = context.user_data["signal"]
     select_type = context.user_data['class_name']
-    reply_markup = keyboards.signal_keyboard() if callable(keyboards.signal_keyboard) else keyboards.signal_keyboard
-
+    date = context.user_data['date']
+    date = date.split('.')
+    date = '.'.join([f'{int(item):02d}' for item in date])
     await update.message.reply_text(
-        f"Signal yuborish boshlandi.\n\nHar 1 daqiqada xabar yuboriladi.",
-        reply_markup=reply_markup
+        f"🚆 {train_number} kuzatuv boshlandi!\n\nHar 1 daqiqada yangilanadi.",
     )
 
     if context.application is None or context.application.job_queue is None:
-        print("Xatolik: `context.application` yoki `job_queue` mavjud emas!")
+        await update.message.reply_text("⚠ Xatolik: Job Queue ishlamayapti!")
         return
 
     job_queue = context.application.job_queue
-    stationFrom = context.user_data['from_city'].split(':')[1]
-    stationTo = context.user_data['to_city'].split(':')[1]
-    date = context.user_data['date']
+    job_name = f"signal_{chat_id}_{train_number}_{date}"
+
     job_queue.run_repeating(
-        send_signal_job, interval=60, first=0, name=str(chat_id),
+        send_signal_job, interval=60, first=0, name=job_name,
         data={
-            "chat_id": chat_id, "signal": context.user_data["signal"],
-            "from_city":stationFrom, 
-            "to_city": stationTo,      
-            "date": date, 
+            "chat_id": chat_id,
+            "signal": train_number,
+            "from_city": context.user_data['from_city'].split(':')[1],
+            "to_city": context.user_data['to_city'].split(':')[1],
+            "date": context.user_data['date'],
             "class_name": select_type
-            }  
+        }
     )
 
+
 async def send_signal_job(context: CallbackContext):
-    """Rejalashtirilgan signal xabari"""
+    """🚆 Rejalashtirilgan signal xabari (har bir poyezd uchun alohida)"""
     job = context.job  
     if job is None or "chat_id" not in job.data:
         return
@@ -191,21 +201,46 @@ async def send_signal_job(context: CallbackContext):
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
     freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
 
+    results_signal_text = f"🚆 Poyezd {signal_text} uchun joylar tekshirilmoqda...\n"
+    add_for_data = {
+                'chat_id': chat_id,
+                'signal_text': signal_text,
+                'date': date,
+                'active': True
+            }
     for row in freeSeats_data:
         route = row[-1]
         total_free_seats = int(row[-2])
         poyezd_licanse = row[0]
         if poyezd_licanse == signal_text:
+            add_for_data['route'] = route
+            add_for_data['total_free_seats'] = total_free_seats
             results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
+    
+    obj = db.RailwayDB()
+    obj.data_insert(data=add_for_data)
+    # Har bir poyezd uchun alohida "To‘xtatish" tugmasi
+    reply_markup = keyboards.signal_keyboard(signal_text, date=date)
 
-    await context.bot.send_message(chat_id=chat_id, text=f"Signal: {results_signal_text}")
+    await context.bot.send_message(chat_id=chat_id, 
+                                   text=f"Signal: {results_signal_text}", 
+                                   reply_markup=reply_markup)
 
 async def stop_signal(update: Update, context: CallbackContext):
-    """Signal yuborishni to‘xtatish"""
+    """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""
     query = update.callback_query
     await query.answer()
 
+    query_data = query.data.split(':')  # ⛔ "stop_signal:778Ф" → "778Ф"
+    train_number = query_data[-2]
+    date = query_data[-1]
+
+    obj = db.RailwayDB()
     chat_id = query.message.chat_id if query.message else None
+    doc_id = f"{chat_id}_{train_number}_{date}"
+    signal_datas = obj.get_signal_data(doc_id=doc_id)
+    results_signal_text = f"{signal_datas['route'][0]} - {signal_datas['route'][1]}\nSana: {date}\nPoyezd number: {train_number}\nBo'sh o'rinlar soni: {signal_datas['total_free_seats']}"
+    
     if chat_id is None:
         await query.message.reply_text("⚠ Xatolik: chat ID aniqlanmadi.")
         return
@@ -214,12 +249,17 @@ async def stop_signal(update: Update, context: CallbackContext):
         await query.message.reply_text("⚠ Xatolik: Job Queue topilmadi.")
         return
 
-    current_jobs = context.application.job_queue.get_jobs_by_name(str(chat_id))
-    for job in current_jobs:
-        job.schedule_removal()
+    job_name = f"signal_{chat_id}_{train_number}_{date}"
+    current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
+    if current_jobs:
+        for job in current_jobs:
+            job.schedule_removal()
+        obj.update_signal(doc_id=doc_id)
+        await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
+        time.sleep(5)
+    else:
+        await query.message.reply_text("⚠ Hech qanday aktiv kuzatuv topilmadi.")
 
-    await query.message.reply_text("🚫 Signal yuborish to‘xtatildi.")
-    return ConversationHandler.END
 
 async def cancel(update: Update, context: CallbackContext):
     await update.message.reply_text('Amalyot bajarilmadi!')
