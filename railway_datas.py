@@ -2,6 +2,7 @@ import requests
 import config
 import re
 from datetime import datetime
+import json
 
 class Railway:
     def __init__(self, stationFrom, stationTo, date):
@@ -52,6 +53,9 @@ class Railway:
         try:
             response = requests.post(self.url, headers=headers, cookies=cookies, json=data)
             res_data = response.json()
+            with open('results.json', 'w') as file :
+                load = json.dumps(res_data, indent=4)
+                write = file.write(load)
             return res_data
         except:
             return None
@@ -62,7 +66,7 @@ class Railway:
         
         datas = self.railway_response_data()
 
-        if datas != None:
+        try:
             freeSeats_text = []
             total_free_seats = 0
 
@@ -90,13 +94,18 @@ class Railway:
                             total_free_seats += total_free_seats_one
 
             return freeSeats_text, total_free_seats
-        return None, None
+        except:
+            return None, None
     
     def check_class_name(self, type):
         class_names = {
-            "Econom ✅": "2\u0415",
-            "Biznes ✅": "1\u0421",
-            "ALL ✅": "all"
+            "Econom": "2\u0415",
+            "Biznes": "1\u0421",
+            "VIP": "1\u0412",
+            "Kupe": "2\u041a",
+            "Platskart": "3\u041f",
+            "Sidячий": "2\u0412",
+            "ALL": "all"
         }
         return class_names.get(type)
 
