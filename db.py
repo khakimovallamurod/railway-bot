@@ -43,3 +43,7 @@ class RailwayDB:
             return True
         return False
     
+    def get_actives(self):
+
+        active_data = self.table.search(self.query.active == True)
+        return active_data
