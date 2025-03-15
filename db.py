@@ -10,9 +10,9 @@ class RailwayDB:
         self.query = Query()
     
     def data_insert(self, data):
-        raw_id = f"{data['chat_id']}_{data['signal_text']}_{data['date']}"
+        route_key = ''.join([word[0] for word in ' '.join(data['route']).split()]).lower()
+        raw_id = f"{data['chat_id']}_{data['signal_text']}_{data['date']}_{route_key}"
         doc_id = self.generate_doc_id(raw_id)
-        
         if self.check_data(doc_id):
             data_one = Document(data, doc_id=doc_id)
             self.table.insert(data_one)

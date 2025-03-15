@@ -214,6 +214,7 @@ async def send_signal_job(context: CallbackContext):
         total_free_seats = int(row[-2])
         poyezd_licanse = row[0]
         if poyezd_licanse == signal_text:
+            route_key = ''.join([word[0] for word in ' '.join(route).split()]).lower()
             add_for_data['route'] = route
             add_for_data['total_free_seats'] = total_free_seats
             results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
@@ -221,7 +222,7 @@ async def send_signal_job(context: CallbackContext):
     obj = db.RailwayDB()
     obj.data_insert(data=add_for_data)
     # Har bir poyezd uchun alohida "To‘xtatish" tugmasi
-    reply_markup = keyboards.signal_keyboard(signal_text, date=date)
+    reply_markup = keyboards.signal_keyboard(signal_text, date=date, route_key=route_key)
     if count_free_seats != 0:
         await context.bot.send_message(chat_id=chat_id, 
                                     text=f"Signal: {results_signal_text}", 
@@ -231,14 +232,13 @@ async def stop_signal(update: Update, context: CallbackContext):
     """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""
     query = update.callback_query
     await query.answer()
-
     query_data = query.data.split(':')  # ⛔ "stop_signal:778Ф" → "778Ф"
     train_number = query_data[-2]
     date = query_data[-1]
-
+    route_key = query_data[-3]
     obj = db.RailwayDB()
     chat_id = query.message.chat_id if query.message else update.effective_chat.id 
-    doc_id = f"{chat_id}_{train_number}_{date}"
+    doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     signal_datas = obj.get_signal_data(doc_id=doc_id)
     results_signal_text = f"{signal_datas['route'][0]} - {signal_datas['route'][1]}\nSana: {date}\nPoyezd number: {train_number}\nBo'sh o'rinlar soni: {signal_datas['total_free_seats']}"
     
@@ -293,10 +293,8 @@ async def view_actives(update: Update, context: CallbackContext):
                 f"Poyezd number: {train_number}\n"
                 f"Bo'sh o'rinlar soni: {act_data['total_free_seats']}"
             )
-
-            callback_data = f"stop_signal:{train_number}:{date}"  
-
-            reply_markup = keyboards.signal_keyboard(train_number=train_number, date=date)
+            route_key = ''.join([word[0] for word in ' '.join(act_data['route']).split()]).lower()
+            reply_markup = keyboards.signal_keyboard(train_number=train_number, date=date, route_key=route_key)
             await update.message.reply_text( 
                 text=f"📌 Aktiv signal:\n{results_signal_text}", 
                 reply_markup=reply_markup
@@ -304,4 +302,4 @@ async def view_actives(update: Update, context: CallbackContext):
             await asyncio.sleep(1)  
 
     if not found_active:
-        await update.message.reply_text("❌ JobQueue dagi hech qanday aktiv signal topilmadi.")
+        await update.message.reply_text("❌ Hech qanday aktiv signal topilmadi.")

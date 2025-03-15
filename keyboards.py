@@ -52,9 +52,9 @@ def poyezd_licanse(numbers):
         one_time_keyboard=True
     )
 
-def signal_keyboard(train_number, date):
+def signal_keyboard(train_number, date, route_key):
     """🚆 Har bir signal uchun alohida 'To‘xtatish' tugmasi (InlineKeyboardMarkup)"""
-    keyboard = [[InlineKeyboardButton(f"⛔ {train_number} uchun to‘xtatish", callback_data=f"stop_signal:{train_number}:{date}")]]
+    keyboard = [[InlineKeyboardButton(f"⛔ {train_number} uchun to‘xtatish", callback_data=f"stop_signal:{route_key}:{train_number}:{date}")]]
     return InlineKeyboardMarkup(keyboard)
 
 
