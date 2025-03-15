@@ -3,6 +3,7 @@ from telegram import Update
 from config import get_token
 import handlers
 
+
 def main():
     TOKEN = get_token()
 
