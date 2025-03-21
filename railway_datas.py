@@ -53,9 +53,9 @@ class Railway:
         try:
             response = requests.post(self.url, headers=headers, cookies=cookies, json=data)
             res_data = response.json()
-            with open('results.json', 'w') as file :
-                load = json.dumps(res_data, indent=4)
-                write = file.write(load)
+            data_res = json.dumps(res_data, indent=4)
+            with open('data_json.json', 'w') as file:
+                file.write(data_res)
             return res_data
         except:
             return None
@@ -69,7 +69,8 @@ class Railway:
         try:
             freeSeats_text = []
             total_free_seats = 0
-
+            passRoute = datas['express']['direction'][0]['passRoute']
+            route = [passRoute['from'], passRoute['to']]
             for train in datas['express']['direction'][0]['trains']:
                     for t in train['train']:
                         if t['brand'] in ["Afrosiyob", "Sharq"]:
@@ -81,13 +82,10 @@ class Railway:
                                         seats_undef = tar["seats"]["seatsUndef"]
                                         if seats_undef is not None:
                                             total_free_seats_one += int(tar["seats"]["seatsUndef"])
-                                    else:
-                                        for car in t['places']['cars']:
-                                            total_free_seats_one += int(car['freeSeats'])
-                                
+                            
                             freeSeats_text.append(
                                 [
-                                    t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_one, t['route']['station']
+                                    t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_one, route
                                 ]
                             )
                             

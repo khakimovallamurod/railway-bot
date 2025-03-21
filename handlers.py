@@ -217,7 +217,7 @@ async def send_signal_job(context: CallbackContext):
             route_key = ''.join([word[0] for word in ' '.join(route).split()]).lower()
             add_for_data['route'] = route
             add_for_data['total_free_seats'] = total_free_seats
-            results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nBo'sh o'rinlar soni: {total_free_seats}"
+            results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nClass: {select_type}\nBo'sh o'rinlar soni: {total_free_seats}"
             count_free_seats = total_free_seats
     obj = db.RailwayDB()
     obj.data_insert(data=add_for_data)
