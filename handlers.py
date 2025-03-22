@@ -214,7 +214,7 @@ async def send_signal_job(context: CallbackContext):
         total_free_seats = int(row[-2])
         poyezd_licanse = row[0]
         if poyezd_licanse == signal_text:
-            route_key = ''.join([word[0] for word in ' '.join(route).split()]).lower()
+            route_key = ''.join([word[0] for word in route]).lower()
             add_for_data['route'] = route
             add_for_data['total_free_seats'] = total_free_seats
             results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nClass: {select_type}\nBo'sh o'rinlar soni: {total_free_seats}"
