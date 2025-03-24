@@ -6,19 +6,19 @@ def get_viloyats():
         "Toshkent": "2900000",
         "Samarqand": "2900700",
         "Buxoro": "2900800",
-        "Navoiy": "2900900",
-        "Qarshi": "2901100",
-        "Termiz": "2901500",
-        "Farg‘ona": "2902100",
-        "Andijon": "2902300",
-        "Namangan": "2902200",
-        "Qo‘qon": "2902000",
-        "Pop": "2901900",
-        "Nukus": "2903000",
-        "Urganch": "2903100",
         "Xiva": "2903200",
+        "Urganch": "2900790",#
+        "Nukus": "2903000",
+        "Navoiy": "2900900",
+        "Andijon": "2902300",
+        "Qarshi": "2901100",
         "Jizzax": "2900400",
-        "Guliston": "2900200"
+        "Termiz": "2901500",
+        "Guliston": "2900200",
+        "Qo'qon": "2902000",
+        "Margilon": "2900920",#
+        "Pop": "2901900",
+        "Namangan": "2902200",
     }
     keyboards_btns = []
     row = []

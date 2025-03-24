@@ -75,6 +75,7 @@ class Railway:
                     for t in train['train']:
                         if t['brand'] in ["Afrosiyob", "Sharq"]:
                             total_free_seats_one = 0
+                            total_free_seats_all = 0
                             for car in t["places"]["cars"]:
                                 for tar in car["tariffs"]["tariff"]:
                                     
@@ -82,14 +83,22 @@ class Railway:
                                         seats_undef = tar["seats"]["seatsUndef"]
                                         if seats_undef is not None:
                                             total_free_seats_one += int(tar["seats"]["seatsUndef"])
-                            
-                            freeSeats_text.append(
-                                [
-                                    t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_one, route
-                                ]
-                            )
-                            
-                            total_free_seats += total_free_seats_one
+                                total_free_seats_all += int(car['freeSeats'])
+                            if select_type == "all":
+                                freeSeats_text.append(
+                                    [
+                                        t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_all, route
+                                    ]
+                                )
+                                
+                                total_free_seats += total_free_seats_all
+                            else:
+                                freeSeats_text.append(
+                                    [
+                                        t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_one, route
+                                    ]
+                                )
+                                total_free_seats += total_free_seats_one
 
             return freeSeats_text, total_free_seats
         except:
@@ -103,7 +112,7 @@ class Railway:
             "Kupe": "2\u041a",
             "Platskart": "3\u041f",
             "Sidячий": "2\u0412",
-            "ALL": "all"
+            "ALL": 'all'
         }
         return class_names.get(type)
 
@@ -119,3 +128,5 @@ class Railway:
             return False 
     
     
+obj = Railway(stationFrom="2900920", stationTo="2900790", date='24.4.2025')
+print(obj.railway_response_data())

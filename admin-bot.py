@@ -19,6 +19,7 @@ def main():
             handlers.DATE: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.select_class)],
             handlers.SELECT: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.railway_count)],
             handlers.SIGNAL: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.signal_start)],
+            handlers.ADD_COMMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.add_comment_signal)],
         },
         fallbacks=[CommandHandler("cancel", handlers.cancel)],
         allow_reentry=True

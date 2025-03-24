@@ -6,7 +6,7 @@ import asyncio
 import db
 import time
 
-FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL = range(5)
+FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL, ADD_COMMENT = range(6)
 
 async def start(update: Update, context: CallbackContext):
     user = update.message.from_user
@@ -40,13 +40,13 @@ async def get_from_city(update: Update, context: CallbackContext):
             print(f"Xatolik (delete_message): {e}") 
 
         msg = await query.message.reply_text(
-            text="Qayerdan borishingizni tanlang:",
+            text="FROM WHERE:",
             reply_markup=keyboards.get_viloyats()
         )
 
     else:
         msg = await update.message.reply_text(
-            text="Qayerdan borishingizni tanlang:",
+            text="FROM WHERE:",
             reply_markup=keyboards.get_viloyats()
         )
 
@@ -72,13 +72,13 @@ async def get_to_city(update: Update, context: CallbackContext):
             print(f"Xatolik: {e}")
 
         msg = await query.message.reply_text(
-            text="Qayerga borishingizni tanlang:",
+            text="TO WHERE:",
             reply_markup=keyboards.get_viloyats()
         )
 
     else:
         msg = await update.message.reply_text(
-            text="Qayerga borishingizni tanlang:",
+            text="TO WHERE:",
             reply_markup=keyboards.get_viloyats()
         )
 
@@ -149,13 +149,19 @@ async def railway_count(update: Update, context: CallbackContext):
 
 async def signal_start(update: Update, context: CallbackContext):
     """🚆 Signalni boshlash (InlineKeyboardMarkup orqali)"""
-    
+
+    context.user_data["signal"] = update.message.text.strip().split(':')[-1].strip()
+    await update.message.reply_text("Comment qo'shing:")
+    return ADD_COMMENT
+
+async def add_comment_signal(update: Update, context: CallbackContext):
+    context.user_data['comment'] = update.message.text.strip()
 
     chat_id = update.message.chat_id
-    context.user_data["signal"] = update.message.text.strip().split(':')[-1].strip()
     train_number = context.user_data["signal"]
     select_type = context.user_data['class_name']
     date = context.user_data['date']
+    comment = context.user_data['comment']
     date = date.split('.')
     date = '.'.join([f'{int(item):02d}' for item in date])
     await update.message.reply_text(
@@ -177,7 +183,8 @@ async def signal_start(update: Update, context: CallbackContext):
             "from_city": context.user_data['from_city'].split(':')[1],
             "to_city": context.user_data['to_city'].split(':')[1],
             "date": context.user_data['date'],
-            "class_name": select_type
+            "class_name": select_type,
+            "comment": comment
         }
     )
 
@@ -196,38 +203,42 @@ async def send_signal_job(context: CallbackContext):
 
     stationFrom = job.data.get("from_city", None)
     stationTo = job.data.get("to_city", None)
-
+    signal_comment = job.data.get("comment")
     select_type = job.data.get('class_name')
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
     freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
-
-    results_signal_text = f"🚆 Poyezd {signal_text} uchun joylar tekshirilmoqda...\n"
-    add_for_data = {
-                'chat_id': chat_id,
-                'signal_text': signal_text,
-                'date': date,
-                'active': True
-            }
-    count_free_seats = 0
-    for row in freeSeats_data:
-        route = row[-1]
-        total_free_seats = int(row[-2])
-        poyezd_licanse = row[0]
-        if poyezd_licanse == signal_text:
-            route_key = ''.join([word[0] for word in route]).lower()
-            add_for_data['route'] = route
-            add_for_data['total_free_seats'] = total_free_seats
-            results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nClass: {select_type}\nBo'sh o'rinlar soni: {total_free_seats}"
-            count_free_seats = total_free_seats
-    obj = db.RailwayDB()
-    obj.data_insert(data=add_for_data)
-    # Har bir poyezd uchun alohida "To‘xtatish" tugmasi
-    reply_markup = keyboards.signal_keyboard(signal_text, date=date, route_key=route_key)
-    if count_free_seats != 0:
-        await context.bot.send_message(chat_id=chat_id, 
-                                    text=f"Signal: {results_signal_text}", 
-                                    reply_markup=reply_markup)
-
+    try:
+        results_signal_text = f"🚆 Poyezd {signal_text} uchun joylar tekshirilmoqda...\n"
+        add_for_data = {
+                    'chat_id': chat_id,
+                    'signal_text': signal_text,
+                    'date': date,
+                    'comment': signal_comment,
+                    'active': True
+                }
+        count_free_seats = 0
+        for row in freeSeats_data:
+            route = row[-1]
+            total_free_seats = int(row[-2])
+            poyezd_licanse = row[0]
+            if poyezd_licanse == signal_text:
+                route_key = ''.join([word[0] for word in route]).lower()
+                add_for_data['route'] = route
+                add_for_data['total_free_seats'] = total_free_seats
+                results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nClass: {select_type}\nBo'sh o'rinlar soni: {total_free_seats}\nComment: {signal_comment}"
+                count_free_seats = total_free_seats
+        obj = db.RailwayDB()
+        obj.data_insert(data=add_for_data)
+        # Har bir poyezd uchun alohida "To‘xtatish" tugmasi
+        reply_markup = keyboards.signal_keyboard(signal_text, date=date, route_key=route_key)
+        if count_free_seats != 0:
+            await context.bot.send_message(chat_id=chat_id, 
+                                        text=f"Signal: {results_signal_text}", 
+                                        reply_markup=reply_markup)
+    except:
+        await context.bot.send_message(chat_id = chat_id, text = "Ma'lumot topilmadi qaytadan kiriting.")
+        return ConversationHandler.END
+    
 async def stop_signal(update: Update, context: CallbackContext):
     """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""
     query = update.callback_query
@@ -240,7 +251,7 @@ async def stop_signal(update: Update, context: CallbackContext):
     chat_id = query.message.chat_id if query.message else update.effective_chat.id 
     doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     signal_datas = obj.get_signal_data(doc_id=doc_id)
-    results_signal_text = f"{signal_datas['route'][0]} - {signal_datas['route'][1]}\nSana: {date}\nPoyezd number: {train_number}\nBo'sh o'rinlar soni: {signal_datas['total_free_seats']}"
+    results_signal_text = f"{signal_datas['route'][0]} - {signal_datas['route'][1]}\nSana: {date}\nPoyezd number: {train_number}\nBo'sh o'rinlar soni: {signal_datas['total_free_seats']}\nComment: {signal_datas['comment']}"
     
     if chat_id is None:
         await query.message.reply_text("⚠ Xatolik: chat ID aniqlanmadi.")
@@ -257,7 +268,7 @@ async def stop_signal(update: Update, context: CallbackContext):
             job.schedule_removal()
         obj.update_signal(doc_id=doc_id)
         await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
-        time.sleep(5)
+        time.sleep(1)
     else:
         await query.message.reply_text("⚠ Hech qanday aktiv kuzatuv topilmadi.")
 
@@ -284,14 +295,14 @@ async def view_actives(update: Update, context: CallbackContext):
         train_number = act_data['signal_text']
         date = act_data['date']
         job_name = f"signal_{chat_id}_{train_number}_{date}"  
-
+        signal_comment = act_data['comment']
         if job_name in active_jobs:
             found_active = True 
             results_signal_text = (
                 f"{act_data['route'][0]} - {act_data['route'][1]}\n"
                 f"Sana: {date}\n"
                 f"Poyezd number: {train_number}\n"
-                f"Bo'sh o'rinlar soni: {act_data['total_free_seats']}"
+                f"Bo'sh o'rinlar soni: {act_data['total_free_seats']}\nComment: {signal_comment}"
             )
             route_key = ''.join([word[0] for word in ' '.join(act_data['route']).split()]).lower()
             reply_markup = keyboards.signal_keyboard(train_number=train_number, date=date, route_key=route_key)
