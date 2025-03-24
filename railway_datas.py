@@ -80,6 +80,9 @@ class Railway:
                                         seats_undef = tar["seats"]["seatsUndef"]
                                         if seats_undef is not None:
                                             total_free_seats_one += int(tar["seats"]["seatsUndef"])
+                                        else:
+                                            total_free_seats_one += int(car['freeSeats'])
+                                            
                                 total_free_seats_all += int(car['freeSeats'])
                             if select_type == "all":
                                 freeSeats_text.append(
