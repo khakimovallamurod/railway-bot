@@ -65,7 +65,7 @@ class Railway:
             return "notclass", None
         
         datas = self.railway_response_data()
-
+        print(datas)
         try:
             freeSeats_text = []
             total_free_seats = 0
@@ -99,7 +99,7 @@ class Railway:
                                     ]
                                 )
                                 total_free_seats += total_free_seats_one
-
+            print(freeSeats_text)
             return freeSeats_text, total_free_seats
         except:
             return None, None
