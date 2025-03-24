@@ -237,7 +237,7 @@ async def send_signal_job(context: CallbackContext):
                                         reply_markup=reply_markup)
     except:
         await context.bot.send_message(chat_id = chat_id, text = "Ma'lumot topilmadi qaytadan kiriting.")
-        return ConversationHandler.END
+        return 
     
 async def stop_signal(update: Update, context: CallbackContext):
     """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""
@@ -268,7 +268,7 @@ async def stop_signal(update: Update, context: CallbackContext):
             job.schedule_removal()
         obj.update_signal(doc_id=doc_id)
         await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
-        time.sleep(1)
+        time.sleep(3)
     else:
         await query.message.reply_text("⚠ Hech qanday aktiv kuzatuv topilmadi.")
 
