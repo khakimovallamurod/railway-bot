@@ -53,9 +53,6 @@ class Railway:
         try:
             response = requests.post(self.url, headers=headers, cookies=cookies, json=data)
             res_data = response.json()
-            data_res = json.dumps(res_data, indent=4)
-            with open('data_json.json', 'w') as file:
-                file.write(data_res)
             return res_data
         except:
             return None
@@ -65,7 +62,6 @@ class Railway:
             return "notclass", None
         
         datas = self.railway_response_data()
-        print(datas)
         try:
             freeSeats_text = []
             total_free_seats = 0
@@ -73,7 +69,8 @@ class Railway:
             route = [passRoute['from'], passRoute['to']]
             for train in datas['express']['direction'][0]['trains']:
                     for t in train['train']:
-                        if t['brand'] in ["Afrosiyob", "Sharq"]:
+                        brand = t['brand'].encode().decode('utf-8')
+                        if brand in ["Afrosiyob", "Sharq", "Пассажирский"]:
                             total_free_seats_one = 0
                             total_free_seats_all = 0
                             for car in t["places"]["cars"]:
@@ -99,7 +96,6 @@ class Railway:
                                     ]
                                 )
                                 total_free_seats += total_free_seats_one
-            print(freeSeats_text)
             return freeSeats_text, total_free_seats
         except:
             return None, None
