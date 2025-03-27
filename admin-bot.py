@@ -2,7 +2,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, filters, Conve
 from telegram import Update
 from config import get_token
 import handlers
-
+import asyncio
 
 def main():
     TOKEN = get_token()
@@ -30,6 +30,8 @@ def main():
     dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
     job_queue = dp.job_queue
     job_queue.start()  
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(handlers.restart_active_signals(dp))  # Qayta yuklash
     
     dp.run_polling(allowed_updates=Update.ALL_TYPES, timeout=30)
 

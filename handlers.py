@@ -6,21 +6,39 @@ import asyncio
 import db
 import time
 
+USER_IDS = [6889331565, 608913545, 1383186462]
+
+def check_user(chat_id):
+    if chat_id in USER_IDS:
+        return True
+    return False
+
 FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL, ADD_COMMENT = range(6)
 
 async def start(update: Update, context: CallbackContext):
     user = update.message.from_user
-    msg = await update.message.reply_text(
-        text=f"""Assalomu aleykum {user.full_name}. Ushbu bot yordamida joylar sonini aniqlashingiz mumkin. /railwaycount""",
-    )
+    chat_id = user.id
+    if check_user(chat_id):
+        msg = await update.message.reply_text(
+            text=f"""Assalomu aleykum {user.full_name}. Ushbu bot yordamida joylar sonini aniqlashingiz mumkin. /railwaycount""",
+        )
+    else:
+        msg = await update.message.reply_text(
+            text=f"""Assalomu aleykum {user.full_name}. Siz bu botdan foydalana olmaysiz 😔""",
+        )
 
 async def railway_start(update: Update, context: CallbackContext):
-    
-    msg = await update.message.reply_text("Poyezd tanlash boshlandi!!!")
-    context.user_data["last_message"] = msg.message_id
-    
-    return await get_from_city(update, context)
+    chat_id = update.message.from_user.id
 
+    if check_user(chat_id):
+        msg = await update.message.reply_text("Poyezd tanlash boshlandi!!!")
+        context.user_data["last_message"] = msg.message_id
+        
+        return await get_from_city(update, context)
+    else:
+        await update.message.reply_text(
+            text=f"""Siz bu botdan foydalana olmaysiz 😔""",
+        )
 async def safe_delete_message(bot, chat_id, message_id):
     try:
         await bot.delete_message(chat_id=chat_id, message_id=message_id)
@@ -264,8 +282,8 @@ async def stop_signal(update: Update, context: CallbackContext):
     job_name = f"signal_{chat_id}_{train_number}_{date}"
     current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
     if current_jobs:
-        for job in current_jobs:
-            job.schedule_removal()
+        # for job in current_jobs:
+        #     job.schedule_removal()
         obj.update_signal(doc_id=doc_id)
         await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
         time.sleep(3)
@@ -279,38 +297,78 @@ async def cancel(update: Update, context: CallbackContext):
 
 async def view_actives(update: Update, context: CallbackContext):
     """📋 Faol signallar ro‘yxatini chiqarish"""
+    chat_id = update.message.chat_id 
+    if check_user(chat_id):
+        railway_obj = db.RailwayDB()
+        actives_data = railway_obj.get_actives()
+        
+
+        job_queue = context.application.job_queue
+        active_jobs = {job.name for job in job_queue.jobs()}  
+        if not actives_data:
+            await update.message.reply_text("❌ Hech qanday aktiv kuzatuv topilmadi.")
+            return
+
+        found_active = False  
+
+        for act_data in actives_data:
+            train_number = act_data['signal_text']
+            date = act_data['date']
+            job_name = f"signal_{chat_id}_{train_number}_{date}"  
+            signal_comment = act_data['comment']
+            if job_name in active_jobs:
+                found_active = True 
+                results_signal_text = (
+                    f"{act_data['route'][0]} - {act_data['route'][1]}\n"
+                    f"Sana: {date}\n"
+                    f"Poyezd number: {train_number}\n"
+                    f"Bo'sh o'rinlar soni: {act_data['total_free_seats']}\nComment: {signal_comment}"
+                )
+                route_key = ''.join([word[0] for word in ' '.join(act_data['route']).split()]).lower()
+                reply_markup = keyboards.signal_keyboard(train_number=train_number, date=date, route_key=route_key)
+                await update.message.reply_text( 
+                    text=f"📌 Aktiv signal:\n{results_signal_text}", 
+                    reply_markup=reply_markup
+                )                
+                await asyncio.sleep(1)  
+
+        if not found_active:
+            await update.message.reply_text("❌ Hech qanday aktiv signal topilmadi.")
+    else:
+        await update.message.reply_text(
+            text=f"""Siz bu botdan foydalana olmaysiz 😔""",
+        )
+
+async def restart_active_signals(application):
+    """Bot qayta ishga tushganda eski signallarni qayta tiklash"""
     railway_obj = db.RailwayDB()
     actives_data = railway_obj.get_actives()
-    chat_id = update.message.chat_id  
 
-    job_queue = context.application.job_queue
-    active_jobs = {job.name for job in job_queue.jobs()}  
+    job_queue = application.job_queue
     if not actives_data:
-        await update.message.reply_text("❌ Hech qanday aktiv kuzatuv topilmadi.")
+        print("⏳ Hech qanday aktiv signal topilmadi.")
         return
 
-    found_active = False  
-
     for act_data in actives_data:
+        chat_id = act_data['chat_id']
         train_number = act_data['signal_text']
         date = act_data['date']
-        job_name = f"signal_{chat_id}_{train_number}_{date}"  
-        signal_comment = act_data['comment']
-        if job_name in active_jobs:
-            found_active = True 
-            results_signal_text = (
-                f"{act_data['route'][0]} - {act_data['route'][1]}\n"
-                f"Sana: {date}\n"
-                f"Poyezd number: {train_number}\n"
-                f"Bo'sh o'rinlar soni: {act_data['total_free_seats']}\nComment: {signal_comment}"
-            )
-            route_key = ''.join([word[0] for word in ' '.join(act_data['route']).split()]).lower()
-            reply_markup = keyboards.signal_keyboard(train_number=train_number, date=date, route_key=route_key)
-            await update.message.reply_text( 
-                text=f"📌 Aktiv signal:\n{results_signal_text}", 
-                reply_markup=reply_markup
-            )                
-            await asyncio.sleep(1)  
+        route = act_data['route']
+        select_type = act_data.get('class_name', 'Noma’lum')
+        comment = act_data.get('comment', '')
 
-    if not found_active:
-        await update.message.reply_text("❌ Hech qanday aktiv signal topilmadi.")
+        job_name = f"signal_{chat_id}_{train_number}_{date}"
+
+        job_queue.run_repeating(
+            send_signal_job, interval=60, first=0, name=job_name,
+            data={
+                "chat_id": chat_id,
+                "signal": train_number,
+                "from_city": route[0],
+                "to_city": route[1],
+                "date": date,
+                "class_name": select_type,
+                "comment": comment
+            }
+        )
+
