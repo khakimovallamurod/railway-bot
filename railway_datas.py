@@ -53,9 +53,6 @@ class Railway:
         try:
             response = requests.post(self.url, headers=headers, cookies=cookies, json=data)
             res_data = response.json()
-            data_res = json.dumps(res_data, indent=4)
-            with open('data_json.json', 'w') as file:
-                file.write(data_res)
             return res_data
         except:
             return None
@@ -65,7 +62,6 @@ class Railway:
             return "notclass", None
         
         datas = self.railway_response_data()
-
         try:
             freeSeats_text = []
             total_free_seats = 0
@@ -73,7 +69,8 @@ class Railway:
             route = [passRoute['from'], passRoute['to']]
             for train in datas['express']['direction'][0]['trains']:
                     for t in train['train']:
-                        if t['brand'] in ["Afrosiyob", "Sharq"]:
+                        brand = t['brand'].encode().decode('utf-8')
+                        if brand in ["Afrosiyob", "Sharq", "Пассажирский"]:
                             total_free_seats_one = 0
                             total_free_seats_all = 0
                             for car in t["places"]["cars"]:
@@ -83,6 +80,9 @@ class Railway:
                                         seats_undef = tar["seats"]["seatsUndef"]
                                         if seats_undef is not None:
                                             total_free_seats_one += int(tar["seats"]["seatsUndef"])
+                                        else:
+                                            total_free_seats_one += int(car['freeSeats'])
+                                            
                                 total_free_seats_all += int(car['freeSeats'])
                             if select_type == "all":
                                 freeSeats_text.append(
@@ -99,7 +99,6 @@ class Railway:
                                     ]
                                 )
                                 total_free_seats += total_free_seats_one
-
             return freeSeats_text, total_free_seats
         except:
             return None, None

@@ -14,10 +14,12 @@ class RailwayDB:
             route_key = ''.join([word[0] for word in data['route']]).lower()
             raw_id = f"{data['chat_id']}_{data['signal_text']}_{data['date']}_{route_key}"
             doc_id = self.generate_doc_id(raw_id)
+            data_one = Document(data, doc_id=doc_id)
             if self.check_data(doc_id):
-                data_one = Document(data, doc_id=doc_id)
                 self.table.insert(data_one)
-                return True
+            else:
+                self.table.update(data_one, doc_ids=[doc_id])
+            return True
         return False
     
     def generate_doc_id(self, doc_id):
