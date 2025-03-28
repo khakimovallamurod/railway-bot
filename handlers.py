@@ -48,7 +48,7 @@ async def insert_admin(update: Update, context: CallbackContext):
     else:
         await update.message.reply_text("Siz foydalanuvchi qo'sholmaysiz ❌")
 
-    return
+    return ConversationHandler.END
 
 async def railway_start(update: Update, context: CallbackContext):
     chat_id = update.message.from_user.id
