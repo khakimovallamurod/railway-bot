@@ -39,11 +39,15 @@ async def admin_start(update: Update, context: CallbackContext):
 async def insert_admin(update: Update, context: CallbackContext):
     id_text = update.message.text
     chat_id = str(update.message.from_user.id)
-    if chat_id in USER_IDS and ids_obj.add_admin(id_text):
-        await update.message.reply_text("Foydalanuvchi qo'shildi ✅")
-        return ConversationHandler.END
+    if chat_id in USER_IDS :
+        if ids_obj.add_admin(id_text):
+            await update.message.reply_text("Foydalanuvchi qo'shildi ✅")
+            return ConversationHandler.END
+        else:
+            await update.message.reply_text("ID xato yoki User allaqachon mavjud ❌")
+        return 
     else:
-        await update.message.reply_text("ID xato yoki User allaqachon mavjud ❌")
+        await update.message.reply_text("Siz foydalanuvchi qo'sholmaysiz ❌")
 
     return
 
