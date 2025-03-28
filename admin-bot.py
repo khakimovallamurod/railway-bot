@@ -25,7 +25,16 @@ def main():
         allow_reentry=True
     )
 
+    admin_handler = ConversationHandler(
+        entry_points = [CommandHandler('addadmin', handlers.admin_start)],
+        states = {
+            handlers.ID_START: [MessageHandler(filters.TEXT, handlers.insert_admin)]
+        },
+        fallbacks=[CommandHandler("cancel", handlers.cancel)],
+    )
+
     dp.add_handler(conv_handler)
+    dp.add_handler(admin_handler)
     dp.add_handler(CommandHandler('viewactives', handlers.view_actives))
     dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
     job_queue = dp.job_queue

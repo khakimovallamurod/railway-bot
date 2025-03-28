@@ -6,14 +6,19 @@ import asyncio
 import db
 import time
 
-USER_IDS = [6889331565, 608913545, 1383186462]
+USER_IDS = ['6889331565', '608913545', '1383186462']
+ids_obj = db.RailwayDB()
 
 def check_user(chat_id):
+    chat_id = str(chat_id)
+    ids = ids_obj.get_admin_chatIDs()
+    USER_IDS.extend(ids)
     if chat_id in USER_IDS:
         return True
     return False
 
 FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL, ADD_COMMENT = range(6)
+ID_START = range(1)
 
 async def start(update: Update, context: CallbackContext):
     user = update.message.from_user
@@ -26,6 +31,21 @@ async def start(update: Update, context: CallbackContext):
         msg = await update.message.reply_text(
             text=f"""Assalomu aleykum {user.full_name}. Siz bu botdan foydalana olmaysiz 😔""",
         )
+
+async def admin_start(update: Update, context: CallbackContext):
+    await update.message.reply_text("Foydalnuvchi IDsini yuboring.")
+    return ID_START
+
+async def insert_admin(update: Update, context: CallbackContext):
+    id_text = update.message.text
+    chat_id = str(update.message.from_user.id)
+    if chat_id in USER_IDS and ids_obj.add_admin(id_text):
+        await update.message.reply_text("Foydalanuvchi qo'shildi ✅")
+        return ConversationHandler.END
+    else:
+        await update.message.reply_text("ID xato yoki User allaqachon mavjud ❌")
+
+    return
 
 async def railway_start(update: Update, context: CallbackContext):
     chat_id = update.message.from_user.id
@@ -225,6 +245,7 @@ async def send_signal_job(context: CallbackContext):
     select_type = job.data.get('class_name')
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
     freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
+
     try:
         results_signal_text = f"🚆 Poyezd {signal_text} uchun joylar tekshirilmoqda...\n"
         add_for_data = {
@@ -232,6 +253,7 @@ async def send_signal_job(context: CallbackContext):
                     'signal_text': signal_text,
                     'date': date,
                     'comment': signal_comment,
+                    'class_name': select_type,
                     'active': True
                 }
         count_free_seats = 0
@@ -348,12 +370,31 @@ async def restart_active_signals(application):
     if not actives_data:
         print("⏳ Hech qanday aktiv signal topilmadi.")
         return
-
+    stations = {
+        "Toshkent": "2900000",
+        "Samarqand": "2900700",
+        "Buxoro": "2900800",
+        "Xiva": "2903200",
+        "Urganch": "2900790",#
+        "Nukus": "2903000",
+        "Navoiy": "2900900",
+        "Andijon": "2902300",
+        "Qarshi": "2901100",
+        "Jizzax": "2900400",
+        "Termiz": "2901500",
+        "Guliston": "2900200",
+        "Qo'qon": "2902000",
+        "Margilon": "2900920",#
+        "Pop": "2901900",
+        "Namangan": "2902200",
+    }
     for act_data in actives_data:
         chat_id = act_data['chat_id']
         train_number = act_data['signal_text']
         date = act_data['date']
         route = act_data['route']
+        from_city = route[0].capitalize()
+        to_city = route[1].capitalize()
         select_type = act_data.get('class_name', 'Noma’lum')
         comment = act_data.get('comment', '')
 
@@ -364,8 +405,8 @@ async def restart_active_signals(application):
             data={
                 "chat_id": chat_id,
                 "signal": train_number,
-                "from_city": route[0],
-                "to_city": route[1],
+                "from_city": stations[from_city],
+                "to_city": stations[to_city],
                 "date": date,
                 "class_name": select_type,
                 "comment": comment

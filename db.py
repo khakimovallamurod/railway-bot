@@ -8,6 +8,7 @@ class RailwayDB:
         self.db = TinyDB('railway_data.json', indent=4)
         self.table = self.db.table("Railway_DB")
         self.query = Query()
+        self.adminfile = 'admin_chatIDs.txt'
     
     def data_insert(self, data):
         if data.get('route') != None:
@@ -50,3 +51,22 @@ class RailwayDB:
 
         active_data = self.table.search(self.query.active == True)
         return active_data
+    
+    def add_admin(self, chat_id):
+        chat_id = str(chat_id)
+        get_ids = self.get_admin_chatIDs()
+
+        with open(self.adminfile, 'a') as file:
+            if chat_id.isdigit() and len(chat_id) in [9, 10] and chat_id not in get_ids:
+                file.write(chat_id+"\n")
+                file.close()
+                return True
+            else:
+                return False
+
+    def get_admin_chatIDs(self):
+        with open(self.adminfile, 'r') as file:
+            chat_ids = file.read().split('\n')
+            chat_ids.pop()
+        return chat_ids
+

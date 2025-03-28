@@ -60,7 +60,6 @@ class Railway:
         select_type = self.check_class_name(type=type)
         if select_type == None:
             return "notclass", None
-        
         datas = self.railway_response_data()
         try:
             freeSeats_text = []
@@ -127,5 +126,3 @@ class Railway:
             return False 
     
     
-obj = Railway(stationFrom="2900920", stationTo="2900790", date='24.4.2025')
-print(obj.railway_response_data())
