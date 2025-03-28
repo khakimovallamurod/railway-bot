@@ -45,7 +45,6 @@ async def insert_admin(update: Update, context: CallbackContext):
             return ConversationHandler.END
         else:
             await update.message.reply_text("ID xato yoki User allaqachon mavjud ❌")
-        return 
     else:
         await update.message.reply_text("Siz foydalanuvchi qo'sholmaysiz ❌")
 
