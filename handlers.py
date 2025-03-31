@@ -279,8 +279,21 @@ async def send_signal_job(context: CallbackContext):
                                         text=f"Signal: {results_signal_text}", 
                                         reply_markup=reply_markup)
     except:
-        await context.bot.send_message(chat_id = chat_id, text = "Ma'lumot topilmadi qaytadan kiriting.")
-        return 
+        job_name = context.job.name  
+        obj = db.RailwayDB()
+        if stationFrom and stationTo:
+            route_key = f"{stationFrom[0]}{stationTo[0]}".lower()
+            doc_id = f"{chat_id}_{signal_text}_{date}_{route_key}"
+            obj.update_signal(doc_id=doc_id)
+            results_signal_text = f"{stationFrom} - {stationTo}\nSana: {date}\nPoyezd number: {signal_text}"
+
+            current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
+            if current_jobs:
+                await context.bot.send_message(
+                    chat_id=chat_id,
+                    text=f"🚫 {results_signal_text} kuzatuvi avtomatik to‘xtatildi.\nSabab: Ma'lumot topilmadi!"
+                )
+                await asyncio.sleep(3)
     
 async def stop_signal(update: Update, context: CallbackContext):
     """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""
