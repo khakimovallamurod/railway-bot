@@ -1,5 +1,5 @@
 from telegram.ext import (
-    Updater, CommandHandler, MessageHandler, filters, 
+    CommandHandler, MessageHandler, filters, 
     ConversationHandler, Application, CallbackQueryHandler
 )
 from telegram import Update
@@ -7,7 +7,15 @@ from config import get_token
 import handlers
 import asyncio
 
-async def main():
+async def start_jobs(dp):
+    # Asinxron `JobQueue` ni ishga tushirish
+    job_queue = dp.job_queue
+    await job_queue.start()
+
+    # Signallarni qayta ishga tushirish
+    await handlers.restart_active_signals(dp)
+
+def main():
     TOKEN = get_token()
 
     dp = Application.builder().token(TOKEN).build()
@@ -29,7 +37,7 @@ async def main():
     )
 
     admin_handler = ConversationHandler(
-        entry_points=[CommandHandler('addadmin',  handlers.admin_start)],
+        entry_points=[CommandHandler('addadmin', handlers.admin_start)],
         states={
             handlers.ID_START: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.insert_admin)]
         },
@@ -41,16 +49,11 @@ async def main():
     dp.add_handler(CommandHandler('viewactives', handlers.view_actives))
     dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
 
-    # Asinxron `JobQueue` ni ishga tushirish
-    job_queue = dp.job_queue
-    await job_queue.start()  # await bilan ishga tushirish
-
-    # Signallarni qayta ishga tushirish
-    await handlers.restart_active_signals(dp)  # to'g'ri asinxron chaqirish
+    # Asinxron vazifalarni ishga tushirish
+    asyncio.get_event_loop().run_until_complete(start_jobs(dp))
 
     # Botni polling rejimida ishga tushirish
-    await dp.run_polling(allowed_updates=Update.ALL_TYPES, timeout=30)
+    dp.run_polling(allowed_updates=Update.ALL_TYPES, timeout=30)
 
 if __name__ == '__main__':
-    # Yangi event loop bilan ishga tushirish
-    asyncio.run(main())
+    main()
