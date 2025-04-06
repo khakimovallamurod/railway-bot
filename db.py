@@ -38,11 +38,20 @@ class RailwayDB:
     def update_signal(self, doc_id):
         doc_id = int(self.generate_doc_id(doc_id))
         res = self.table.update({'active': False}, doc_ids=[doc_id])
-
+        
         return res
     
+    def delete_signal(self, doc_id):
+
+        doc_id = int(self.generate_doc_id(doc_id))
+
+        if self.table.get(doc_id=doc_id) != None:
+            x = self.table.remove(doc_ids=[doc_id])
+            return True
+        else:
+            return False
+    
     def check_data(self, doc_id):
-        
         if self.table.get(doc_id=doc_id) == None:
             return True
         return False
@@ -69,4 +78,3 @@ class RailwayDB:
             chat_ids = file.read().split('\n')
             chat_ids.pop()
         return chat_ids
-

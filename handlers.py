@@ -228,7 +228,7 @@ async def add_comment_signal(update: Update, context: CallbackContext):
             "comment": comment
         }
     )
-
+    return ConversationHandler.END
 
 async def send_signal_job(context: CallbackContext):
     """🚆 Rejalashtirilgan signal xabari (har bir poyezd uchun alohida)"""
@@ -308,11 +308,7 @@ async def stop_signal(update: Update, context: CallbackContext):
     doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     signal_datas = obj.get_signal_data(doc_id=doc_id)
     results_signal_text = f"{signal_datas['route'][0]} - {signal_datas['route'][1]}\nSana: {date}\nPoyezd number: {train_number}\nBo'sh o'rinlar soni: {signal_datas['total_free_seats']}\nComment: {signal_datas['comment']}"
-    
-    if chat_id is None:
-        await query.message.reply_text("⚠ Xatolik: chat ID aniqlanmadi.")
-        return
-
+    active = signal_datas['active']
     if not context.application or not context.application.job_queue:
         await query.message.reply_text("⚠ Xatolik: Job Queue topilmadi.")
         return
@@ -322,8 +318,11 @@ async def stop_signal(update: Update, context: CallbackContext):
     if current_jobs:
         # for job in current_jobs:
         #     job.schedule_removal()
-        obj.update_signal(doc_id=doc_id)
-        await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
+        if active:
+            obj.update_signal(doc_id=doc_id)
+            await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
+        else:
+            await query.message.reply_text(f"🚫 {train_number} kuzatuv allaqachon to'xtatilgan!")
         time.sleep(3)
     else:
         await query.message.reply_text("⚠ Hech qanday aktiv kuzatuv topilmadi.")
