@@ -303,7 +303,7 @@ async def send_signal_job(context: CallbackContext):
             route_key = f"{stations[stationFrom][0]}{stations[stationTo][0]}".lower()
             doc_id = f"{chat_id}_{signal_text}_{date}_{route_key}"
             obj.update_signal(doc_id=doc_id)
-            results_signal_text = f"{stationFrom} - {stationTo}\nSana: {date}\nPoyezd number: {signal_text}"
+            results_signal_text = f"{stations[stationFrom].upper()} - {stations[stationTo].upper()}\nSana: {date}\nPoyezd number: {signal_text}"
 
             current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
             if current_jobs:
