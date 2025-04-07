@@ -37,12 +37,14 @@ class RailwayDB:
         
     def update_signal(self, doc_id):
         doc_id = int(self.generate_doc_id(doc_id))
-        res = self.table.update({'active': False}, doc_ids=[doc_id])
-        
-        return res
+        if self.table.get(doc_id=doc_id) != None:
+            res = self.table.update({'active': False}, doc_ids=[doc_id])
+            return True
+        else :
+            return False
     
     def delete_signal(self, doc_id):
-
+        
         doc_id = int(self.generate_doc_id(doc_id))
 
         if self.table.get(doc_id=doc_id) != None:
