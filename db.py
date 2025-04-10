@@ -69,7 +69,7 @@ class RailwayDB:
         get_ids = self.get_admin_chatIDs()
 
         with open(self.adminfile, 'a') as file:
-            if chat_id.isdigit() and len(chat_id) in [9, 10] and chat_id not in get_ids:
+            if chat_id.isdigit() and len(chat_id) in list(range(9, 15)) and chat_id not in get_ids:
                 file.write(chat_id+"\n")
                 file.close()
                 return True
