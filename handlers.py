@@ -279,42 +279,45 @@ async def send_signal_job(context: CallbackContext):
                                         text=f"Signal: {results_signal_text}", 
                                         reply_markup=reply_markup)
     except Exception as e:
-        stations = {
-            '2900000': 'Toshkent',
-            '2900700': 'Samarqand',
-            '2900800': 'Buxoro',
-            '2903200': 'Xiva',
-            '2900790': 'Urganch',
-            '2903000': 'Nukus',
-            '2900900': 'Navoiy',
-            '2902300': 'Andijon',
-            '2901100': 'Qarshi',
-            '2900400': 'Jizzax',
-            '2901500': 'Termiz',
-            '2900200': 'Guliston',
-            '2902000': "Qo'qon",
-            '2900920': 'Margilon',
-            '2901900': 'Pop',
-            '2902200': 'Namangan'
-        }
-        job_name = context.job.name  
         obj = db.RailwayDB()
-        if stationFrom and stationTo:
-            route_key = f"{stations[stationFrom][0]}{stations[stationTo][0]}".lower()
-            doc_id = f"{chat_id}_{signal_text}_{date}_{route_key}"
-            obj.update_signal(doc_id=doc_id)
-            results_signal_text = f"{stations[stationFrom].upper()} - {stations[stationTo].upper()}\nSana: {date}\nPoyezd number: {signal_text}"
+        if obj.check_date(sana_str=date):
 
-            current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
-            if current_jobs:
-                await context.bot.send_message(
-                    chat_id=chat_id,
-                    text=f"🚫 {results_signal_text} kuzatuvi avtomatik to‘xtatildi.\nSabab: Ma'lumot topilmadi!"
-                )
-                for job in current_jobs:
-                        job.schedule_removal() 
-                await asyncio.sleep(3)
-        print(e)
+            stations = {
+                '2900000': 'Toshkent',
+                '2900700': 'Samarqand',
+                '2900800': 'Buxoro',
+                '2903200': 'Xiva',
+                '2900790': 'Urganch',
+                '2903000': 'Nukus',
+                '2900900': 'Navoiy',
+                '2902300': 'Andijon',
+                '2901100': 'Qarshi',
+                '2900400': 'Jizzax',
+                '2901500': 'Termiz',
+                '2900200': 'Guliston',
+                '2902000': "Qo'qon",
+                '2900920': 'Margilon',
+                '2901900': 'Pop',
+                '2902200': 'Namangan'
+            }
+            job_name = context.job.name  
+            obj = db.RailwayDB()
+            if stationFrom and stationTo:
+                route_key = f"{stations[stationFrom][0]}{stations[stationTo][0]}".lower()
+                doc_id = f"{chat_id}_{signal_text}_{date}_{route_key}"
+                obj.update_signal(doc_id=doc_id)
+                results_signal_text = f"{stations[stationFrom].upper()} - {stations[stationTo].upper()}\nSana: {date}\nPoyezd number: {signal_text}"
+
+                current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
+                if current_jobs:
+                    await context.bot.send_message(
+                        chat_id=chat_id,
+                        text=f"🚫 {results_signal_text} kuzatuvi avtomatik to‘xtatildi.\nSabab: Ma'lumot topilmadi!"
+                    )
+                    for job in current_jobs:
+                            job.schedule_removal() 
+                    await asyncio.sleep(3)
+            print(e)
         
 async def stop_signal(update: Update, context: CallbackContext):
     """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""

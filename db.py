@@ -1,6 +1,7 @@
 from tinydb import TinyDB, Query
 from tinydb.table import Document
 import hashlib
+from datetime import datetime
 
 
 class RailwayDB:
@@ -80,3 +81,10 @@ class RailwayDB:
             chat_ids = file.read().split('\n')
             chat_ids.pop()
         return chat_ids
+
+    def check_date(self, sana_str: str):
+        kun, oy, yil = map(int, sana_str.split("."))
+        if 1 <= kun <= 31 and 1 <= oy <= 12:
+            try_sana = datetime(yil, oy, kun)
+            return try_sana.date() <= datetime.now().date()
+        return False
