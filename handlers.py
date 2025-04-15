@@ -206,7 +206,7 @@ async def add_comment_signal(update: Update, context: CallbackContext):
     date = date.split('.')
     date = '.'.join([f'{int(item):02d}' for item in date])
     await update.message.reply_text(
-        f"🚆 {train_number} kuzatuv boshlandi!\n\nHar 2 daqiqada yangilanadi.",
+        f"🚆 {train_number} kuzatuv boshlandi!\n\nHar 1 daqiqada yangilanadi.",
     )
 
     if context.application is None or context.application.job_queue is None:
@@ -217,7 +217,7 @@ async def add_comment_signal(update: Update, context: CallbackContext):
     job_name = f"signal_{chat_id}_{train_number}_{date}"
 
     job_queue.run_repeating(
-        send_signal_job, interval=120, first=0, name=job_name,
+        send_signal_job, interval=60, first=0, name=job_name,
         data={
             "chat_id": chat_id,
             "signal": train_number,
@@ -440,7 +440,7 @@ async def restart_active_signals(application):
         job_name = f"signal_{chat_id}_{train_number}_{date}"
 
         job_queue.run_repeating(
-            send_signal_job, interval=120, first=0, name=job_name,
+            send_signal_job, interval=60, first=0, name=job_name,
             data={
                 "chat_id": chat_id,
                 "signal": train_number,
