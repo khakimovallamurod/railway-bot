@@ -405,6 +405,9 @@ async def stop_signal(update: Update, context: CallbackContext):
         if active:
             obj.update_signal(doc_id=doc_id)
             await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
+            for job in current_jobs:
+                job.schedule_removal() 
+                await asyncio.sleep(3)
         else:
             await query.message.reply_text(f"🚫 {train_number} kuzatuv allaqachon to'xtatilgan!")
         await asyncio.sleep(3)  # Asinxron kutish
