@@ -205,7 +205,7 @@ async def signal_start(update: Update, context: CallbackContext):
 async def add_comment_signal(update: Update, context: CallbackContext):
     context.user_data['comment'] = update.message.text.strip()
 
-    chat_id = update.message.from_user.id
+    chat_id = update.message.chat.id
     train_number = context.user_data["signal"]
     select_type = context.user_data['class_name']
     date = context.user_data['date']
@@ -339,7 +339,7 @@ async def stop_signal(update: Update, context: CallbackContext):
     # Foydalanuvchi ID sini olish
     user_id = update.effective_user.id 
     chat_id = update.effective_chat.id  # Lichka yoki guruh uchun chat_id
-    doc_id = f"{user_id}_{train_number}_{date}_{route_key}"
+    doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     print(doc_id)
     
     signal_datas = obj.get_signal_data(doc_id=doc_id)
@@ -356,7 +356,7 @@ async def stop_signal(update: Update, context: CallbackContext):
         await query.message.reply_text("⚠ Xatolik: Job Queue topilmadi.")
         return
 
-    job_name = f"signal_{user_id}_{train_number}_{date}"
+    job_name = f"signal_{chat_id}_{train_number}_{date}"
     current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
     
     if current_jobs:
@@ -381,7 +381,7 @@ async def stop_signal(update: Update, context: CallbackContext):
     # Foydalanuvchi ID sini olish
     user_id = update.effective_user.id 
     chat_id = update.effective_chat.id  # Lichka yoki guruh uchun chat_id
-    doc_id = f"{user_id}_{train_number}_{date}_{route_key}"
+    doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     print(doc_id)
     
     signal_datas = obj.get_signal_data(doc_id=doc_id)
@@ -398,7 +398,7 @@ async def stop_signal(update: Update, context: CallbackContext):
         await query.message.reply_text("⚠ Xatolik: Job Queue topilmadi.")
         return
 
-    job_name = f"signal_{user_id}_{train_number}_{date}"
+    job_name = f"signal_{chat_id}_{train_number}_{date}"
     current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
     
     if current_jobs:
@@ -410,7 +410,7 @@ async def stop_signal(update: Update, context: CallbackContext):
                 await asyncio.sleep(3)
         else:
             await query.message.reply_text(f"🚫 {train_number} kuzatuv allaqachon to'xtatilgan!")
-        await asyncio.sleep(3)  # Asinxron kutish
+        await asyncio.sleep(3)  
     else:
         await query.message.reply_text("⚠ Hech qanday aktiv kuzatuv topilmadi.")
 
@@ -421,7 +421,7 @@ async def cancel(update: Update, context: CallbackContext):
 
 async def view_actives(update: Update, context: CallbackContext):
     """📋 Faol signallar ro‘yxatini chiqarish"""
-    chat_id = update.message.from_user.id 
+    chat_id = update.message.chat.id 
     print(chat_id)
     if check_user(chat_id):
         railway_obj = db.RailwayDB()
