@@ -9,98 +9,98 @@ class Railway:
         self.stationFrom = stationFrom
         self.stationTo = stationTo
         self.date = date
-        self.url = config.get_url()
+        self.url =  "https://eticket.railway.uz/api/v3/handbook/trains/list"
     
     def railway_response_data(self):
-        cookies = {
-            "_ga": "GA1.1.1017869759.1741497848",
-            "__stripe_mid": "5de3b064-7296-45f7-9f07-c2d0af097a48f714af",
-            "__stripe_sid": "09f86a30-f148-451e-a804-8a3217ee2d790a78a9",
-            "_ga_K4H2SZ7MWK": "GS1.1.1741497848.1.1.1741501222.0.0.0",
-            "SL_G_WPT_TO": "en",
-            "XSRF-TOKEN": "8900ba92-e3d2-43e5-b9c9-0ffe3647cc13",
-            "G_ENABLED_IDPS": "google"
-        }
         headers = {
-            "Accept": "application/json",
-            "Accept-Encoding": "gzip, deflate, br, zstd",
-            "Accept-Language": "uz",
-            "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiVVNFUiIsImlkIjoiZmFmZTJhZjQtYmNhNS00MGQ5LWJkMjAtZjIxY2M4NzJjZDNmIiwic3ViIjoiOTk4OTM4NTU0NjQwIiwiaWF0IjoxNzQxNTAxMzI2LCJleHAiOjE3NDE1MDQ5MjZ9.cWwif1eVbnG9-ii9j6WFXPY7f3C0QAjMldvaxGtaf1tW16FQozsl0t_qi0cyJQ0f",
-            "Connection": "keep-alive",
-            "Content-Type": "application/json",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
-            "X-XSRF-TOKEN": "8900ba92-e3d2-43e5-b9c9-0ffe3647cc13",
-            "Device-Type": "BROWSER",
-            "Origin": "https://eticket.railway.uz",
-            "Referer": "https://eticket.railway.uz/uz/home",
-            "Sec-Fetch-Dest": "empty",
-            "Sec-Fetch-Mode": "cors",
-            "Sec-Fetch-Site": "same-origin"
+            "accept": "application/json",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "uz",
+            "authorization": "Bearer eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTE5MDEyODgsImlhdCI6MTc1MTg5NzY4OCwiaWQiOiJlYzg3Y2M4OC05NDVmLTQ3YTgtYWFhZC00NmJhNGUwYTc3ZjkiLCJsZ3R5cGUiOiJFbWFpbCIsInJvbGVzIjpbIlVTRVIiXSwic3NvaWQiOiI3ZTBhYThmOC0zODJlLTQyZjMtYjcxNC01MjRhMDI0YzVmY2QiLCJzdWIiOiJ4YWtpbW92MjgwNkBnbWFpbC5jb20ifQ.HbK1Og4xLFfj9q6fx9bC2rHkvRhQx2DUKLj2mhq3oHOiAlDDtOnqAjKNduXMaLJY",
+            "connection": "keep-alive",
+            "content-length": "102",
+            "content-type": "application/json",
+            "cookie": "_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; __stripe_mid=c1ea41c4-72aa-45d5-bb3d-a6fce51b95bf8bc589; XSRF-TOKEN=2cb75b02-2fa1-486a-8e02-674b3f03b6f5; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de; _ga_R5LGX7P1YR=GS2.1.s1751897679$o9$g1$t1751897708$j31$l0$h0",
+            "device-type": "BROWSER",
+            "host": "eticket.railway.uz",
+            "origin": "https://eticket.railway.uz",
+            "referer": "https://eticket.railway.uz/uz/pages/trains-page",
+            "sec-ch-ua": "\"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Linux\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "x-xsrf-token": "2cb75b02-2fa1-486a-8e02-674b3f03b6f5"
         }
-        data = {
-            "direction": [
-                {
-                    "depDate": self.date,
-                    "fullday": True,
-                    "type": "Forward"
+        payload = {
+            "directions": {
+                "forward": {
+                    "date": self.date,
+                    "depStationCode": self.stationFrom,
+                    "arvStationCode": self.stationTo
                 }
-            ],
-            "stationFrom": self.stationFrom,
-            "stationTo": self.stationTo,
-            "detailNumPlaces": 1,
-            "showWithoutPlaces": 0
+            }
         }
-        try:
-            response = requests.post(self.url, headers=headers, cookies=cookies, json=data)
-            res_data = response.json()
-            return res_data
-        except:
-            return None
+        response = requests.post(self.url, headers=headers, json=payload)
+        res_data = response.json()
+        return res_data
+
     def get_need_data(self, type):
         select_type = self.check_class_name(type=type)
-        if select_type == None:
+        if select_type is None:
             return "notclass", None
+
         datas = self.railway_response_data()
-        try:
-            freeSeats_text = []
-            total_free_seats = 0
-            passRoute = datas['express']['direction'][0]['passRoute']
-            route = [passRoute['from'], passRoute['to']]
-            for train in datas['express']['direction'][0]['trains']:
-                    for t in train['train']:
-                        brand = t['brand'].encode().decode('utf-8')
-                        if brand in ["Afrosiyob", "Sharq", "Пассажирский"]:
-                            total_free_seats_one = 0
-                            total_free_seats_all = 0
-                            for car in t["places"]["cars"]:
-                                for tar in car["tariffs"]["tariff"]:
-                                    
-                                    if tar["classService"]["type"] == select_type:
-                                        seats_undef = tar["seats"]["seatsUndef"]
-                                        if seats_undef is not None:
-                                            total_free_seats_one += int(tar["seats"]["seatsUndef"])
-                                        else:
-                                            total_free_seats_one += int(car['freeSeats'])
-                                            
-                                total_free_seats_all += int(car['freeSeats'])
-                            if select_type == "all":
-                                freeSeats_text.append(
-                                    [
-                                        t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_all, route
-                                    ]
-                                )
-                                
-                                total_free_seats += total_free_seats_all
-                            else:
-                                freeSeats_text.append(
-                                    [
-                                        t['number'], t['brand'], t['departure']['localTime'], t['arrival']['localTime'], total_free_seats_one, route
-                                    ]
-                                )
-                                total_free_seats += total_free_seats_one
-            return freeSeats_text, total_free_seats
-        except:
-            return None, None
+        freeSeats_text = []
+        total_free_seats = 0
+
+        direction = datas["data"]["directions"]["forward"]
+        for train in direction["trains"]:
+            brand = train.get("brand", "").encode().decode('utf-8')
+
+            if brand not in ["Afrosiyob", "Sharq", "Пассажирский"]:
+                continue
+
+            total_free_seats_one = 0
+            total_free_seats_all = 0
+
+            for car in train["cars"]:
+                car_free_seats = car.get("freeSeats", 0)
+                total_free_seats_all += car_free_seats
+
+                for tariff in car.get("tariffs", []):
+                    class_type = tariff.get("classServiceType")
+                    if select_type == "all" or class_type == select_type:
+                        total_free_seats_one += tariff.get("freeSeats", 0)
+
+            sub_route = train.get("subRoute", {})
+            route = [sub_route.get("depStationName"), sub_route.get("arvStationName")]
+
+            if select_type == "all":
+                freeSeats_text.append([
+                    train["number"],
+                    brand,
+                    train["departureDate"],
+                    train["arrivalDate"],
+                    total_free_seats_all,
+                    route
+                ])
+                total_free_seats += total_free_seats_all
+            else:
+                freeSeats_text.append([
+                    train["number"],
+                    brand,
+                    train["departureDate"],
+                    train["arrivalDate"],
+                    total_free_seats_one,
+                    route
+                ])
+                total_free_seats += total_free_seats_one
+
+        return freeSeats_text, total_free_seats
+        
     
     def check_class_name(self, type):
         class_names = {
@@ -114,15 +114,3 @@ class Railway:
         }
         return class_names.get(type)
 
-    def is_valid_date(self):
-        pattern = r"^\d{2}\.\d{2}\.\d{4}$"
-        if not re.match(pattern, self.date):
-            return False  
-
-        try:
-            datetime.strptime(self.date, "%d.%m.%Y")
-            return True  
-        except ValueError:
-            return False 
-    
-    
