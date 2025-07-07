@@ -9,7 +9,8 @@ class Railway:
         self.stationFrom = stationFrom
         self.stationTo = stationTo
         self.date = date
-        self.url =  "https://eticket.railway.uz/api/v3/handbook/trains/list"
+        self.url =  config.get_url() 
+        
     
     def railway_response_data(self):
         headers = {

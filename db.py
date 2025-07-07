@@ -2,7 +2,7 @@ from tinydb import TinyDB, Query
 from tinydb.table import Document
 import hashlib
 from datetime import datetime
-
+import re
 
 class RailwayDB:
     def __init__(self):
@@ -83,8 +83,19 @@ class RailwayDB:
         return chat_ids
 
     def check_date(self, sana_str: str):
-        kun, oy, yil = map(int, sana_str.split("."))
+        kun, oy, yil = map(int, sana_str.split("-"))
         if 1 <= kun <= 31 and 1 <= oy <= 12:
             try_sana = datetime(yil, oy, kun)
             return try_sana.date() <= datetime.now().date()
         return False
+    
+    def is_valid_date(self, date: str) -> bool:
+        """Sanani YYYY-MM-DD formatida tekshiradi."""
+        pattern = r"^\d{4}-\d{2}-\d{2}$"
+        if not re.match(pattern, date):
+            return False
+        try:
+            datetime.strptime(date, "%Y-%m-%d")
+            return True
+        except ValueError:
+            return False

@@ -24,11 +24,11 @@ async def start(update: Update, context: CallbackContext):
     user = update.message.from_user
     chat_id = user.id
     if check_user(chat_id):
-        msg = await update.message.reply_text(
+        await update.message.reply_text(
             text=f"""Assalomu aleykum {user.full_name}. Ushbu bot yordamida joylar sonini aniqlashingiz mumkin. /railwaycount""",
         )
     else:
-        msg = await update.message.reply_text(
+        await update.message.reply_text(
             text=f"""Assalomu aleykum {user.full_name}. Siz bu botdan foydalana olmaysiz 😔""",
         )
 
@@ -82,14 +82,14 @@ async def get_from_city(update: Update, context: CallbackContext):
 
         msg = await context.bot.send_message(
             chat_id=query.message.chat_id,
-            text="FROM WHERE:",
+            text="FROM:",
             reply_markup=keyboards.get_viloyats()
         )
 
     else:
         msg = await context.bot.send_message(
             chat_id=update.message.chat_id,
-            text="FROM WHERE:",
+            text="FROM:",
             reply_markup=keyboards.get_viloyats()
         )
 
@@ -116,19 +116,19 @@ async def get_to_city(update: Update, context: CallbackContext):
 
             msg = await context.bot.send_message(
                 chat_id=query.message.chat_id, 
-                text="TO WHERE:",
+                text="TO:",
                 reply_markup=keyboards.get_viloyats()  
             )
         else:
             msg = await context.bot.send_message(
                 chat_id=update.effective_chat.id,  
-                text="TO WHERE:",
+                text="TO:",
                 reply_markup=keyboards.get_viloyats()  
             )
 
     else:
         msg = await update.message.reply_text(
-            text="TO WHERE:",
+            text="TO:",
             reply_markup=keyboards.get_viloyats()
         )
 
@@ -140,12 +140,16 @@ async def to_city_selected(update: Update, context: CallbackContext):
     await query.answer()
     context.user_data['to_city'] = query.data
     
-    await query.message.reply_text("Sanani kiriting ushbu formatda (day.month.year)!")
+    await query.message.reply_text("Sanani kiriting ushbu formatda (Year-Month-Day)!")
     return DATE
 
 async def select_class(update: Update, context: CallbackContext):
     context.user_data['date'] = update.message.text.strip()
-    
+    date = context.user_data['date']
+
+    if not ids_obj.is_valid_date(date):
+        await update.message.reply_text("Sanani noto'g'ri formatda kiritdingiz, iltimos qayta urinib ko'ring (Year-Month-Day)!")
+        return DATE
     await update.message.reply_text("Class turini tanlang:", reply_markup=keyboards.select_class_button())
     return SELECT
 
@@ -155,17 +159,18 @@ async def railway_count(update: Update, context: CallbackContext):
     context.user_data['class_name'] = select_type
 
     date = context.user_data['date']
-    date = date.split('.')
-    date = '.'.join([f'{int(item):02d}' for item in date])
+    date = date.split('-')
+    date = '-'.join([f'{int(item):02d}' for item in date])
+
     stationFrom = context.user_data['from_city'].split(':')[1]
     stationTo = context.user_data['to_city'].split(':')[1]
 
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
-    
-    if railway_all_data.is_valid_date():
+
+    if ids_obj.is_valid_date(date):
         freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
-        
-        if freeSeats_data == "notclass" :
+
+        if freeSeats_data == "notclass":
             await update.message.reply_text(f"{select_type} bunda ma'lumot yo'q, qayta kiriting.")
             return SELECT
         elif freeSeats_data == None:
@@ -192,7 +197,7 @@ async def railway_count(update: Update, context: CallbackContext):
             await update.message.reply_text(f"{text_seats}")
             return SELECT
     else:
-        await update.message.reply_text("Xato kiritdingiz, ushbu formatda bo'lsin (day.month.year)!")
+        await update.message.reply_text("Xato kiritdingiz, ushbu formatda bo'lsin (Year-Month-Day)!")
         return SELECT
 
 async def signal_start(update: Update, context: CallbackContext):
@@ -210,8 +215,8 @@ async def add_comment_signal(update: Update, context: CallbackContext):
     select_type = context.user_data['class_name']
     date = context.user_data['date']
     comment = context.user_data['comment']
-    date = date.split('.')
-    date = '.'.join([f'{int(item):02d}' for item in date])
+    date = date.split('-')
+    date = '-'.join([f'{int(item):02d}' for item in date])
     await update.message.reply_text(
         f"🚆 {train_number} kuzatuv boshlandi!\n\nHar 1 daqiqada yangilanadi.",
     )
@@ -246,8 +251,8 @@ async def send_signal_job(context: CallbackContext):
     chat_id = job.data["chat_id"]
     signal_text = job.data.get("signal", "Noma’lum") 
     date = job.data.get("date", None)
-    date = date.split('.')
-    date = '.'.join([f'{int(item):02d}' for item in date])
+    date = date.split('-')
+    date = '-'.join([f'{int(item):02d}' for item in date])
 
     stationFrom = job.data.get("from_city", None)
     stationTo = job.data.get("to_city", None)
@@ -378,15 +383,11 @@ async def stop_signal(update: Update, context: CallbackContext):
     route_key = query_data[-3]
     obj = db.RailwayDB()
     
-    # Foydalanuvchi ID sini olish
     user_id = update.effective_user.id 
     chat_id = update.effective_chat.id  # Lichka yoki guruh uchun chat_id
     doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
-    print(doc_id)
     
     signal_datas = obj.get_signal_data(doc_id=doc_id)
-    
-    # Tekshirish, agar signal_datas None bo'lsa
     if not signal_datas:
         await query.message.reply_text("⚠ Xatolik: Signal ma'lumotlari topilmadi.")
         return
