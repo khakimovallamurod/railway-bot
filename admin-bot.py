@@ -8,11 +8,9 @@ import handlers
 import asyncio
 
 async def start_jobs(dp):
-    # Asinxron `JobQueue` ni ishga tushirish
     job_queue = dp.job_queue
     await job_queue.start()
 
-    # Signallarni qayta ishga tushirish
     await handlers.restart_active_signals(dp)
 
 def main():
@@ -49,10 +47,8 @@ def main():
     dp.add_handler(CommandHandler('viewactives', handlers.view_actives))
     dp.add_handler(CallbackQueryHandler(handlers.stop_signal, pattern="stop_signal"))
 
-    # Asinxron vazifalarni ishga tushirish
     asyncio.get_event_loop().run_until_complete(start_jobs(dp))
 
-    # Botni polling rejimida ishga tushirish
     dp.run_polling(allowed_updates=Update.ALL_TYPES, timeout=30)
 
 if __name__ == '__main__':
