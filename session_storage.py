@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 
 def get_session_storage_tokens(phone, password):
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context()
         page = context.new_page()
         page.goto("https://eticket.railway.uz/uz/auth/login")
@@ -22,13 +22,13 @@ def get_session_storage_tokens(phone, password):
         user_json = page.evaluate("sessionStorage.getItem('user')")
         cookies = context.cookies()
         xsrf_token = next((c['value'] for c in cookies if c['name'] == 'XSRF-TOKEN'), None)
-
+        
         browser.close()
 
         return session_token, captcha_token, user_json, xsrf_token, cookies
 
 if __name__ == "__main__":
-    phone = ""
-    password = ""
+    phone = "+998882389003"
+    password = "allamurod9003"
 
-    get_session_storage_tokens(phone, password)
+    print(get_session_storage_tokens(phone, password)[-2])

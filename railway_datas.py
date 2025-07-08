@@ -47,7 +47,7 @@ class Railway:
             }
         }
         response = requests.post(self.url, headers=headers, json=payload)
-     
+        
         if response.status_code == 200:
             res_data = response.json()
             return res_data
@@ -59,6 +59,7 @@ class Railway:
 
             response = requests.post(self.url, headers=headers, json=payload)
             res_data = response.json()
+            print(res_data)
             return res_data
 
     def refresh_tokens(self):
@@ -161,3 +162,5 @@ class Railway:
             "ALL": 'all'
         }
         return class_names.get(type)
+obj = Railway("2900000", "2900001", "2023-10-01")
+print(obj.get_need_data("ALL"))
