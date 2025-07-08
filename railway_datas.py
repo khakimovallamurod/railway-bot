@@ -3,6 +3,7 @@ import config
 import re
 from datetime import datetime
 import json
+from playwright.sync_api import sync_playwright
 
 class Railway:
     def __init__(self, stationFrom, stationTo, date):
@@ -10,17 +11,20 @@ class Railway:
         self.stationTo = stationTo
         self.date = date
         self.url =  config.get_url() 
-        
+        self.phone = config.get_phone()
+        self.password = config.get_password()
+        self.session_token = config.get_access_token()
+        self.xsrf_token = config.get_xsrf_token()
     
     def railway_response_data(self):
         headers = {
             "accept": "application/json",
             "accept-encoding": "gzip, deflate, br, zstd",
             "accept-language": "uz",
-            "authorization": f"Bearer {config.get_access_token()}",
+            "authorization": f"Bearer {self.session_token}",
             "connection": "keep-alive",
             "content-type": "application/json",
-            "cookie": f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={config.get_xsrf_token()}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de",
+            "cookie": f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={self.xsrf_token}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de",
             "device-type": "BROWSER",
             "origin": "https://eticket.railway.uz",
             "referer": "https://eticket.railway.uz/uz/pages/trains-page",
@@ -31,7 +35,7 @@ class Railway:
             "sec-fetch-mode": "cors",
             "sec-fetch-site": "same-origin",
             "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-            "x-xsrf-token": config.get_xsrf_token()
+            "x-xsrf-token": self.xsrf_token
         }
         payload = {
             "directions": {
@@ -43,8 +47,51 @@ class Railway:
             }
         }
         response = requests.post(self.url, headers=headers, json=payload)
-        res_data = response.json()
-        return res_data
+     
+        if response.status_code == 200:
+            res_data = response.json()
+            return res_data
+        else:
+            self.refresh_tokens()
+            headers["authorization"] = f"Bearer {self.session_token}"
+            headers["x-xsrf-token"] = self.xsrf_token
+            headers["cookie"] = f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={self.xsrf_token}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de"
+
+            response = requests.post(self.url, headers=headers, json=payload)
+            res_data = response.json()
+            return res_data
+
+    def refresh_tokens(self):
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=False)
+            context = browser.new_context()
+            page = context.new_page()
+            page.goto("https://eticket.railway.uz/uz/auth/login")
+            page.fill('input[formcontrolname="phone"]', self.phone)
+            page.fill('input[formcontrolname="password"]', self.password)
+            page.wait_for_function("""
+                () => {
+                    const el = document.querySelector('textarea[name="g-recaptcha-response"]');
+                    return el && el.value.trim().length > 0;
+                }
+            """)
+            page.click('button[type="submit"]')
+            page.wait_for_function("sessionStorage.getItem('token') !== null")
+            self.session_token = page.evaluate("sessionStorage.getItem('token')")
+            cookies = context.cookies()
+            self.xsrf_token = next((c['value'] for c in cookies if c['name'] == 'XSRF-TOKEN'), None)
+            self.update_tokens(self.session_token, self.xsrf_token)
+            browser.close()
+
+    def update_tokens(self, new_access_token, new_xsrf_token, json_file="token_data.json"):
+        with open(json_file, "r") as f:
+            data = json.load(f)
+
+        data["access_token"] = new_access_token
+        data["xsrf_token"] = new_xsrf_token
+
+        with open(json_file, "w") as f:
+            json.dump(data, f, indent=4)
 
     def get_need_data(self, type):
         select_type = self.check_class_name(type=type)
@@ -114,4 +161,3 @@ class Railway:
             "ALL": 'all'
         }
         return class_names.get(type)
-
