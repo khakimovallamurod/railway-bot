@@ -64,7 +64,7 @@ class Railway:
 
     def refresh_tokens(self):
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
             context = browser.new_context()
             page = context.new_page()
             page.goto("https://eticket.railway.uz/uz/auth/login")
