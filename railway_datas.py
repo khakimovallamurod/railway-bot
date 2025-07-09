@@ -3,7 +3,7 @@ import config
 import re
 from datetime import datetime
 import json
-from playwright.sync_api import sync_playwright
+from playwright.async_api import async_playwright
 
 class Railway:
     def __init__(self, stationFrom, stationTo, date):
@@ -16,7 +16,7 @@ class Railway:
         self.session_token = config.get_access_token()
         self.xsrf_token = config.get_xsrf_token()
     
-    def railway_response_data(self):
+    async def railway_response_data(self):
         headers = {
             "accept": "application/json",
             "accept-encoding": "gzip, deflate, br, zstd",
@@ -52,7 +52,7 @@ class Railway:
             res_data = response.json()
             return res_data
         else:
-            self.refresh_tokens()
+            await self.refresh_tokens_async()
             headers["authorization"] = f"Bearer {self.session_token}"
             headers["x-xsrf-token"] = self.xsrf_token
             headers["cookie"] = f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={self.xsrf_token}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de"
@@ -62,27 +62,37 @@ class Railway:
             print(res_data)
             return res_data
 
-    def refresh_tokens(self):
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context()
-            page = context.new_page()
-            page.goto("https://eticket.railway.uz/uz/auth/login")
-            page.fill('input[formcontrolname="phone"]', self.phone)
-            page.fill('input[formcontrolname="password"]', self.password)
-            page.wait_for_function("""
+    async def refresh_tokens_async(self):
+        print("[INFO] Playwright bilan login qilinmoqda...")
+        async with async_playwright() as p:
+            browser = await p.chromium.launch(headless=False)
+            context = await browser.new_context()
+            page = await context.new_page()
+
+            await page.goto("https://eticket.railway.uz/uz/auth/login")
+            await page.fill('input[formcontrolname="phone"]', self.phone)
+            await page.fill('input[formcontrolname="password"]', self.password)
+
+            await page.wait_for_function("""
                 () => {
                     const el = document.querySelector('textarea[name="g-recaptcha-response"]');
                     return el && el.value.trim().length > 0;
                 }
             """)
-            page.click('button[type="submit"]')
-            page.wait_for_function("sessionStorage.getItem('token') !== null")
-            self.session_token = page.evaluate("sessionStorage.getItem('token')")
-            cookies = context.cookies()
-            self.xsrf_token = next((c['value'] for c in cookies if c['name'] == 'XSRF-TOKEN'), None)
-            self.update_tokens(self.session_token, self.xsrf_token)
-            browser.close()
+            await page.click('button[type="submit"]')
+
+            await page.wait_for_function("sessionStorage.getItem('token') !== null")
+            new_token = await page.evaluate("sessionStorage.getItem('token')")
+
+            cookies = await context.cookies()
+            new_xsrf = next((c['value'] for c in cookies if c['name'] == 'XSRF-TOKEN'), None)
+
+            self.update_tokens(new_token, new_xsrf)
+
+            print(f"[✅] SESSION TOKEN: {new_token}")
+            print(f"[✅] XSRF TOKEN: {new_xsrf}")
+
+            await browser.close()
 
     def update_tokens(self, new_access_token, new_xsrf_token, json_file="token_data.json"):
         with open(json_file, "r") as f:
@@ -94,12 +104,12 @@ class Railway:
         with open(json_file, "w") as f:
             json.dump(data, f, indent=4)
 
-    def get_need_data(self, type):
+    async def get_need_data(self, type):
         select_type = self.check_class_name(type=type)
         if select_type is None:
             return "notclass", None
         try:
-            datas = self.railway_response_data()
+            datas = await self.railway_response_data()
             freeSeats_text = []
             total_free_seats = 0
 

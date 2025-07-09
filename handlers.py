@@ -168,7 +168,7 @@ async def railway_count(update: Update, context: CallbackContext):
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
 
     if ids_obj.is_valid_date(date):
-        freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
+        freeSeats_data, freeSeats = await railway_all_data.get_need_data(type=select_type)
 
         if freeSeats_data == "notclass":
             await update.message.reply_text(f"{select_type} bunda ma'lumot yo'q, qayta kiriting.")
