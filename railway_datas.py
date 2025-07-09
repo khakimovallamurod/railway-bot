@@ -47,9 +47,10 @@ class Railway:
             }
         }
         response = requests.post(self.url, headers=headers, json=payload)
-        
+        print("1: ", response.status_code)
         if response.status_code == 200:
             res_data = response.json()
+            print('response text: ', response.text)
             return res_data
         else:
             await self.refresh_tokens_async()
@@ -58,6 +59,8 @@ class Railway:
             headers["cookie"] = f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={self.xsrf_token}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de"
 
             response = requests.post(self.url, headers=headers, json=payload)
+            print('2: ', response.status_code)
+            print('response text 2: ', response.text)
             res_data = response.json()
             print(res_data)
             return res_data
@@ -172,5 +175,3 @@ class Railway:
             "ALL": 'all'
         }
         return class_names.get(type)
-obj = Railway("2900000", "2900001", "2023-10-01")
-print(obj.get_need_data("ALL"))

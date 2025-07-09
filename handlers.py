@@ -259,7 +259,7 @@ async def send_signal_job(context: CallbackContext):
     signal_comment = job.data.get("comment")
     select_type = job.data.get('class_name')
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
-    freeSeats_data, freeSeats = railway_all_data.get_need_data(type=select_type)
+    freeSeats_data, freeSeats = await railway_all_data.get_need_data(type=select_type)
 
     try:
         results_signal_text = f"🚆 Poyezd {signal_text} uchun joylar tekshirilmoqda...\n"
