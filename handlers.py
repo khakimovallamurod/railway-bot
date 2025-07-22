@@ -1,3 +1,4 @@
+from turtle import update
 from telegram.ext import CallbackContext, ConversationHandler
 from telegram import Update
 import railway_datas
@@ -428,7 +429,7 @@ async def cancel(update: Update, context: CallbackContext):
 
 async def view_actives(update: Update, context: CallbackContext):
     """📋 Faol signallar ro‘yxatini chiqarish"""
-    chat_id = update.message.chat.id 
+    chat_id = update.effective_chat.id
     print(chat_id)
     if check_user(chat_id):
         railway_obj = db.RailwayDB()
