@@ -7,9 +7,10 @@ import db
 import time
 
 USER_IDS = ['6889331565', '608913545', '1383186462']
-ids_obj = db.RailwayDB()
 
 def check_user(chat_id):
+    ids_obj = db.RailwayDB()
+
     chat_id = str(chat_id)
     ids = ids_obj.get_admin_chatIDs()
     USER_IDS.extend(ids)
@@ -21,7 +22,7 @@ FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL, ADD_COMMENT = range(6)
 ID_START = range(1)
 
 async def start(update: Update, context: CallbackContext):
-    user = update.message.from_user
+    user = update.message.chat
     chat_id = user.id
     if check_user(chat_id):
         await update.message.reply_text(
@@ -37,8 +38,10 @@ async def admin_start(update: Update, context: CallbackContext):
     return ID_START
 
 async def insert_admin(update: Update, context: CallbackContext):
+    ids_obj = db.RailwayDB()
+
     id_text = update.message.text
-    chat_id = str(update.message.from_user.id)
+    chat_id = str(update.message.chat.id)
     if chat_id in USER_IDS :
         if ids_obj.add_admin(id_text):
             await update.message.reply_text("Foydalanuvchi qo'shildi ✅")
@@ -51,7 +54,7 @@ async def insert_admin(update: Update, context: CallbackContext):
     return ConversationHandler.END
 
 async def railway_start(update: Update, context: CallbackContext):
-    chat_id = update.message.from_user.id
+    chat_id = update.message.chat.id
 
     if check_user(chat_id):
         msg = await update.message.reply_text("Poyezd tanlash boshlandi!!!")
@@ -144,6 +147,8 @@ async def to_city_selected(update: Update, context: CallbackContext):
     return DATE
 
 async def select_class(update: Update, context: CallbackContext):
+    ids_obj = db.RailwayDB()
+
     context.user_data['date'] = update.message.text.strip()
     date = context.user_data['date']
 
@@ -154,7 +159,8 @@ async def select_class(update: Update, context: CallbackContext):
     return SELECT
 
 async def railway_count(update: Update, context: CallbackContext):
-    
+    ids_obj = db.RailwayDB()
+
     select_type = update.message.text.strip()
     context.user_data['class_name'] = select_type
 
@@ -498,7 +504,12 @@ async def restart_active_signals(application):
         route = act_data['route']
         print(route)
         from_city = route[0].capitalize()
+        from_city_code = stations.get(from_city, None)
+
         to_city = route[1].capitalize()
+        to_city_code = stations.get(to_city, None)
+        if to_city_code is None or from_city_code is None:
+            continue
         select_type = act_data.get('class_name', 'Noma’lum')
         comment = act_data.get('comment', '')
 
