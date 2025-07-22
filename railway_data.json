@@ -1,0 +1,199 @@
+{
+    "Railway_DB": {
+        "1701323133175236000076117455643253413154621": {
+            "chat_id": 1383186462,
+            "signal_text": "710\u0424",
+            "date": "2025-07-18",
+            "comment": "1",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "2267237101743754547615437172570104472234252": {
+            "chat_id": 482739646,
+            "signal_text": "710\u0424",
+            "date": "2025-08-15",
+            "comment": "1",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1027606077214647067771154455343361333061346": {
+            "chat_id": 482739646,
+            "signal_text": "778\u0424",
+            "date": "2025-07-11",
+            "comment": "\u0442\u0435\u0441\u0442",
+            "class_name": "VIP",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 3
+        },
+        "3313017324047463427214273200270636755074132": {
+            "chat_id": 482739646,
+            "signal_text": "767\u0424",
+            "date": "2025-09-08",
+            "comment": "MJ2093775  OKAMOTO  KIYOMI  F  14.04.1967  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "3055032553122777500522702347545222701531752": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-09-09",
+            "comment": "61 pax",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "421321614477451152513262753331750126115700": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-09",
+            "comment": "61 \u0442\u0430 \u0431\u0438\u043b\u0435\u0442",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3357377714061545720104131033113760402262175": {
+            "chat_id": 114075467,
+            "signal_text": "770\u0424",
+            "date": "2025-09-10",
+            "comment": ".",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1275067565417031312044037751715403132753473": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-09-06",
+            "comment": "TT6470079  WADA   RYUICHIRO   M  15.09.1974  JAPAN\nTR8458390  WADA   ATSUKO  F  29.04.1971  JAPAN\nTS1808850  IKEZAWA  YOSHIAKI  M  07.08.1953  JAPAN\nTS1808851  IKEZAWA  REIKO  F  18.04.1957  JAPAN\nTR7855879  TAKAHASHI  HIDEAKI  M  05.02.1962  JAPAN\nTT1796506  TAKAHASHI  MITSUYO  F  18.07.1967  JAPAN\nTT2966014  NEMOTO  CHIERI  F  23.04.1999  JAPAN\nMJ2051220  NOGUCHI  YOKO  F  13.11.1944  JAPAN\nTS3975562  KATSUMURA  TAKAKO  F  22.07.1973  JAPAN\nTR7427574  KOMATSU  KEIKO  F  24.05.1953  JAPAN\nTS5020511  TAKEUCHI  KUNIKO  F  18.08.1948  JAPAN\nTS5020512  MIKI  YOSHIE  F  27.09.1967  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2150241544764073262540020202654320651125311": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-06",
+            "comment": "8 pax",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3523111773123447725345025650252410733041652": {
+            "chat_id": 108311402,
+            "signal_text": "770\u0424",
+            "date": "2025-09-09",
+            "comment": "60-ta bilet",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3520403633775222664633301036040377332674527": {
+            "chat_id": 108311402,
+            "signal_text": "769\u0424",
+            "date": "2025-09-11",
+            "comment": "Takada 2pax",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1511156522337422247467636611040460603604064": {
+            "chat_id": 482739646,
+            "signal_text": "710\u0424",
+            "date": "2025-08-15",
+            "comment": "1",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "\u0422\u0430\u0448\u043a\u0435\u043d\u0442-\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
+                "\u0411\u0443\u0445\u0430\u0440\u0430"
+            ],
+            "total_free_seats": 0
+        },
+        "1650747153064413053060402573124570633724774": {
+            "chat_id": 482739646,
+            "signal_text": "768\u0424",
+            "date": "2025-08-12",
+            "comment": "TT6753868  MOTOHASHI\u3000  RUMIKO  F  02.05.1980  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1510734330657515102575103431451420340057741": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-09-08",
+            "comment": "TM0622114  HASUYAMA   KATSUNOBU   M  19.01.1950  JAPAN\nTR8024486  HASUYAMA   SACHIKO  F  22.10.1953  JAPAN\nTS4875163  MATSUZAKI  AYANO  F  28.08.1976  JAPAN\nTR8956673  IKENOUE   MASAKO  F  02.12.1967  JAPAN\nTR8956746  IKENOUE   TOMOKO  F  21.02.1964  JAPAN\nTR8956747  KUROSU   MASAMI  F  09.04.1961  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2423660351331472170314477051331377722515526": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-09-10",
+            "comment": "test",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        }
+    }
+}
