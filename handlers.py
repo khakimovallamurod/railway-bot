@@ -1,4 +1,3 @@
-from turtle import update
 from telegram.ext import CallbackContext, ConversationHandler
 from telegram import Update
 import railway_datas
