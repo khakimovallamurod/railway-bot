@@ -79,7 +79,6 @@ class RailwayDB:
     def get_admin_chatIDs(self):
         with open(self.adminfile, 'r') as file:
             chat_ids = file.read().split('\n')
-            chat_ids.pop()
         return chat_ids
 
     def check_date(self, sana_str: str):
