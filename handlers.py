@@ -428,8 +428,8 @@ async def cancel(update: Update, context: CallbackContext):
 
 async def view_actives(update: Update, context: CallbackContext):
     """📋 Faol signallar ro‘yxatini chiqarish"""
-    chat_id = update.effective_chat.id
-    print(chat_id)
+    chat_id = update.message.chat.id
+    print(f"Chat ID: {chat_id}")  # Debugging uchun chat_id ni
     if check_user(chat_id):
         railway_obj = db.RailwayDB()
         actives_data = railway_obj.get_actives()
