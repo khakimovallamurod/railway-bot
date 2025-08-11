@@ -52,19 +52,22 @@ class Railway:
             return res_data
         else:
             await self.refresh_tokens_async()
+            with open('token_data.json', 'r') as f:
+                token_datas = json.load(f)
+                self.session_token = token_datas['access_token']
+                self.xsrf_token = token_datas['xsrf_token']
             headers["authorization"] = f"Bearer {self.session_token}"
             headers["x-xsrf-token"] = self.xsrf_token
             headers["cookie"] = f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={self.xsrf_token}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de"
-
             response = requests.post(self.url, headers=headers, json=payload)
         
-            res_data = response.json()
+            res_data = response.text
             return res_data
 
     async def refresh_tokens_async(self):
         print("[INFO] Playwright bilan login qilinmoqda...")
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
+            browser = await p.chromium.launch(headless=False)
             context = await browser.new_context()
             page = await context.new_page()
 
@@ -171,3 +174,13 @@ class Railway:
             "ALL": 'all'
         }
         return class_names.get(type)
+
+if __name__ == '__main__':
+    import asyncio
+    obj = Railway(
+        stationFrom = '2900000',
+        stationTo='2900700',
+        date='2025-08-24'
+    )
+    result = asyncio.run(obj.get_need_data(type='Econom'))
+    print(result)
