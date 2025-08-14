@@ -59,9 +59,9 @@ class Railway:
             headers["authorization"] = f"Bearer {self.session_token}"
             headers["x-xsrf-token"] = self.xsrf_token
             headers["cookie"] = f"_ga=GA1.1.952475370.1751366484; G_ENABLED_IDPS=google; XSRF-TOKEN={self.xsrf_token}; __stripe_sid=5059f297-b706-425d-8ec6-45c9e5e608729678de"
-            response = requests.post(self.url, headers=headers, json=payload)
+            response_two = requests.post(self.url, headers=headers, json=payload)
         
-            res_data = response.text
+            res_data = response_two.json()
             return res_data
 
     async def refresh_tokens_async(self):

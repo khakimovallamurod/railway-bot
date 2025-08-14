@@ -40,6 +40,8 @@ def main():
             handlers.ID_START: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.insert_admin)]
         },
         fallbacks=[CommandHandler("cancel", handlers.cancel)],
+        allow_reentry=True
+
     )
 
     dp.add_handler(conv_handler)

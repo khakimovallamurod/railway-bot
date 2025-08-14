@@ -59,10 +59,12 @@ class RailwayDB:
             return True
         return False
     
-    def get_actives(self):
-
-        active_data = self.table.search(self.query.active == True)
-        return active_data
+    def get_actives(self, chat_id = None):
+        if chat_id == None:
+            return self.table.search(self.query.active == True)
+        return self.table.search(
+            (self.query.active == True) & (self.query.chat_id == chat_id)
+        )
     
     def add_admin(self, chat_id):
         chat_id = str(chat_id)

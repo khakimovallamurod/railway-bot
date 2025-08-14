@@ -675,6 +675,45 @@
                 "BUXORO"
             ],
             "total_free_seats": 0
+        },
+        "102131037032660461343530146555063442024062": {
+            "chat_id": 1383186462,
+            "signal_text": "710\u0424",
+            "date": "2025-08-24",
+            "comment": "test",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "713611750623753214401733102602372560441272": {
+            "chat_id": 1383186462,
+            "signal_text": "768\u0424",
+            "date": "2025-08-25",
+            "comment": "test2",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "3271314333056435052377756265205302435321075": {
+            "chat_id": 1383186462,
+            "signal_text": "710\u0424",
+            "date": "2025-08-25",
+            "comment": "test3",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
         }
     }
 }
