@@ -69,7 +69,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-09",
-            "comment": "TT4655077 FUKUSHIMA  DAISUKE M 08.11.1986 JAPAN",
+            "comment": "TT4655077  FUKUSHIMA   DAISUKE  M  08.11.1986  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -84,12 +84,12 @@
             "date": "2025-09-10",
             "comment": ".",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
             ],
-            "total_free_seats": 0
+            "total_free_seats": 3
         },
         "1275067565417031312044037751715403132753473": {
             "chat_id": 482739646,
@@ -97,7 +97,7 @@
             "date": "2025-09-06",
             "comment": ". \nTT2966014 NEMOTO CHIERI F 23.04.1999 JAPAN\nMJ2051220 NOGUCHI YOKO F 13.11.1944 JAPAN\nTS3975562 KATSUMURA TAKAKO F 22.07.1973 JAPAN\nTR7427574 KOMATSU KEIKO F 24.05.1953 JAPAN\nTS5020511 TAKEUCHI KUNIKO F 18.08.1948 JAPAN\nTS5020512 MIKI YOSHIE F 27.09.1967 JAPAN \nAD4355624 RADJAPOV FAXRIDDIN M 14.03.1995 Uzbekistan",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -108,7 +108,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-06",
-            "comment": "TR7427574  KOMATSU  KEIKO  F  24.05.1953\nTS5020511  TAKEUCHI  KUNIKO  F  18.08.1948\nTS5020512  MIKI  YOSHIE  F  27.09.1967\nAD4355624  RADJAPOV  FAXRIDDIN  M  14.03.1995",
+            "comment": ". \nAD4355624  RADJAPOV  FAXRIDDIN  M  14.03.1995  Uzbekistan\nTR7427574  KOMATSU  KEIKO  F  24.05.1953  JAPAN\nTS5020511  TAKEUCHI  KUNIKO  F  18.08.1948  JAPAN\nTS5020512  MIKI  YOSHIE  F  27.09.1967  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -225,7 +225,7 @@
             "chat_id": -1002699830671,
             "signal_text": "768\u0424",
             "date": "2025-09-13",
-            "comment": ". \nTT2169416  HAYASHI  KANAE  F  29.09.1980  JAPAN\nTT2169417  HAYASHI  SEITARO  M  29.05.2009  JAPAN",
+            "comment": ". \nAD6268034  ABDURASHIDOV  DAVLATSHOX  M  15.07.1995  Uzbekistan\nTT2415789  INO  NORIKO  F  26.02.1970  JAPAN\nTT3285965  INO  JUNYA  M  24.06.1966  JAPAN\nTT1254785  INO  TAKUMA  M  11.11.2005  JAPAN\nTS4285652  TAKEISHI  YUMIKO  F  19.01.1998  JAPAN\nTT4157485  NAKAGAWA  YUKAKO  F  13.05.1997  JAPAN\nAC0809058  MAMAEV  AZIZBEK  M  04.08.1993  Uzbekistan\nTS0145651  MABU  KEIKO  F  18.02.1963  JAPAN\nTS0145650  MABU  ATSUSHI  M  22.07.1958  JAPAN\nTT3529458  KOMINE  KYOKO  F  13.10.1970  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -251,9 +251,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-15",
-            "comment": ". \nTT1843481 ISHIKAWA HIKARI F 20.02.2007 JAPAN\nTT4559882 TOKITA MAKIKO F 12.03.1975 JAPAN\nTT1123369 FUKUSHIMA KIYOMI F 04.02.1953 JAPAN",
+            "comment": ". \nTT1123369 FUKUSHIMA KIYOMI F 04.02.1953 JAPAN\nTS1178323 SUZUKI  YUKIO M 22.12.1948 JAPAN\nTT4210198 SUZUKI  YUMIKO F 09.08.1955 JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -266,12 +266,12 @@
             "date": "2025-09-10",
             "comment": "25242",
             "class_name": "ALL",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
             ],
-            "total_free_seats": 0
+            "total_free_seats": 220
         },
         "1112147503400675724163154160235116747077714": {
             "chat_id": 482739646,
@@ -329,7 +329,7 @@
             "chat_id": -1002699830671,
             "signal_text": "769\u0424",
             "date": "2025-09-15",
-            "comment": ". \nTT3680539 ANZAI SHINGO M 26.10.1977 JAPAN\nTM0469023 IWASAKI KIYOMI F 15.06.1960 JAPAN\nTS1890157 YOSHIDA HIROATSU M 11.04.1958 JAPAN\nTT3760237 NOGUCHI AZUMI F 30.08.1991 JAPAN\nTT5001505 UMINO TOSHIMI F 12.01.1977 JAPAN",
+            "comment": ". \nTT3680539 ANZAI SHINGO M 26.10.1977 JAPAN\nTM0469023 IWASAKI KIYOMI F 15.06.1960 JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -342,7 +342,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-16",
-            "comment": ". \nTR5223919 FURUBAYASHI MIE F 05.05.1964 JAPAN\nTR5223920 FURUBAYASHI SADAHIKO M 21.11.1958 JAPAN\nTR7483747 YOSHIOKA MITSUYOSHI M 17.04.1947 JAPAN\nTS0394049 NAKAMURA ATSUKO F 08.01.1956 JAPAN\nTR9642975 FUJII KAZUHISA M 14.05.1947 JAPAN\nMJ3137802 FUJII HIROKO F 12.09.1948 JAPAN\nTT5667655 HIROTA KAZUNORI M 24.07.1949 JAPAN\nTM0443137 NORIMUNE MAKI F 01.09.1993 JAPAN\nTS3066484 KATANODA KAYOKO F 23.01.1954 JAPAN\nTS2973759 MISAKI ATSUKO F 14.08.1954 JAPAN\nTR8064166 SATO KIYOSHI M 24.01.1958 JAPAN\nTR7989816 SATO HIROKO F 21.01.1957 JAPAN",
+            "comment": ". \nTS0394049 NAKAMURA ATSUKO F 08.01.1956 JAPAN\nTR9642975 FUJII KAZUHISA M 14.05.1947 JAPAN\nMJ3137802 FUJII HIROKO F 12.09.1948 JAPAN\nTT5667655 HIROTA KAZUNORI M 24.07.1949 JAPAN\nTM0443137 NORIMUNE MAKI F 01.09.1993 JAPAN\nTS2822315 FUJIYAMA TOMOMI F 16.02.1998 JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -381,7 +381,7 @@
             "chat_id": -1002699830671,
             "signal_text": "769\u0424",
             "date": "2025-09-22",
-            "comment": ". \nAB6291271 VAFOEV NABIJON M 09.10.2000 Uzbekistan\nTT4324967 TANAKA MINORI F 16.08.1970 JAPAN\nTT7349243 YAMAZAKI KEIJU M 16.05.1981 JAPAN\nTT3244701 YAMAZAKI HIROSHI M 04.06.1952 JAPAN\nTT3244712 YAMAZAKI CHISATO F 30.03.1955 JAPAN\nTR8207863 URATA EMI F 23.08.1976 JAPAN\nTM0461383 TAKAHASHI CHIAKI F 22.07.1976 JAPAN\nTR8297707 SENZAKI MASAO M 05.04.1950 JAPAN\nTS3500779 SENZAKI SUMIKO F 08.02.1954 JAPAN\nTT4942541 UETA MAHO F 04.04.1982 JAPAN\nTT4546280 OHNO SATOMI F 28.03.1979 JAPAN\nTT2778157 KOTA HIROMICHI M 07.08.1954 JAPAN\nTM0115883 KOTA KYOKO F 31.03.1954 JAPAN\nTS2205873 MAKITA MINORU M 13.05.1975 JAPAN\nTS2205872 MAKITA JUNKO F 23.03.1973 JAPAN",
+            "comment": ". \nTT3244701  YAMAZAKI  HIROSHI  M  04.06.1952  JAPAN\nTT3244712  YAMAZAKI  CHISATO  F  30.03.1955  JAPAN\nTR8207863  URATA  EMI  F  23.08.1976  JAPAN\nTM0461383  TAKAHASHI  CHIAKI  F  22.07.1976  JAPAN\nTR8297707  SENZAKI  MASAO  M  05.04.1950  JAPAN\nTS3500779  SENZAKI  SUMIKO  F  08.02.1954  JAPAN\nTT4942541  UETA  MAHO  F  04.04.1982  JAPAN\nTT2778157  KOTA  HIROMICHI  M  07.08.1954  JAPAN\nTM0115883  KOTA  KYOKO  F  31.03.1954  JAPAN\nTS2205873  MAKITA  MINORU  M  13.05.1975  JAPAN\nTS2205872  MAKITA  JUNKO  F  23.03.1973  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -394,7 +394,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-13",
-            "comment": "AD6268034  ABDURASHIDOV  DAVLATSHOX  M  15.07.1995\nTT2415789  INO  NORIKO  F  26.02.1970\nTT3285965  INO  JUNYA  M  24.06.1966\nTT1254785  INO  TAKUMA  M  11.11.2005\nTS4285652  TAKEISHI  YUMIKO  F  19.01.1998\nTT4157485  NAKAGAWA  YUKAKO  F  13.05.1997\nAC0809058  MAMAEV  AZIZBEK  M  04.08.1993\nTS0145651  MABU  KEIKO  F  18.02.1963\nTS0145650  MABU  ATSUSHI  M  22.07.1958",
+            "comment": ". \nAD6268034  ABDURASHIDOV  DAVLATSHOX  M  15.07.1995  Uzbekistan\nTT2415789  INO  NORIKO  F  26.02.1970  JAPAN\nTT3285965  INO  JUNYA  M  24.06.1966  JAPAN\nTT1254785  INO  TAKUMA  M  11.11.2005  JAPAN\nTS4285652  TAKEISHI  YUMIKO  F  19.01.1998  JAPAN\nTT4157485  NAKAGAWA  YUKAKO  F  13.05.1997  JAPAN\nAC0809058  MAMAEV  AZIZBEK  M  04.08.1993  Uzbekistan\nTS0145651  MABU  KEIKO  F  18.02.1963  JAPAN\nTS0145650  MABU  ATSUSHI  M  22.07.1958  JAPAN\nTT2584652  HITOMI  SATOMI  F  13.01.1961  JAPAN\nTT3529458  KOMINE  KYOKO  F  13.10.1970  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -407,7 +407,7 @@
             "chat_id": -1002699830671,
             "signal_text": "767\u0424",
             "date": "2025-09-20",
-            "comment": "AD4048896 BAXROMOVA NAZOKAT F 06.01.1993 Uzbekistan",
+            "comment": ". \nTT6939053  SAKAMA  HARUKA  F  18.05.1999  JAPAN\nTT6939052  SAKAMA  MAMI  F  24.11.1969  JAPAN\nTT6011975  ISHII  KUMIKO  F  07.08.1958  JAPAN\nTR9667299  NARUSE  MIHO  F  09.09.1958  JAPAN\nTT5219269  IWAKI  SEIYA  M  25.12.1980  JAPAN\nTR9367372  YAMAMOTO  ENA  F  28.05.1983  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -420,7 +420,7 @@
             "chat_id": -1002699830671,
             "signal_text": "767\u0424",
             "date": "2025-09-22",
-            "comment": ". \nAB6291271 VAFOEV NABIJON M 09.10.2000 Uzbekistan\nTT4324967 TANAKA MINORI F 16.08.1970 JAPAN\nTT7349243 YAMAZAKI KEIJU M 16.05.1981 JAPAN\nTT3244701 YAMAZAKI HIROSHI M 04.06.1952 JAPAN\nTT3244712 YAMAZAKI CHISATO F 30.03.1955 JAPAN\nTR8207863 URATA EMI F 23.08.1976 JAPAN\nTM0461383 TAKAHASHI CHIAKI F 22.07.1976 JAPAN\nTR8297707 SENZAKI MASAO M 05.04.1950 JAPAN\nTS3500779 SENZAKI SUMIKO F 08.02.1954 JAPAN\nTT4942541 UETA MAHO F 04.04.1982 JAPAN\nTT4546280 OHNO SATOMI F 28.03.1979 JAPAN\nTT2778157 KOTA HIROMICHI M 07.08.1954 JAPAN\nTM0115883 KOTA KYOKO F 31.03.1954 JAPAN\nTS2205873 MAKITA MINORU M 13.05.1975 JAPAN\nTS2205872 MAKITA JUNKO F 23.03.1973 JAPAN",
+            "comment": ". \nTM0461383  TAKAHASHI  CHIAKI  F  22.07.1976  JAPAN\nTR8297707  SENZAKI  MASAO  M  05.04.1950  JAPAN\nTS3500779  SENZAKI  SUMIKO  F  08.02.1954  JAPAN\nTT4942541  UETA  MAHO  F  04.04.1982  JAPAN\nTT4546280  OHNO  SATOMI  F  28.03.1979  JAPAN\nTT2778157  KOTA  HIROMICHI  M  07.08.1954  JAPAN\nTM0115883  KOTA  KYOKO  F  31.03.1954  JAPAN\nTS2205873  MAKITA  MINORU  M  13.05.1975  JAPAN\nTS2205872  MAKITA  JUNKO  F  23.03.1973  JAPAN \nAB6291271  VAFOEV  NABIJON  M  09.10.2000  Uzbekistan",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -524,7 +524,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-08",
-            "comment": ". \nTS4875163  MATSUZAKI  AYANO  F  28.08.1976  JAPAN\nTR8956747  KUROSU   MASAMI  F  09.04.1961  JAPAN",
+            "comment": "TS4875163  MATSUZAKI  AYANO  F  28.08.1976\nTR8956747  KUROSU   MASAMI  F  09.04.1961\nTR3317849  KOBAYASHI  AI  F  11.12.1989\nTS3937280  SHIN   HIROAKI  M  24.04.1968",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -539,7 +539,7 @@
             "date": "2025-09-21",
             "comment": "TT6960839 KAWAI MAYA F 10.02.1992 JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -550,7 +550,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-23",
-            "comment": "TT6382288 HIROHATA  NAGISA F 20.07.2000 JAPAN",
+            "comment": "TT6382288  HIROHATA   NAGISA  F  20.07.2000  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -563,7 +563,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-27",
-            "comment": "TS1913633 KOJIMA MIEKO F 29.03.1956 JAPAN",
+            "comment": ". \nTR9907372  KOMEIJI  KAZUKO  F  23.11.1951  JAPAN\nTT7950690  SERIZAMA  SUMIE  F  06.09.1954  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -604,7 +604,7 @@
             "date": "2025-09-30",
             "comment": ". \nAD3848052 DONIYOROV NODIRJON M 19.11.1990 Uzbekistan\nTM0890899 FURUYA SAORI F 13.07.1990 JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -615,7 +615,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-29",
-            "comment": ". \nTS2973603 OTOMO AKANE F 27.12.1963 JAPAN\nTS0080327 MATSUMOTO YUKA F 11.11.1971 JAPAN\nTS0080328 KOBAYASHI YUKI F 18.08.1967 JAPAN\nTM0544570 OKAKI SAYURI F 20.03.1986 JAPAN\nTS1692361 SHIMA  YOSHIAKI M 04.12.1950 JAPAN",
+            "comment": ". \nTS0080327  MATSUMOTO  YUKA  F  11.11.1971  JAPAN\nTS0080328  KOBAYASHI  YUKI  F  18.08.1967  JAPAN\nTM0544570  OKAKI  SAYURI  F  20.03.1986  JAPAN\nTS1692361  SHIMA   YOSHIAKI  M  04.12.1950  JAPAN\nTR3938449  MURAKAMI  YUKIE  F  28.05.1961  JAPAN\nTR8938451  MURAKAMI  KAZUNORI  M  21.09.1957  JAPAN\nTR6677351  TAKAHASHI  TASUKA  M  11.06.1957  JAPAN\nTR6677352  TAKAHASHI  RYOKO  F  11.06.1957  JAPAN\nTS0846649  INOUE  KAZUSHIGE  M  16.06.1956  JAPAN\nTS3480896  INOUE  JUNKO  F  23.08.1957  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -676,42 +676,68 @@
             ],
             "total_free_seats": 0
         },
-        "102131037032660461343530146555063442024062": {
-            "chat_id": 1383186462,
-            "signal_text": "710\u0424",
-            "date": "2025-08-24",
-            "comment": "test",
+        "1743146156142462444151611141431473043223730": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-09-11",
+            "comment": ". \nTT4655077  FUKUSHIMA   DAISUKE  M  08.11.1986  JAPAN \nTT1379256  TAKADA  KUNIYOSHI  M  16.06.1969  JAPAN",
             "class_name": "Econom",
-            "active": false,
+            "active": true,
             "route": [
-                "TOSHKENT",
-                "SAMARQAND"
+                "SAMARQAND",
+                "TOSHKENT"
             ],
             "total_free_seats": 0
         },
-        "713611750623753214401733102602372560441272": {
-            "chat_id": 1383186462,
+        "766677304134662450562022734023426375663503": {
+            "chat_id": -1002699830671,
             "signal_text": "768\u0424",
-            "date": "2025-08-25",
-            "comment": "test2",
-            "class_name": "Econom",
-            "active": false,
-            "route": [
-                "TOSHKENT",
-                "SAMARQAND"
-            ],
-            "total_free_seats": 0
-        },
-        "3271314333056435052377756265205302435321075": {
-            "chat_id": 1383186462,
-            "signal_text": "710\u0424",
-            "date": "2025-08-25",
-            "comment": "test3",
+            "date": "2025-09-16",
+            "comment": ". \nMJ3355824  YAKABE  TAMAYO  F  06.12.1956  JAPAN\nTS5250966  EJIMA  SUZUE  F  22.06.1957  JAPAN\nTR4230870  HAYAKAWA  KYOKO  F  04.02.1956  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
                 "TOSHKENT",
-                "SAMARQAND"
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1016454610557406326265734335433437176763661": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-22",
+            "comment": ". \nTS2973603  OTOMO  AKANE  F  27.12.1963  JAPAN\nTS501 8988  ISOKAWA  HIROKAZU  M  09.02.1965  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3777636150702454443104163276717410606515735": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-30",
+            "comment": ". \nAD3848052  DONIYOROV  NODIRJON  M  19.11.1990  Uzbekistan\nTM0890899  FURUYA  SAORI  F  13.07.1990  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2413046322435721717464300747514036113574014": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-07",
+            "comment": ". \nTT4539024  SHIMIZU  AZUSA  F  20.04.1989  JAPAN\nTT1205167  HIRAO  YUI  F  07.09.1999  JAPAN\nTT4662562  TAKEUCHI  KUMIKO  F  14.09.1985  JAPAN\nTT4088977  OZONE  SACHIKO  F  10.10.1957  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
             ],
             "total_free_seats": 0
         }
