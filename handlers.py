@@ -5,7 +5,19 @@ import keyboards
 import asyncio
 import db
 import random
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from zoneinfo import ZoneInfo
+from datetime import datetime
 
+TASHKENT_TZ = ZoneInfo("Asia/Tashkent")
+scheduler = AsyncIOScheduler(
+    timezone=TASHKENT_TZ,
+    job_defaults={
+        "coalesce": True,          
+        "max_instances": 1,        
+        "misfire_grace_time": 5, 
+    },
+)
 
 USER_IDS = ['6889331565', '608913545', '1383186462']
 
@@ -89,14 +101,12 @@ async def get_from_city(update: Update, context: CallbackContext):
             text="FROM:",
             reply_markup=keyboards.get_viloyats()
         )
-
     else:
         msg = await context.bot.send_message(
             chat_id=update.message.chat_id,
             text="FROM:",
             reply_markup=keyboards.get_viloyats()
         )
-
     context.user_data["last_message"] = msg.message_id
     return FROM_CITY
 
@@ -137,7 +147,7 @@ async def to_city_selected(update: Update, context: CallbackContext):
     query = update.callback_query
     await query.answer()
     context.user_data['to_city'] = query.data
-    await query.message.delete()
+    
     await query.message.reply_text("📅 Sanani kiriting ushbu formatda (Year-Month-Day)!")
     return DATE
 
@@ -216,9 +226,11 @@ async def add_comment_signal(update: Update, context: CallbackContext):
     comment = context.user_data['comment']
     date = date.split('-')
     date = '-'.join([f'{int(item):02d}' for item in date])
+
     await update.message.reply_text(
         f"🚆 {train_number} kuzatuv boshlandi!\n\nHar 2 daqiqada yangilanadi.",
     )
+
     from_city, from_city_code = context.user_data['from_city'].split(':')
     to_city, to_city_code = context.user_data['to_city'].split(':')
     add_for_data = {
@@ -236,44 +248,45 @@ async def add_comment_signal(update: Update, context: CallbackContext):
     }
     obj = db.RailwayDB()
     obj.data_insert(data=add_for_data)
+
     job_name = f"signal_{chat_id}_{train_number}_{date}"
-    existing_jobs = context.application.job_queue.get_jobs_by_name(job_name)
-    interval_num = random.randint(100, 130)
-    if not existing_jobs:
-        job_queue = context.application.job_queue
-        job_queue.run_repeating(
-            send_signal_job, interval=interval_num, first=0, name=job_name,
-            data={
+    interval_num = random.randint(120, 150)
+
+    if scheduler.get_job(job_name):
+        scheduler.remove_job(job_name)
+    scheduler.add_job(
+        send_signal_job,
+        "interval",
+        seconds=interval_num,
+        id=job_name,
+        kwargs={
+            "bot": context.bot,
+            "data": {
                 "chat_id": chat_id,
                 "signal": train_number,
-                "from_city": context.user_data['from_city'].split(':')[1],
-                "to_city": context.user_data['to_city'].split(':')[1],
-                "date": context.user_data['date'],
+                "from_city": from_city_code,
+                "to_city": to_city_code,
+                "date": date,
                 "class_name": select_type,
-                "comment": comment
+                "comment": comment,
             }
-        )
+        }
+    )
     return ConversationHandler.END
 
-async def send_signal_job(context: CallbackContext):
+async def send_signal_job(bot, data: dict):
     """🚆 Rejalashtirilgan signal xabari (har bir poyezd uchun alohida)"""
-    job = context.job  
-    if job is None or "chat_id" not in job.data:
-        return
+    chat_id = data["chat_id"]
+    signal_text = data.get("signal", "Noma’lum")
+    date = data.get("date", None)
+    date = "-".join([f'{int(item):02d}' for item in date.split('-')])
+    stationFrom = data.get("from_city", None)
+    stationTo = data.get("to_city", None)
+    signal_comment = data.get("comment")
+    select_type = data.get('class_name')
 
-    chat_id = job.data["chat_id"]
-    signal_text = job.data.get("signal", "Noma’lum") 
-    date = job.data.get("date", None)
-    date = date.split('-')
-    date = '-'.join([f'{int(item):02d}' for item in date])
-
-    stationFrom = job.data.get("from_city", None)
-    stationTo = job.data.get("to_city", None)
-    signal_comment = job.data.get("comment")
-    select_type = job.data.get('class_name')
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
     freeSeats_data, freeSeats = await railway_all_data.get_need_data(type=select_type)
-
     try:
         results_signal_text = f"🚆 Poyezd {signal_text} uchun joylar tekshirilmoqda...\n"
         count_free_seats = 0
@@ -281,18 +294,22 @@ async def send_signal_job(context: CallbackContext):
             route = row[-1]
             total_free_seats = int(row[-2])
             poyezd_licanse = row[0]
-            
+
             if poyezd_licanse == signal_text:
-               
                 route_key = ''.join([word[0] for word in route]).lower()
-                results_signal_text = f"{route[0]} - {route[1]}\nSana: {date}\nPoyezd number: {signal_text}\nClass: {select_type}\nBo'sh o'rinlar soni: {total_free_seats}\nComment: {signal_comment}"
+                results_signal_text = (
+                    f"🚆 {route[0]} - {route[1]}\n📅 Sana: {date}\n"
+                    f"🚂 Poyezd number: {signal_text}\nClass: {select_type}\n"
+                    f"💺 Bo'sh o'rinlar soni: {total_free_seats}\n💬 Comment: {signal_comment}"
+                )
                 count_free_seats = total_free_seats
+
         obj = db.RailwayDB()
         reply_markup = keyboards.signal_keyboard(signal_text, date=date, route_key=route_key)
         if count_free_seats != 0:
-            await context.bot.send_message(chat_id=chat_id, 
-                                        text=f"Signal: {results_signal_text}", 
-                                        reply_markup=reply_markup)
+            await bot.send_message(chat_id=chat_id,
+                                   text=f"📡 Signal: {results_signal_text}",
+                                   reply_markup=reply_markup)
     except Exception as e:
         obj = db.RailwayDB()
         if obj.check_date(sana_str=date):
@@ -314,7 +331,6 @@ async def send_signal_job(context: CallbackContext):
                 '2901900': 'Pop',
                 '2902200': 'Namangan'
             }
-            job_name = context.job.name  
             obj = db.RailwayDB()
             if stationFrom and stationTo:
                 route_key = f"{stations[stationFrom][0]}{stations[stationTo][0]}".lower()
@@ -322,16 +338,14 @@ async def send_signal_job(context: CallbackContext):
                 obj.update_signal(doc_id=doc_id)
                 results_signal_text = f"{stations[stationFrom].upper()} - {stations[stationTo].upper()}\nSana: {date}\nPoyezd number: {signal_text}"
 
-                current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
-                if current_jobs:
-                    await context.bot.send_message(
+                job_id = f"signal_{chat_id}_{signal_text}_{date}"
+                if scheduler.get_job(job_id):
+                    scheduler.remove_job(job_id)
+                    await bot.send_message(
                         chat_id=chat_id,
-                        text=f"🚫 {results_signal_text} kuzatuvi avtomatik to‘xtatildi.\nSabab: Ma'lumot topilmadi!"
+                        text=f"🚫 Kuzatuv to‘xtatildi.\nSabab: Ma'lumot topilmadi!"
                     )
-                    for job in current_jobs:
-                            job.schedule_removal() 
-                    await asyncio.sleep(1)
-            print(e)
+                    print(e)
 
 async def stop_signal(update: Update, context: CallbackContext):
     """🚫 Signalni to‘xtatish (InlineKeyboardMarkup orqali)"""
@@ -349,22 +363,19 @@ async def stop_signal(update: Update, context: CallbackContext):
     obj = db.RailwayDB()
     doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     signal_datas = obj.get_signal_data(doc_id=doc_id)
-    results_signal_text = f"{signal_datas['route'][0]} - {signal_datas['route'][1]}\nSana: {date}\nPoyezd number: {train_number}\nBo'sh o'rinlar soni: {signal_datas['total_free_seats']}\nComment: {signal_datas['comment']}"
-    current_jobs = context.application.job_queue.get_jobs_by_name(job_name)
+    results_signal_text = f"🚆 {signal_datas['route'][0]} - {signal_datas['route'][1]}\n📅 Sana: {date}\n🚂 Poyezd number: {train_number}\n💺 Bo'sh o'rinlar soni: {signal_datas['total_free_seats']}\n💬 Comment: {signal_datas['comment']}"
+    job = scheduler.get_job(job_name) 
     active = signal_datas['active']
-    if current_jobs:
+    if job:
         if active:
-            obj.update_signal(doc_id=doc_id)
+            obj.update_signal(doc_id=doc_id)  
+            scheduler.remove_job(job_name)   
             await query.message.reply_text(f"🚫 {train_number} kuzatuvi to‘xtatildi.\n{results_signal_text}")
-            for job in current_jobs:
-                job.schedule_removal() 
-                await asyncio.sleep(1)
         else:
             await query.message.reply_text(f"🚫 {train_number} kuzatuv allaqachon to'xtatilgan!")
-        await asyncio.sleep(1)  
+        await asyncio.sleep(1)
     else:
         await query.message.reply_text("⚠ Hech qanday aktiv kuzatuv topilmadi.")
-
 
 async def cancel(update: Update, context: CallbackContext):
     await update.message.reply_text('Amalyot bajarilmadi!')
@@ -384,10 +395,10 @@ async def view_actives(update: Update, context: CallbackContext):
             date = act_data['date']
             signal_comment = act_data['comment']
             results_signal_text = (
-                f"{act_data['route'][0]} - {act_data['route'][1]}\n"
-                f"Sana: {date}\n"
-                f"Poyezd number: {train_number}\n"
-                f"Bo'sh o'rinlar soni: {act_data['total_free_seats']}\nComment: {signal_comment}"
+                f"🚆 {act_data['route'][0]} - {act_data['route'][1]}\n"
+                f"📅 Sana: {date}\n"
+                f"🚂 Poyezd number: {train_number}\n"
+                f"💺 Bo'sh o'rinlar soni: {act_data['total_free_seats']}\n💬 Comment: {signal_comment}"
             )
             route_key = ''.join([word[0] for word in ' '.join(act_data['route']).split()]).lower()
             reply_markup = keyboards.signal_keyboard(train_number=train_number, date=date, route_key=route_key)
@@ -406,16 +417,16 @@ async def restart_active_signals(application):
     railway_obj = db.RailwayDB()
     actives_data = railway_obj.get_actives()
 
-    job_queue = application.job_queue
     if not actives_data:
         print("⏳ Hech qanday aktiv signal topilmadi.")
         return
+
     stations = {
         "Toshkent": "2900000",
         "Samarqand": "2900700",
         "Buxoro": "2900800",
         "Xiva": "2903200",
-        "Urganch": "2900790",#
+        "Urganch": "2900790",
         "Nukus": "2903000",
         "Navoiy": "2900900",
         "Andijon": "2902300",
@@ -424,43 +435,47 @@ async def restart_active_signals(application):
         "Termiz": "2901500",
         "Guliston": "2900200",
         "Qo'qon": "2902000",
-        "Margilon": "2900920",#
+        "Margilon": "2900920",
         "Pop": "2901900",
         "Namangan": "2902200",
     }
-    i = 0
+    today = datetime.now().date() 
     for act_data in actives_data:
-        i += 1
+        job_date = datetime.strptime(act_data['date'], "%Y-%m-%d").date()
+        
         chat_id = act_data['chat_id']
         train_number = act_data['signal_text']
         date = act_data['date']
         route = act_data['route']
         from_city = route[0].capitalize()
         from_city_code = stations.get(from_city, None)
-
         to_city = route[1].capitalize()
         to_city_code = stations.get(to_city, None)
-        if to_city_code is None or from_city_code is None:
-            continue
         select_type = act_data.get('class_name', 'Noma’lum')
         comment = act_data.get('comment', '')
 
         job_name = f"signal_{chat_id}_{train_number}_{date}"
-        current_jobs = application.job_queue.get_jobs_by_name(job_name)
-        if current_jobs:
+        if scheduler.get_job(job_name) or job_date < today:
             continue
-        interval_num = random.randint(100, 130)
-        job_queue.run_repeating(
-            send_signal_job, interval=interval_num, first=5, name=job_name,
-            data={
-                "chat_id": chat_id,
-                "signal": train_number,
-                "from_city": stations[from_city],
-                "to_city": stations[to_city],
-                "date": date,
-                "class_name": select_type,
-                "comment": comment
+
+        interval_num = random.randint(120, 150)
+
+        scheduler.add_job(
+            send_signal_job,
+            "interval",
+            seconds=interval_num,
+            id=job_name,
+            kwargs={
+                "bot": application.bot,
+                "data": {
+                    "chat_id": chat_id,
+                    "signal": train_number,
+                    "from_city": from_city_code,
+                    "to_city": to_city_code,
+                    "date": date,
+                    "class_name": select_type,
+                    "comment": comment,
+                }
             }
         )
-
 
