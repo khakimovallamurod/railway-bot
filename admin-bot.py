@@ -41,7 +41,16 @@ def main():
         allow_reentry=True
 
     )
+    edit_comment_conv = ConversationHandler(
+        entry_points=[CallbackQueryHandler(handlers.ask_new_comment, pattern='edit_comment')],
+        states={
+            handlers.EDIT_COMMENT: [MessageHandler(filters.TEXT & ~filters.COMMAND, handlers.save_new_comment)]
+        },
+        fallbacks=[CommandHandler("cancel", handlers.cancel)],
+        allow_reentry=True
+    )
 
+    dp.add_handler(edit_comment_conv)
     dp.add_handler(conv_handler)
     dp.add_handler(admin_handler)
     dp.add_handler(CommandHandler('viewactives', handlers.view_actives))

@@ -33,6 +33,7 @@ def check_user(chat_id):
 
 FROM_CITY, TO_CITY, DATE,SELECT, SIGNAL, ADD_COMMENT = range(6)
 ID_START = range(1)
+EDIT_COMMENT = range(1)
 
 async def start(update: Update, context: CallbackContext):
     user = update.message.chat
@@ -479,3 +480,75 @@ async def restart_active_signals(application):
             }
         )
 
+
+async def ask_new_comment(update: Update, context: CallbackContext):
+    query = update.callback_query
+    await query.answer()
+    
+    context.user_data["edit_message_id"] = query.message.message_id
+    context.user_data["edit_keyboard"] = query.message.reply_markup
+    context.user_data['query_data'] = query.data
+    prompt_message = await query.message.reply_text("✍️ Yangi comment kiriting:")
+    context.user_data['prompt_message_id'] = prompt_message.message_id
+    context.user_data['prompt_chat_id'] = prompt_message.chat.id
+
+    return EDIT_COMMENT
+
+async def save_new_comment(update: Update, context: CallbackContext):
+    if "edit_message_id" not in context.user_data:
+        return
+
+    new_comment = update.message.text
+    chat_id = update.message.chat_id
+    message_id = context.user_data["edit_message_id"]
+
+    message = await context.bot.forward_message(
+        chat_id=chat_id,
+        from_chat_id=chat_id,
+        message_id=message_id
+    )
+    old_text = message.text
+    await message.delete()
+
+    idx = 0
+    lines = old_text.split("\n")
+    for index, line in enumerate(lines):
+        if line.startswith("💬 Comment:"):
+            idx = index
+            lines[index] = f"💬 Comment: {new_comment}"
+    new_text = "\n".join(lines[:idx+1])
+
+    query_data = context.user_data['query_data']
+    _, route_key, train_number, date = query_data.split(':')
+    obj = db.RailwayDB()
+    doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
+    update_com = obj.update_comment(doc_id=doc_id, new_comment=new_comment)
+    old_keyboard = context.user_data.get("edit_keyboard")
+
+    if update_com: 
+        await context.bot.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=new_text,
+            reply_markup=old_keyboard
+        )
+    else:
+        await context.bot.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=old_text,
+            reply_markup=old_keyboard
+        )
+
+    await context.bot.delete_message(
+        chat_id=context.user_data['prompt_chat_id'],
+        message_id=context.user_data['prompt_message_id']
+    )
+    await update.message.delete()
+    del context.user_data['prompt_message_id']
+    del context.user_data['prompt_chat_id']
+    del context.user_data["edit_message_id"]
+    del context.user_data["edit_keyboard"]
+    del context.user_data["query_data"]
+
+    return ConversationHandler.END
