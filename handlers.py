@@ -234,6 +234,10 @@ async def add_comment_signal(update: Update, context: CallbackContext):
 
     from_city, from_city_code = context.user_data['from_city'].split(':')
     to_city, to_city_code = context.user_data['to_city'].split(':')
+    route = [
+            from_city.upper(),
+            to_city.upper()
+        ]
     add_for_data = {
         "chat_id": chat_id,
         "signal_text": train_number,
@@ -241,10 +245,7 @@ async def add_comment_signal(update: Update, context: CallbackContext):
         "comment": comment,
         "class_name": select_type,
         "active": True,
-        "route": [
-            from_city.upper(),
-            to_city.upper()
-        ],
+        "route": route,
         "total_free_seats": 0
     }
     obj = db.RailwayDB()
@@ -252,9 +253,11 @@ async def add_comment_signal(update: Update, context: CallbackContext):
 
     job_name = f"signal_{chat_id}_{train_number}_{date}"
     interval_num = random.randint(120, 150)
-
+    route_key = ''.join([word[0] for word in ' '.join(route).split()]).lower()
+    doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"
     if scheduler.get_job(job_name):
         scheduler.remove_job(job_name)
+    
     scheduler.add_job(
         send_signal_job,
         "interval",
@@ -263,13 +266,9 @@ async def add_comment_signal(update: Update, context: CallbackContext):
         kwargs={
             "bot": context.bot,
             "data": {
-                "chat_id": chat_id,
-                "signal": train_number,
-                "from_city": from_city_code,
-                "to_city": to_city_code,
-                "date": date,
-                "class_name": select_type,
-                "comment": comment,
+                'doc_id': doc_id,
+                'from_city': from_city_code,
+                'to_city': to_city_code
             }
         }
     )
@@ -277,14 +276,17 @@ async def add_comment_signal(update: Update, context: CallbackContext):
 
 async def send_signal_job(bot, data: dict):
     """🚆 Rejalashtirilgan signal xabari (har bir poyezd uchun alohida)"""
-    chat_id = data["chat_id"]
-    signal_text = data.get("signal", "Noma’lum")
-    date = data.get("date", None)
+    obj = db.RailwayDB()
+    doc_id = data['doc_id']
+    db_data = obj.get_signal_data(doc_id=doc_id)
+    chat_id = db_data["chat_id"]
+    signal_text = db_data.get("signal_text", "Noma’lum")
+    date = db_data.get("date", None)
     date = "-".join([f'{int(item):02d}' for item in date.split('-')])
     stationFrom = data.get("from_city", None)
     stationTo = data.get("to_city", None)
-    signal_comment = data.get("comment")
-    select_type = data.get('class_name')
+    signal_comment = db_data.get("comment")
+    select_type = db_data.get('class_name')
 
     railway_all_data = railway_datas.Railway(stationFrom=stationFrom, stationTo=stationTo, date=date)
     freeSeats_data, freeSeats = await railway_all_data.get_need_data(type=select_type)
@@ -452,15 +454,13 @@ async def restart_active_signals(application):
         from_city_code = stations.get(from_city, None)
         to_city = route[1].capitalize()
         to_city_code = stations.get(to_city, None)
-        select_type = act_data.get('class_name', 'Noma’lum')
-        comment = act_data.get('comment', '')
-
         job_name = f"signal_{chat_id}_{train_number}_{date}"
         if scheduler.get_job(job_name) or job_date < today:
             continue
 
         interval_num = random.randint(120, 150)
-
+        route_key = ''.join([word[0] for word in ' '.join(act_data['route']).split()]).lower()
+        doc_id = f"{chat_id}_{train_number}_{date}_{route_key}"        
         scheduler.add_job(
             send_signal_job,
             "interval",
@@ -469,17 +469,12 @@ async def restart_active_signals(application):
             kwargs={
                 "bot": application.bot,
                 "data": {
-                    "chat_id": chat_id,
-                    "signal": train_number,
-                    "from_city": from_city_code,
-                    "to_city": to_city_code,
-                    "date": date,
-                    "class_name": select_type,
-                    "comment": comment,
+                    'doc_id': doc_id,
+                    'from_city': from_city_code,
+                    'to_city': to_city_code
                 }
             }
         )
-
 
 async def ask_new_comment(update: Update, context: CallbackContext):
     query = update.callback_query
