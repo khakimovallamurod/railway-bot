@@ -71,7 +71,7 @@
             "date": "2025-09-09",
             "comment": "TT4655077  FUKUSHIMA   DAISUKE  M  08.11.1986  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -110,7 +110,7 @@
             "date": "2025-09-06",
             "comment": ". \nAD4355624  RADJAPOV  FAXRIDDIN  M  14.03.1995  Uzbekistan\nTR7427574  KOMATSU  KEIKO  F  24.05.1953  JAPAN\nTS5020511  TAKEUCHI  KUNIKO  F  18.08.1948  JAPAN\nTS5020512  MIKI  YOSHIE  F  27.09.1967  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -147,7 +147,7 @@
             "chat_id": 482739646,
             "signal_text": "710\u0424",
             "date": "2025-08-15",
-            "comment": "1",
+            "comment": "123",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -225,9 +225,9 @@
             "chat_id": -1002699830671,
             "signal_text": "768\u0424",
             "date": "2025-09-13",
-            "comment": ". \nAD6268034  ABDURASHIDOV  DAVLATSHOX  M  15.07.1995  Uzbekistan\nTT2415789  INO  NORIKO  F  26.02.1970  JAPAN\nTT3285965  INO  JUNYA  M  24.06.1966  JAPAN\nTT1254785  INO  TAKUMA  M  11.11.2005  JAPAN\nTS4285652  TAKEISHI  YUMIKO  F  19.01.1998  JAPAN\nTT4157485  NAKAGAWA  YUKAKO  F  13.05.1997  JAPAN\nAC0809058  MAMAEV  AZIZBEK  M  04.08.1993  Uzbekistan\nTS0145651  MABU  KEIKO  F  18.02.1963  JAPAN\nTS0145650  MABU  ATSUSHI  M  22.07.1958  JAPAN\nTT3529458  KOMINE  KYOKO  F  13.10.1970  JAPAN",
+            "comment": "TT3529458  KOMINE  KYOKO  F  13.10.1970  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -238,20 +238,20 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-14",
-            "comment": "test",
+            "comment": ". \nTT4350065\n  KITAURA  YOKO  F  26.06.1961  JAPAN\nTT4394989  KITAURA  NATSUHO  F  22.06.1991  JAPAN",
             "class_name": "Econom",
             "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
             ],
-            "total_free_seats": 21
+            "total_free_seats": 0
         },
         "2553134307426144632450020032444617722360626": {
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-15",
-            "comment": ". \nTT1123369 FUKUSHIMA KIYOMI F 04.02.1953 JAPAN\nTS1178323 SUZUKI  YUKIO M 22.12.1948 JAPAN\nTT4210198 SUZUKI  YUMIKO F 09.08.1955 JAPAN",
+            "comment": ". \nTT1843481 ISHIKAWA HIKARI F 20.02.2007 JAPAN\nTT4559882 TOKITA MAKIKO F 12.03.1975 JAPAN",
             "class_name": "Econom",
             "active": false,
             "route": [
@@ -277,9 +277,9 @@
             "chat_id": 482739646,
             "signal_text": "770\u0424",
             "date": "2025-09-16",
-            "comment": "\u0442\u0435\u0441\u0442",
+            "comment": "2 \u0431\u0438\u043b\u0435\u0442\u0430 \u0430\u0441\u0430\u043f",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -329,9 +329,9 @@
             "chat_id": -1002699830671,
             "signal_text": "769\u0424",
             "date": "2025-09-15",
-            "comment": ". \nTT3680539 ANZAI SHINGO M 26.10.1977 JAPAN\nTM0469023 IWASAKI KIYOMI F 15.06.1960 JAPAN",
+            "comment": ". \nTS1890157 YOSHIDA HIROATSU M 11.04.1958 JAPAN\nTT3760237 NOGUCHI AZUMI F 30.08.1991 JAPAN\nTT5001505 UMINO TOSHIMI F 12.01.1977 JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -342,9 +342,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-16",
-            "comment": ". \nTS0394049 NAKAMURA ATSUKO F 08.01.1956 JAPAN\nTR9642975 FUJII KAZUHISA M 14.05.1947 JAPAN\nMJ3137802 FUJII HIROKO F 12.09.1948 JAPAN\nTT5667655 HIROTA KAZUNORI M 24.07.1949 JAPAN\nTM0443137 NORIMUNE MAKI F 01.09.1993 JAPAN\nTS2822315 FUJIYAMA TOMOMI F 16.02.1998 JAPAN",
+            "comment": ". \nTS3066484  KATANODA  KAYOKO  F  23.01.1954  JAPAN\nAD5677042  AXMAROV  TO'LQIN  M  30.12.1992  Uzbekistan\nTT5935846  YAMADA  HIROKI  M  18.08.1963  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -355,7 +355,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-20",
-            "comment": ". \nTT4541730 KAWASAKI MACHI F 24.09.1963 JAPAN\nTS3143800 IKEDA YUMIKO F 01.10.1981 JAPAN\nTR9203813 KINOSE MIKI F 27.02.1976 JAPAN",
+            "comment": ".\nTT6476866  MIYAZAWA  YUMI  F  19.07.1968  JAPAN\nTR8273758  NAKAMURA  TERUKO  F  06.10.1951  JAPAN",
             "class_name": "Econom",
             "active": false,
             "route": [
@@ -370,7 +370,7 @@
             "date": "2025-09-13",
             "comment": ". \nTS4329646 KOBE JUNICHI M 14.11.1954 JAPAN\nTS3770463 HIROKAWA YUKA F 31.10.1985 JAPAN\nTT1674119 HOSOYA HIROMASA M 20.12.1963 JAPAN\nTT2169414 NARIU NAOMI F 22.11.1967 JAPAN\nTT2169415 HAYASHI KENTARO M 28.10.1980 JAPAN\nTT2169416 HAYASHI KANAE F 29.09.1980 JAPAN\nTT2169417 HAYASHI SEITARO M 29.05.2009 JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "\u0422\u0430\u0448\u043a\u0435\u043d\u0442-\u041f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0441\u043a\u0438\u0439",
                 "\u0411\u0443\u0445\u0430\u0440\u0430"
@@ -383,7 +383,7 @@
             "date": "2025-09-22",
             "comment": ". \nTT3244701  YAMAZAKI  HIROSHI  M  04.06.1952  JAPAN\nTT3244712  YAMAZAKI  CHISATO  F  30.03.1955  JAPAN\nTR8207863  URATA  EMI  F  23.08.1976  JAPAN\nTM0461383  TAKAHASHI  CHIAKI  F  22.07.1976  JAPAN\nTR8297707  SENZAKI  MASAO  M  05.04.1950  JAPAN\nTS3500779  SENZAKI  SUMIKO  F  08.02.1954  JAPAN\nTT4942541  UETA  MAHO  F  04.04.1982  JAPAN\nTT2778157  KOTA  HIROMICHI  M  07.08.1954  JAPAN\nTM0115883  KOTA  KYOKO  F  31.03.1954  JAPAN\nTS2205873  MAKITA  MINORU  M  13.05.1975  JAPAN\nTS2205872  MAKITA  JUNKO  F  23.03.1973  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -394,9 +394,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-13",
-            "comment": ". \nAD6268034  ABDURASHIDOV  DAVLATSHOX  M  15.07.1995  Uzbekistan\nTT2415789  INO  NORIKO  F  26.02.1970  JAPAN\nTT3285965  INO  JUNYA  M  24.06.1966  JAPAN\nTT1254785  INO  TAKUMA  M  11.11.2005  JAPAN\nTS4285652  TAKEISHI  YUMIKO  F  19.01.1998  JAPAN\nTT4157485  NAKAGAWA  YUKAKO  F  13.05.1997  JAPAN\nAC0809058  MAMAEV  AZIZBEK  M  04.08.1993  Uzbekistan\nTS0145651  MABU  KEIKO  F  18.02.1963  JAPAN\nTS0145650  MABU  ATSUSHI  M  22.07.1958  JAPAN\nTT2584652  HITOMI  SATOMI  F  13.01.1961  JAPAN\nTT3529458  KOMINE  KYOKO  F  13.10.1970  JAPAN",
+            "comment": "TAKEISHI\u00a0 YUMIKO\u00a0 F\u00a0 19.01.1998\u00a0 JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -409,7 +409,7 @@
             "date": "2025-09-20",
             "comment": ". \nTT6939053  SAKAMA  HARUKA  F  18.05.1999  JAPAN\nTT6939052  SAKAMA  MAMI  F  24.11.1969  JAPAN\nTT6011975  ISHII  KUMIKO  F  07.08.1958  JAPAN\nTR9667299  NARUSE  MIHO  F  09.09.1958  JAPAN\nTT5219269  IWAKI  SEIYA  M  25.12.1980  JAPAN\nTR9367372  YAMAMOTO  ENA  F  28.05.1983  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -420,7 +420,7 @@
             "chat_id": -1002699830671,
             "signal_text": "767\u0424",
             "date": "2025-09-22",
-            "comment": ". \nTM0461383  TAKAHASHI  CHIAKI  F  22.07.1976  JAPAN\nTR8297707  SENZAKI  MASAO  M  05.04.1950  JAPAN\nTS3500779  SENZAKI  SUMIKO  F  08.02.1954  JAPAN\nTT4942541  UETA  MAHO  F  04.04.1982  JAPAN\nTT4546280  OHNO  SATOMI  F  28.03.1979  JAPAN\nTT2778157  KOTA  HIROMICHI  M  07.08.1954  JAPAN\nTM0115883  KOTA  KYOKO  F  31.03.1954  JAPAN\nTS2205873  MAKITA  MINORU  M  13.05.1975  JAPAN\nTS2205872  MAKITA  JUNKO  F  23.03.1973  JAPAN \nAB6291271  VAFOEV  NABIJON  M  09.10.2000  Uzbekistan",
+            "comment": ". \nTT7328610  TAKAOKA  TAKASHI  M  21.07.1956  JAPAN\nTT7328611  TAKAOKA  HIROKO  F  30.01.1957  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -472,7 +472,7 @@
             "chat_id": -1002699830671,
             "signal_text": "768\u0424",
             "date": "2025-08-12",
-            "comment": "AB0728636 BAROTOV ODIL M 22.12.1989",
+            "comment": "...",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -526,7 +526,7 @@
             "date": "2025-09-08",
             "comment": "TS4875163  MATSUZAKI  AYANO  F  28.08.1976\nTR8956747  KUROSU   MASAMI  F  09.04.1961\nTR3317849  KOBAYASHI  AI  F  11.12.1989\nTS3937280  SHIN   HIROAKI  M  24.04.1968",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -537,7 +537,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-21",
-            "comment": "TT6960839 KAWAI MAYA F 10.02.1992 JAPAN",
+            "comment": "TT6960839  KAWAI  MAYA  F  10.02.1992  JAPAN",
             "class_name": "Econom",
             "active": false,
             "route": [
@@ -550,9 +550,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-23",
-            "comment": "TT6382288  HIROHATA   NAGISA  F  20.07.2000  JAPAN",
+            "comment": ". \nTS0080328  KOBAYASHI  YUKI  F  18.08.1967  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -563,7 +563,7 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-27",
-            "comment": ". \nTR9907372  KOMEIJI  KAZUKO  F  23.11.1951  JAPAN\nTT7950690  SERIZAMA  SUMIE  F  06.09.1954  JAPAN",
+            "comment": "TT7950691  WATANABE  KAORI  F  14.04.1986  JAPAN",
             "class_name": "Econom",
             "active": true,
             "route": [
@@ -576,9 +576,9 @@
             "chat_id": 482739646,
             "signal_text": "770\u0424",
             "date": "2025-09-20",
-            "comment": ". \nTT4541730 KAWASAKI MACHI F 24.09.1963 JAPAN \nTS3143800 IKEDA YUMIKO F 01.10.1981 JAPAN\nTR9203813 KINOSE MIKI F 27.02.1976 JAPAN",
+            "comment": ".\nTT6476866  MIYAZAWA  YUMI  F  19.07.1968  JAPAN\nTR9732428  TAMURA  MIYUKI  F  03.08.1974  JAPAN\nTR8273758  NAKAMURA  TERUKO  F  06.10.1951  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -589,7 +589,7 @@
             "chat_id": 482739646,
             "signal_text": "768\u0424",
             "date": "2025-09-13",
-            "comment": ". \nTT2169416  HAYASHI  KANAE  F  29.09.1980  JAPAN\nTT2169417  HAYASHI  SEITARO  M  29.05.2009  JAPAN",
+            "comment": "TT3529458  KOMINE  KYOKO  F  13.10.1970  JAPAN",
             "class_name": "Econom",
             "active": false,
             "route": [
@@ -602,9 +602,9 @@
             "chat_id": -1002699830671,
             "signal_text": "767\u0424",
             "date": "2025-09-30",
-            "comment": ". \nAD3848052 DONIYOROV NODIRJON M 19.11.1990 Uzbekistan\nTM0890899 FURUYA SAORI F 13.07.1990 JAPAN",
+            "comment": ". \nAD3848052  DONIYOROV  NODIRJON  M  19.11.1990  Uzbekistan\nTM0890899  FURUYA  SAORI  F  13.07.1990  JAPAN",
             "class_name": "Econom",
-            "active": false,
+            "active": true,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -615,9 +615,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-29",
-            "comment": ". \nTS0080327  MATSUMOTO  YUKA  F  11.11.1971  JAPAN\nTS0080328  KOBAYASHI  YUKI  F  18.08.1967  JAPAN\nTM0544570  OKAKI  SAYURI  F  20.03.1986  JAPAN\nTS1692361  SHIMA   YOSHIAKI  M  04.12.1950  JAPAN\nTR3938449  MURAKAMI  YUKIE  F  28.05.1961  JAPAN\nTR8938451  MURAKAMI  KAZUNORI  M  21.09.1957  JAPAN\nTR6677351  TAKAHASHI  TASUKA  M  11.06.1957  JAPAN\nTR6677352  TAKAHASHI  RYOKO  F  11.06.1957  JAPAN\nTS0846649  INOUE  KAZUSHIGE  M  16.06.1956  JAPAN\nTS3480896  INOUE  JUNKO  F  23.08.1957  JAPAN",
+            "comment": "TT5952459  OGASAWARA  MAYUMI  F  16.12.1963  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -643,7 +643,7 @@
             "date": "2025-10-06",
             "comment": "1",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -656,7 +656,7 @@
             "date": "2025-10-06",
             "comment": "Zapas",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "BUXORO",
                 "SAMARQAND"
@@ -669,7 +669,7 @@
             "date": "2025-10-07",
             "comment": ". \nTT4539024  SHIMIZU  AZUSA  F  20.04.1989  JAPAN\nTT1205167  HIRAO  YUI  F  07.09.1999  JAPAN\nTT4662562  TAKEUCHI  KUMIKO  F  14.09.1985  JAPAN\nTT4088977  OZONE  SACHIKO  F  10.10.1957  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -682,7 +682,7 @@
             "date": "2025-09-11",
             "comment": ". \nTT4655077  FUKUSHIMA   DAISUKE  M  08.11.1986  JAPAN \nTT1379256  TAKADA  KUNIYOSHI  M  16.06.1969  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "SAMARQAND",
                 "TOSHKENT"
@@ -693,9 +693,9 @@
             "chat_id": -1002699830671,
             "signal_text": "768\u0424",
             "date": "2025-09-16",
-            "comment": ". \nMJ3355824  YAKABE  TAMAYO  F  06.12.1956  JAPAN\nTS5250966  EJIMA  SUZUE  F  22.06.1957  JAPAN\nTR4230870  HAYAKAWA  KYOKO  F  04.02.1956  JAPAN",
+            "comment": ". \nTS5250966  EJIMA  SUZUE  F  22.06.1957  JAPAN\nTR4230870  HAYAKAWA  KYOKO  F  04.02.1956  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -706,9 +706,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-22",
-            "comment": ". \nTS2973603  OTOMO  AKANE  F  27.12.1963  JAPAN\nTS501 8988  ISOKAWA  HIROKAZU  M  09.02.1965  JAPAN",
+            "comment": ". \nTS2973603  OTOMO  AKANE  F  27.12.1963  JAPAN\nTS5018988  ISOKAWA  HIROKAZU  M  09.02.1965  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -719,9 +719,9 @@
             "chat_id": -1002699830671,
             "signal_text": "770\u0424",
             "date": "2025-09-30",
-            "comment": ". \nAD3848052  DONIYOROV  NODIRJON  M  19.11.1990  Uzbekistan\nTM0890899  FURUYA  SAORI  F  13.07.1990  JAPAN",
+            "comment": "TS4899938  HASHIMOTO  SATOKI  M  14.01.1977  JAPAN",
             "class_name": "Econom",
-            "active": true,
+            "active": false,
             "route": [
                 "TOSHKENT",
                 "BUXORO"
@@ -733,6 +733,682 @@
             "signal_text": "770\u0424",
             "date": "2025-10-07",
             "comment": ". \nTT4539024  SHIMIZU  AZUSA  F  20.04.1989  JAPAN\nTT1205167  HIRAO  YUI  F  07.09.1999  JAPAN\nTT4662562  TAKEUCHI  KUMIKO  F  14.09.1985  JAPAN\nTT4088977  OZONE  SACHIKO  F  10.10.1957  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3011156511721531531135472567322137447420355": {
+            "chat_id": 108311402,
+            "signal_text": "769\u0424",
+            "date": "2025-09-22",
+            "comment": "TT3244712 YAMAZAKI CHISATO F 30.03.1955 JAPAN\nTR8207863 URATA EMI F 23.08.1976 JAPAN\nTM0461383 TAKAHASHI CHIAKI F 22.07.1976 JAPAN\nTR8297707 SENZAKI MASAO M 05.04.1950 JAPAN\nTS3500779 SENZAKI SUMIKO F 08.02.1954 JAPAN\nTT4942541 UETA MAHO F 04.04.1982 JAPAN\nTT4546280 OHNO SATOMI F 28.03.1979 JAPAN\nTT2778157 KOTA HIROMICHI M 07.08.1954 JAPAN\nTM0115883 KOTA KYOKO F 31.03.1954 JAPAN\nTS2205873 MAKITA MINORU M 13.05.1975 JAPAN\nTS2205872 MAKITA JUNKO F 23.03.1973 JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "3651264717070145744546550040677412772751463": {
+            "chat_id": 482739646,
+            "signal_text": "769\u0424",
+            "date": "2025-10-14",
+            "comment": "KAWAKAMI HIROKO\nFUTAMURA IKUKO\nITO ASAMI\nARIMOTO HARUKA\nITO MANA\nSAITO SHIN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "1614035611524112406053121005764370352325732": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-10-14",
+            "comment": "test",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1143166075622235740372674435513273553502617": {
+            "chat_id": 108311402,
+            "signal_text": "768\u0424",
+            "date": "2025-09-13",
+            "comment": "TT2415789  INO  NORIKO  F  26.02.1970\nTT3285965  INO  JUNYA  M  24.06.1966\nTT1254785  INO  TAKUMA  M  11.11.2005\n        \n        \nROUTE  DATE  \u0420\u0435\u0439\u0441  TYPE  TIME\nTAS-BHK  13.09.2025  Afro#770  \u042d\u041a\u041e\u041d\u041e\u041c  08:29-12:46\n        \nTS4285652  TAKEISHI  YUMIKO  F  19.01.1998\nTT4157485  NAKAGAWA  YUKAKO  F  13.05.1997\n        \n        \n        \n        \nROUTE  DATE  \u0420\u0435\u0439\u0441  TYPE  TIME\nTAS-BHK  13.09.2025  Afro#770  \u042d\u041a\u041e\u041d\u041e\u041c  08:29-12:46\n        \nAC0809058  MAMAEV  AZIZBEK  M  04.08.1993\nTS0145651  MABU  KEIKO  F  18.02.1963\nTS0145650  MABU  ATSUSHI  M  22.07.1958\n        \n        \nROUTE  DATE  \u0420\u0435\u0439\u0441  TYPE  TIME\nTAS-BHK  13.09.2025  Afro#768  \u042d\u041a\u041e\u041d\u041e\u041c  07:30-11:42\n        \nTT2584652  HITOMI  SATOMI  F  13.01.1961\nTT3529458  KOMINE  KYOKO  F  13.10.1970",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2365762377350276453135006605771071174665622": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-08-21",
+            "comment": "\u0422\u0435\u0441\u0442",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1607246373537453506064214406166041367517245": {
+            "chat_id": 482739646,
+            "signal_text": "768\u0424",
+            "date": "2025-09-16",
+            "comment": ".\nTS5250966  EJIMA  SUZUE  F  22.06.1957  JAPAN\nTR4230870  HAYAKAWA  KYOKO  F  04.02.1956  JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "142651573071451222671255622036474213125201": {
+            "chat_id": -1002699830671,
+            "signal_text": "768\u0424",
+            "date": "2025-09-23",
+            "comment": ". \nTT2731526  HAYASHI  SEIZO  M  14.02.1945  JAPAN\nTT6846404  TAKEDA  KAZUMI  F  21.02.1966  JAPAN\nAE3419622  ABDUG'ANIYEV  BEHRUZJON  M  29.01.1998  Uzbekistan",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3220616622533020352350155210611631525757041": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-10-06",
+            "comment": "MJ2684498  TANABE  KOKI  F  27.02.1981  JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "573143301570220613576111274115607141044051": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-04",
+            "comment": "MJ1480600  AZEYANAGI   MASAMI   F  27.08.1969  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1065026212251151564704724205246274437626256": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-09-11",
+            "comment": ",",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "BUXORO",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "3262147366132305200120344207447457001465335": {
+            "chat_id": 482739646,
+            "signal_text": "710\u0424",
+            "date": "2025-09-13",
+            "comment": "13 ta joy",
+            "class_name": "Sid\u044f\u0447\u0438\u0439",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1007051500330461022375201575435320333617751": {
+            "chat_id": -1002699830671,
+            "signal_text": "710\u0424",
+            "date": "2025-09-13",
+            "comment": ". \nAD6268034 ABDURASHIDOV DAVLATSHOX M 15.07.1995 Uzbekistan\nTT2415789 INO NORIKO F 26.02.1970 JAPAN\nTT3285965 INO JUNYA M 24.06.1966 JAPAN\nTT1254785 INO TAKUMA M 11.11.2005 JAPAN\nTS4285652 TAKEISHI YUMIKO F 19.01.1998 JAPAN\nTT4157485 NAKAGAWA YUKAKO F 13.05.1997 JAPAN\nAC0809058 MAMAEV AZIZBEK M 04.08.1993 Uzbekistan\nTS0145651 MABU KEIKO F 18.02.1963 JAPAN\nTS0145650 MABU ATSUSHI M 22.07.1958 JAPAN\nTT2584652 HITOMI SATOMI F 13.01.1961 JAPAN\nTT3529458 KOMINE KYOKO F 13.10.1970 JAPAN\nAE3419622 ABDUG'ANIYEV BEHRUZJON M 29.01.1998 Uzbekistan\nTT2584685 SUETAKE HITOMI F 21.03.1987 JAPAN",
+            "class_name": "ALL",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1761006745031012024114753432673474714153653": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-11",
+            "comment": "AB0728636  BAROTOV  ODIL  M  22.12.1989  Uzbekistan",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1471024136761753071255763642150341552365255": {
+            "chat_id": -1002699830671,
+            "signal_text": "768\u0424",
+            "date": "2025-09-11",
+            "comment": ". \nAB0728636 BAROTOV ODIL M 22.12.1989 Uzbekistan\nTS0070432 OGAI SHUHEI M 13.01.1976 JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "562544267270233636367400070364006135150215": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-09-29",
+            "comment": "TT1934663  HASHIGUCHI  ERIKA  F  22,02198  JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1701030060066035735167356530430360437465264": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-20",
+            "comment": ". \nTR9415562  KATAGISHI   TOMOYUKI   M  18.04.1961  JAPAN\nTT4602574  KATAGISHI   MASAKO  F  21.04.1964  JAPAN\nTS5207714  ADACHI  TAKAKO  F  27.10.1961  JAPAN\nTS5207715  OIKAWA  MARIKO  F  22.01.1983  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2532412247614554415130316151375462236161135": {
+            "chat_id": -1002699830671,
+            "signal_text": "767\u0424",
+            "date": "2025-10-20",
+            "comment": ". \nTT3858702  KONDO  AKIKO  F  05.06.1980  JAPAN\nTS4872783  TSUKADA   HIROSHI  M  10.04.1946  JAPAN\nTR9493946  YAGASAKI  YOSHIMI  F  14.08.1986  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1721041664504664547634252407617060225564456": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-21",
+            "comment": ". \nTS4067568  KUSABA  FUMIKO  F  27.08.1953  JAPAN\nTT2129151  OZAKI  MASAKAZU  M  20.10.1950  JAPAN\nTM0709744  TSUZUKI  YUMIKO  F  11.10.1960  JAPAN\nTT5205162  KOBAYASHI  EMIKO  F  13.12.1955  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1526313662374344656271410114176010420457730": {
+            "chat_id": -1002699830671,
+            "signal_text": "768\u0424",
+            "date": "2025-10-21",
+            "comment": "5 ta individual",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3324561353770202253207316021706363346263570": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-08-24",
+            "comment": "Kamiya Mari F",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "207712651545330256063351365736743335521357": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-13",
+            "comment": "AE3419622  ABDUG'ANIYEV  BEHRUZJON  M  29.01.1998  Uzbekistan",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "2131542126065013447535626207367206272243553": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-09-11",
+            "comment": "Ogai",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1730146503532305216766353546357574100546477": {
+            "chat_id": 482739646,
+            "signal_text": "766\u0424",
+            "date": "2025-09-11",
+            "comment": "AB0728636  BAROTOV  ODIL  M  22.12.1989  Uzbekistan",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "3656320036611713127076752541776473366027306": {
+            "chat_id": 108311402,
+            "signal_text": "123\u0424",
+            "date": "2025-08-25",
+            "comment": "Asap",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "1435726532032065742617051735730662523036566": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-11",
+            "comment": "TT2482088  OGAWA  MARI  F  14.10.1965  JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3412571010307622460756213426707001354710573": {
+            "chat_id": -1002699830671,
+            "signal_text": "767\u0424",
+            "date": "2025-10-13",
+            "comment": ". \nTT1001939  SEKINE  MITSUO  M  09.02.1947  JAPAN\nTR7086720  SEKINE  YOKO  F  18.02.1954  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "764037732014437204752737206744642440104231": {
+            "chat_id": -1002699830671,
+            "signal_text": "767\u0424",
+            "date": "2025-10-25",
+            "comment": ". \nTS4067568  KUSABA  FUMIKO  F  27.08.1953  JAPAN\nTT2129151  OZAKI  MASAKAZU  M  20.10.1950  JAPAN\nTM0709744  TSUZUKI  YUMIKO  F  11.10.1960  JAPAN\nTT5205162  KOBAYASHI  EMIKO  F  13.12.1955  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "612126554450470352723770623125735031352716": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-25",
+            "comment": ". \nAC0283693  RAJABOVA  MARVARID  F  02.08.2002  Uzbekistan\nTS0070432  OGAI  SHUHEI  M  13.01.1976  JAPAN\nTR9453155  OGATA  YURIKA  F  28.05.1978  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3475210277152541737737344661656424463026032": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-10-11",
+            "comment": "TR8289003  KISHI  AKEMI  F  27.08.1980  JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "665663230555402577250446202666337171071104": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-26",
+            "comment": ". \nAD0037198  XUDAYBERGENOVA  SITORA  F  28.12.2001  Uzbekistan\nTR6992333  KOSUGE  SACHIKO  F  11.05.1965  JAPAN\nTT5082624  ISHIKAWA  TAKAKO  F  06.08.1957  JAPAN",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "2305416733475516571753341257527762322367645": {
+            "chat_id": 482739646,
+            "signal_text": "767\u0424",
+            "date": "2025-10-27",
+            "comment": "29pax",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "676434504312425614432026665710675232402135": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-28",
+            "comment": "21 pax",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2727760316044377512353074070223553461634456": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-29",
+            "comment": "25241 gruppa",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "2416060733361147163276172026122673625355312": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-18",
+            "comment": ". \nTS4520459  KATO  UTAKO  F  16.11.1956  JAPAN\nTS4520460  KATO  HIROSHI  M  23.01.1956  JAPAN\nTT6948540  FURUTA  SHINICHI  M  24.03.1953  JAPAN\nTT1380107  WATANABE  NORIKO  F  31.01.1957  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3111706304410257246630071332311126020441467": {
+            "chat_id": -1002699830671,
+            "signal_text": "766\u0424",
+            "date": "2025-10-29",
+            "comment": "25241 gruppa",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "2005505262737230724044022573575703410020657": {
+            "chat_id": -1002699830671,
+            "signal_text": "766\u0424",
+            "date": "2025-09-11",
+            "comment": "AB0728636  BAROTOV  ODIL  M  22.12.1989  Uzbekistan",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1517561117147200512636146006716312123202152": {
+            "chat_id": 482739646,
+            "signal_text": "771\u0424",
+            "date": "2025-09-05",
+            "comment": ". \nFA0970750 BOZYAN LAURA 10.06.1984 UZBEK \nAD2698233 BOZYAN ARTYOM 20.01.1988 UZBEK",
+            "class_name": "ALL",
+            "active": true,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "2677141514700775074026250165415255344143105": {
+            "chat_id": 482739646,
+            "signal_text": "769\u0424",
+            "date": "2025-09-05",
+            "comment": "N18758802 BOBRINEV VIKTOR 24.09.1994 KAZAX",
+            "class_name": "ALL",
+            "active": false,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "1555346702240523135714061754772635063745564": {
+            "chat_id": -1002699830671,
+            "signal_text": "771\u0424",
+            "date": "2025-09-05",
+            "comment": ": . \nFA0970750 BOZYAN LAURA 10.06.1984 UZBEK \nAD2698233 BOZYAN ARTYOM 20.01.1988 UZBEK",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "2601206702160741004371232507362607461400134": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-09-05",
+            "comment": "N18758802 BOBRINEV VIKTOR 24.09.1994 KAZAX",
+            "class_name": "Econom",
+            "active": false,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "3641711606167453066566431363112032610725717": {
+            "chat_id": -1002699830671,
+            "signal_text": "767\u0424",
+            "date": "2025-10-05",
+            "comment": ". \nTT1416601  SHOJI  FUSAKO  F  29.03.1948  JAPAN\nTT1416600  SHOJI  YASUAKI  M  02.01.1947  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "2604716610247141465512404466033135446170321": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-10-08",
+            "comment": ". \nTS0571265  AZEYANAGI   MASAMI   F  27.08.1969  JAPAN\nTS2505568  IMAI  KAYOKO  F  23.11.1948  JAPAN\nTT1416601  SHOJI  FUSAKO  F  29.03.1948  JAPAN\nTT1416600  SHOJI  YASUAKI  M  02.01.1947  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "1551622017511463074334612054733161042260507": {
+            "chat_id": -1002699830671,
+            "signal_text": "768\u0424",
+            "date": "2025-10-14",
+            "comment": ". \nMV0663226  AOKI  KANAE  F  04.08.1974  JAPAN\nTR9743331  FUJIMAKI  AKIKO  F  19.02.1963  JAPAN\nTR9995415  KANEMIYA  YOSHIE  F  26.03.1969  JAPAN\nTT6117744  HONJO  MIYOKO  F  09.04.1961  JAPAN\nTT6117745  YAMAKAWA  TOMOKO  F  22.03.1975  JAPAN\nTT6117746  YAMAKAWA  KENGO  M  07.08.1975  JAPAN\nTR6194762  SATO  KAZUNORI  M  10.05.1949  JAPAN\nTR8256822  NISHIWAKAWA  KAZUNORI  M 10.03.1947   JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1011356563321102430700757625567050657604532": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-14",
+            "comment": ". \nTT6043298  ISHIZAKI  FUMIKO  F  01.07.1952  JAPAN\nMJ3749544  GOMIKAWA  TERUYUKI  M  26.10.1977  JAPAN\nTR3507554  KIMURA  HIROMI  F  28.02.1963  JAPAN\nTR9769108  TABUCHI  KAZUO  M  07.11.1940  JAPAN\nTM0217631  HASEGAWA  KYOKO  F  06.12.1951  JAPAN\nTT4356819  HIRAMATSU   AZUSA  F  13.01.2004  JAPAN\nTR8206065  KOMORI  TAMIKO  F  12.11.1946  JAPAN\nTT4525913  OKAMOTO  YASUKO  F  31.01.1956  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "1441625723612506761511663572530353737171211": {
+            "chat_id": -1002699830671,
+            "signal_text": "769\u0424",
+            "date": "2025-10-14",
+            "comment": ". \nTS4604443  YORIFUJI  MITSUKO  F  10.04.1949  JAPAN\nTT6909533  TAKAHASHI  NORIHIRO  M  02.11.1957  JAPAN\nTT4067177  TAKAHASHI  NORIKO  F  22.03.1960  JAPAN\nTT5871156  SHIMIZU  SUSUMU  M  20.01.1960  JAPAN\nTT74714233  SHIMIZU  MITSU  F  25.02.1962  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "3664233050705200627276407752050317027323761": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-10-19",
+            "comment": "TT1654354  EBITANI  SAYAKA  F  28.12.1984  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "776270672373242314010702076475004076331743": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-10-04",
+            "comment": ". \nMJ1480600  AZEYANAGI   MASAMI   F  27.08.1969  JAPAN\nTS2505568  IMAI  KAYOKO  F  23.11.1948  JAPAN\nTT1416601  SHOJI  FUSAKO  F  29.03.1948  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "3457170143355772407423135667754744235421632": {
+            "chat_id": 482739646,
+            "signal_text": "767\u0424",
+            "date": "2025-10-05",
+            "comment": "TS0571265  AZEYANAGI   MASAMI   F  27.08.1969  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "BUXORO",
+                "SAMARQAND"
+            ],
+            "total_free_seats": 0
+        },
+        "1607422726273125707161160117061007111376606": {
+            "chat_id": 482739646,
+            "signal_text": "769\u0424",
+            "date": "2025-10-08",
+            "comment": "TS0571265  AZEYANAGI   MASAMI   F  27.08.1969  JAPAN",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "SAMARQAND",
+                "TOSHKENT"
+            ],
+            "total_free_seats": 0
+        },
+        "567634614453663430172473635757117171363100": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-09-18",
+            "comment": "AE2852530 MAVLONKULOV SHOXRUX M 10.02.1999 Uzbekistan",
+            "class_name": "Econom",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "2273221000113547715125032404030576364253434": {
+            "chat_id": 482739646,
+            "signal_text": "770\u0424",
+            "date": "2025-09-13",
+            "comment": ",,,,",
+            "class_name": "ALL",
+            "active": true,
+            "route": [
+                "TOSHKENT",
+                "BUXORO"
+            ],
+            "total_free_seats": 0
+        },
+        "570700656232371653612270566345456126741710": {
+            "chat_id": -1002699830671,
+            "signal_text": "770\u0424",
+            "date": "2025-11-08",
+            "comment": "252013",
             "class_name": "Econom",
             "active": true,
             "route": [
